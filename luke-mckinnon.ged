@@ -1,0 +1,1250 @@
+0 HEAD
+1 SOUR CLAUDE-GENEALOGY
+2 NAME Luke-McKinnon research compilation
+1 DEST ANY
+1 DATE 14 SEP 2026
+1 CHAR UTF-8
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 FILE luke-mckinnon.ged
+1 NOTE The Luke-McKinnon line of Coffee, Irwin and Atkinson Counties, Georgia, traced from Jaxon Brady Luke (b. 2000).
+2 CONT 
+2 CONT EVERY INDIVIDUAL AND FAMILY CARRIES AN EVIDENCE GRADE IN ITS NOTE:
+2 CONT   CONFIRMED  - supported by a primary or near-primary record (death certificate, census, marriage record, funeral-home obituary, or a photographed headstone).
+2 CONT   PROBABLE   - a strong circumstantial case, but no clinching document.
+2 CONT   LEAD ONLY  - taken from user-submitted online trees. NOT PROOF. A research target.
+2 CONT 
+2 CONT Do not promote a relationship from PROBABLE to CONFIRMED without a primary document. Online family trees, Find a Grave biography text, and Find a Grave family links are all user-entered and are not
+2 CONC primary documents.
+2 CONT 
+2 CONT Living persons are recorded by name and relationship only.
+0 @I1@ INDI
+1 NAME Jaxon Brady /Luke/
+1 SEX M
+1 _FLGS
+2 __LIVING Y
+1 BIRT
+2 DATE 18 AUG 2000
+2 PLAC Douglas, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Subject of this research.
+1 FAMC @F1@
+0 @I2@ INDI
+1 NAME Richard /Luke/
+1 SEX M
+1 _FLGS
+2 __LIVING Y
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Living. Named with his brother Tommy Luke as a pallbearer at the 2023 funeral of their aunt Brenda Carol Luke Jewell.
+1 SOUR @S10@
+1 FAMC @F2@
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Andrea Denise /McKinnon/
+1 SEX F
+1 _FLGS
+2 __LIVING Y
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Living. Married Richard Luke at Mora Baptist Church, Mora, Coffee County, Georgia.
+1 FAMC @F3@
+1 FAMS @F1@
+0 @I4@ INDI
+1 NAME Elmer Parker /Luke/
+1 SEX M
+1 _FLGS
+2 __LIVING Y
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Living; confirmed alive July 2023. Appears as 'Elmer', age 5, in the 1950 census household of Jack and Nealie Luke, implying
+2 CONC birth about 1944-45.
+1 SOUR @S4@
+1 SOUR @S10@
+1 SOUR @S9@
+1 FAMS @F2@
+0 @I5@ INDI
+1 NAME Sally Rudine /Hall/
+1 SEX F
+1 _FLGS
+2 __LIVING Y
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Living. Parents Jesse Lee Hall and Mattie Cribb Hall established by three independent sibling obituaries, each naming those
+2 CONC parents and listing 'Sally Luke and husband Elmer'. A daughter 'Rudine' appears in the 1950 Hall household at Ambrose.
+1 SOUR @S14@
+1 SOUR @S15@
+1 SOUR @S16@
+1 SOUR @S6@
+1 FAMC @F6@
+1 FAMS @F2@
+0 @I6@ INDI
+1 NAME Andrew /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 12 JAN 1937
+1 DEAT
+2 DATE 19 SEP 2009
+1 BURI
+2 PLAC Mora Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Exact dates from headstone. Appears as 'Andrew', age 13, in the 1950 census at Mora. Reported by family to have served in
+2 CONC the U.S. Army; NOT VERIFIED - the VA gravesite locator has no record and the stone bears no military emblem. This is not evidence against service: the VA lists only graves where it furnished the
+2 CONC marker.
+1 SOUR @S21@
+1 SOUR @S5@
+1 FAMC @F7@
+1 FAMS @F3@
+0 @I7@ INDI
+1 NAME Lucille /Giddens/
+1 SEX F
+1 _FLGS
+2 __LIVING Y
+1 BIRT
+2 DATE 23 APR 1945
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Living. Daughter of Joe Edd Giddens and Sallie Mae Mercer, proven by her brother Ernest Giddens's 2011 obituary naming the
+2 CONC parents and listing 'Lucille Birch of Douglas' (a misspelling of Burch). CORRECTION TO FAMILY TRADITION: Burch is a LATER married name. She married Johnny Burch about 2010, after Andrew McKinnon died
+2 CONC in 2009. Order: Giddens > McKinnon > Burch.
+1 SOUR @S13@
+1 SOUR @S24@
+1 FAMC @F8@
+1 FAMS @F3@
+0 @I8@ INDI
+1 NAME John Wesley /Luke/
+1 SEX M
+1 BIRT
+2 DATE 13 OCT 1896
+2 PLAC Irwin County, Georgia, USA
+1 DEAT
+2 DATE 26 OCT 1964
+2 PLAC Irwin County, Georgia, USA
+1 BURI
+2 PLAC Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'Jack'. PARENTAGE NOW PROVEN: he appears as 'John', age 3, in the 1900 Irwin County household of Lucius and
+2 CONC Narcessia Luke, and as 'John C W Luke', age 12, in the same household in 1910. Until those records surfaced this link rested only on naming patterns and a shared burial ground. CORRECTION: buried at
+2 CONC Brushy Creek in Ocilla, NOT at Lax or Willacoochee. Heads the 1950 census household as 'Luke, Jack W.', age 52, at Bridgetown, Coffee County. MARRIED TWICE - first to Clyde Elizabeth McMillan (1918),
+2 CONC then to Nealie Hinton.
+1 SOUR @S17@
+1 SOUR @S29@
+1 SOUR @S30@
+1 SOUR @S33@
+1 SOUR @S4@
+1 SOUR @S7@
+1 FAMC @F9@
+1 FAMS @F4@
+1 FAMS @F5@
+0 @I9@ INDI
+1 NAME Nealie /Hinton/
+1 SEX F
+1 BIRT
+2 DATE 17 OCT 1906
+2 PLAC Levy County, Florida, USA
+1 DEAT
+2 DATE 20 FEB 1983
+2 PLAC Tift County, Georgia, USA
+1 BURI
+2 PLAC Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. KEY FINDING: born in Levy County, FLORIDA - corroborated independently by her headstone and by the 1950 census, which
+2 CONC records her birthplace as Florida. The complete Irwin County marriage index contains only three Hintons in the county's entire history, none of them hers. The Hintons were never a Georgia family; her
+2 CONC ancestry must be researched in Florida.
+1 SOUR @S18@
+1 SOUR @S32@
+1 SOUR @S33@
+1 SOUR @S4@
+1 FAMC @F10@
+1 FAMS @F4@
+0 @I28@ INDI
+1 NAME Clyde Elizabeth /McMillan/
+1 SEX F
+1 BIRT
+2 DATE 1903
+1 DEAT
+2 DATE 1968
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. First wife of John Wesley 'Jack' Luke, married 8 September 1918 in Irwin County. Later surname Gower. Mother of Richard Cleo
+2 CONC Luke Sr.
+1 SOUR @S7@
+1 FAMS @F5@
+0 @I10@ INDI
+1 NAME Jesse Lee /Hall/
+1 SEX M
+1 BIRT
+2 DATE ABT 1902
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. NEWLY IDENTIFIED. Named as father in three of his children's obituaries. Heads the 1950 census household at North Ambrose &
+2 CONC First Street, Ambrose, Coffee County, recorded as 'Hall, Jessie C., Head, age 48'. Note the census initial 'C.' against the obituaries' 'Lee'.
+1 SOUR @S14@
+1 SOUR @S15@
+1 SOUR @S16@
+1 SOUR @S6@
+1 FAMS @F6@
+0 @I11@ INDI
+1 NAME Mattie /Cribb/
+1 SEX F
+1 BIRT
+2 DATE ABT 1910
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. NEWLY IDENTIFIED. Named as 'Mattie Cribb Hall' in three of her children's obituaries. Appears in the 1950 census as 'Mattie,
+2 CONC wife, age 40'.
+1 SOUR @S14@
+1 SOUR @S15@
+1 SOUR @S16@
+1 SOUR @S6@
+1 FAMS @F6@
+0 @I12@ INDI
+1 NAME Monroe /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 4 OCT 1900
+1 DEAT
+2 DATE 12 JAN 1989
+1 BURI
+2 PLAC Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as Monroe McKinnon Sr. PARENTAGE NOW PROVEN: the 1910 census at Pearson lists him as 'Monroe McKinnon, Son, age 9' in
+2 CONC the household of Art (George Albert) McKinnon and Martha, with Martha's own father John Rickerson enumerated as 'maternal grandfather'. NOTE ON GEOGRAPHY: Pearson and Willacoochee are in Atkinson
+2 CONC County today, but Atkinson was carved out of Coffee County in 1917 - which is why this family reads as Coffee in some records and Atkinson in others. CORRECTION: birth is 4 October 1900, not the
+2 CONC 'about 1901' in circulation. Heads the 1950 census household at Mora, Coffee County, age 48. Named 'the late Monroe McKinnon, Sr.' in five of his children's obituaries. Note the geography: the family
+2 CONC lived at Mora in Coffee County but buried at Arna in Atkinson County.
+1 SOUR @S19@
+1 SOUR @S31@
+1 SOUR @S5@
+1 SOUR @S11@
+1 SOUR @S12@
+1 FAMC @F11@
+1 FAMS @F7@
+0 @I13@ INDI
+1 NAME Mary Jane /Carver/
+1 SEX F
+1 BIRT
+2 DATE 24 NOV 1900
+1 DEAT
+2 DATE 14 MAY 1982
+1 BURI
+2 PLAC Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Recorded in the 1950 census as 'Mary J., Wife, age 49', matching a 24 November 1900 birth exactly for an April 1950
+2 CONC enumeration. Maiden name confirmed by five separate funeral notices naming her 'Mary Jane Carver McKinnon'.
+1 SOUR @S20@
+1 SOUR @S5@
+1 SOUR @S11@
+1 SOUR @S12@
+1 FAMC @F12@
+1 FAMS @F7@
+0 @I14@ INDI
+1 NAME Joe Edd /Giddens/
+1 SEX M
+1 BIRT
+2 DATE 22 NOV 1893
+1 DEAT
+2 DATE 7 OCT 1974
+1 BURI
+2 PLAC Sweetwater United Methodist Church Cemetery, Pearson, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Family tradition called him 'Joe Giddens'; full name Joe Edd Giddens. Named 'Joe E. Giddens' in his son Ernest's obituary.
+1 SOUR @S23@
+1 SOUR @S13@
+1 FAMS @F8@
+0 @I15@ INDI
+1 NAME Sallie Mae /Mercer/
+1 SEX F
+1 BIRT
+2 DATE 1901
+1 DEAT
+2 DATE 1992
+1 BURI
+2 PLAC Sweetwater United Methodist Church Cemetery, Pearson, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Family tradition called her 'Sally Mercer'; full name Sallie Mae Mercer. Confirmed as Lucille's mother by Ernest Giddens's
+2 CONC obituary naming 'Sally Mercer Giddens'. NEW LEAD on her own parents: a 1925 Atkinson County death certificate records Denis Mercer, born 12 February 1902 at Pearson, son of Charley Mercer and Ida F.
+2 CONC Brown - same surname, same town, born months apart from Sallie Mae. UNTESTED.
+1 SOUR @S13@
+1 FAMS @F8@
+0 @I16@ INDI
+1 NAME Lucius L. /Luke/
+1 SEX M
+1 BIRT
+2 DATE 9 OCT 1872
+1 DEAT
+2 DATE 21 JUN 1920
+2 PLAC Ocilla, Irwin County, Georgia, USA
+1 BURI
+2 PLAC Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. HIS DEATH CERTIFICATE IS THE KEYSTONE DOCUMENT OF THIS TREE. Georgia certificate no. 18075 gives his birth as 9 October 1872
+2 CONC (correcting the 1873 in circulation), his death at Ocilla aged 48, and names his own parents as 'R B Luke' and 'Jane Yawn' - pushing the line back a generation on documentary evidence. Two further
+2 CONC certificates name him as father alongside Narcisus Harper. CAVEAT: no document yet links John Wesley 'Jack' Luke to this couple; that link remains PROBABLE.
+1 SOUR @S1@
+1 SOUR @S2@
+1 SOUR @S3@
+1 FAMC @F13@
+1 FAMS @F9@
+0 @I17@ INDI
+1 NAME Narcisus /Harper/
+1 SEX F
+1 BIRT
+2 DATE 1874
+1 DEAT
+2 DATE 12 NOV 1940
+1 BURI
+2 PLAC Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Named on two Georgia death certificates as mother of Lucius Luke's children - 'Narcisus Harper' (1919) and 'Narcis Harper'
+2 CONC (1925). Married Lucius 27 October 1894 per the Irwin County marriage index. CONTEXT: the Irwin and Coffee death registers show an older Harper couple, Henry S. C. Harper and Nancy Merritt, whose sons
+2 CONC George J. (b. 1842), Luke L. (b. abt 1845) and Flem B. (b. abt 1849) all died locally; Narcisus is likely a granddaughter. A 1925 certificate for Cojah Harper names his mother as Patience Luke - the
+2 CONC Lukes and Harpers had already intermarried a generation earlier.
+1 SOUR @S2@
+1 SOUR @S3@
+1 SOUR @S7@
+1 FAMS @F9@
+0 @I18@ INDI
+1 NAME Mackie /Hinton/
+1 SEX M
+1 BIRT
+2 DATE 1880
+1 DEAT
+2 DATE 1910
+2 PLAC Levy County, Florida, USA
+1 NOTE EVIDENCE GRADE: PROBABLE - strong circumstantial case, no clinching document. UPGRADED FROM LEAD TO PROBABLE by the 1910 census. He is not in it - he was already dead - but two things point hard at
+2 CONC him: Abby is enumerated as WIDOWED, confirming a husband who died before April 1910, and the youngest child is a one-year-old boy named MACK. What is still missing is a document naming him. The
+2 CONC memorial supplying his dates was created 2020 with no grave photograph and no sources; dates probably derived from a census. DO NOT BUILD ON THIS. What is solid is that Nealie was born in Levy
+2 CONC County, Florida.
+1 FAMS @F10@
+0 @I19@ INDI
+1 NAME Abigail Elizabeth /Johns/
+1 SEX F
+1 BIRT
+2 DATE 1884
+2 PLAC Hernando County, Florida, USA
+1 DEAT
+2 DATE 3 APR 1950
+2 PLAC Levy County, Florida, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. CONFIRMED as Nealie's mother by the 1910 census, where she heads a Levyville, Levy County, Florida household as a
+2 CONC 26-year-old widow with four children - Otelia 9, James 6, Neal 2, and Mack 1. Her census entry gives her father as born in ALABAMA and her mother in Florida, a testable lead on her own parents. THE
+2 CONC GIDDENS REMARRIAGE IS CORROBORATED from an unexpected direction: the 1930 Luke household in Irwin County, Georgia contains Ben Giddens, age 11, born Florida - Nealie's half-brother living with his
+2 CONC grown sister, which anchors an otherwise shaky cluster of online links. She remarried into the Giddens family after Mackie Hinton died in 1910. WARNING: the Giddens links around her are internally
+2 CONC contradictory - her second husband is listed as born 1894 yet shown as father of a son born 1911, and ten years younger than Abby. Treat the cluster with suspicion.
+1 FAMS @F10@
+0 @I20@ INDI
+1 NAME George Albert /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE MAY 1867
+2 PLAC Coffee County, Georgia, USA
+1 DEAT
+2 DATE 9 MAR 1932
+1 BURI
+2 PLAC Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. PROVEN AS MONROE'S FATHER by the 1910 U.S. Census at Pearson, Coffee County, Georgia, which lists him as 'Art McKinnon',
+2 CONC head of household, age 45, with Monroe among his sons. Supporting detail: buried in the same small churchyard as Monroe and Mary Jane; his memorial cites the 1900 census and his death certificate;
+2 CONC Monroe named a daughter Martha; three of George Albert's other sons (William, Leon, Jimmie) are independently confirmed as fathers in Coffee County obituaries, so the family group is real. AGAINST:
+2 CONC no document anyone can open names Monroe's parents; the reciprocal links are user-entered. DECIDED BY: the 1910 or 1920 Coffee County census, or Monroe's 1989 Georgia death certificate.
+1 SOUR @S25@
+1 FAMS @F11@
+0 @I21@ INDI
+1 NAME Martha /Ricketson/
+1 SEX F
+1 BIRT
+2 DATE 15 JUN 1864
+1 DEAT
+2 DATE 12 DEC 1928
+2 PLAC Atkinson County, Georgia, USA
+1 BURI
+2 PLAC Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. MAIDEN NAME NOW PROVEN FROM THE CENSUS ITSELF, not from a tree: her father John Rickerson was living in the household in
+2 CONC 1910 and the enumerator recorded his relationship as 'maternal grandfather'. UNRESOLVED DISCREPANCY: her headstone says born 15 June 1864, but the 1910 census puts her at 38, implying about 1872 -
+2 CONC eight years apart. The relationship is settled; the birth year is not. NAME CORRECTION: her headstone gives her as Martha 'Mattie' Ricketson - there is NO middle name 'Ann'. The 'Martha Ann' in
+2 CONC circulation is unsourced; her own mother was Martha Amanda Overstreet, which may be where it came from.
+1 SOUR @S31@
+1 SOUR @S25@
+1 FAMC @F15@
+1 FAMS @F11@
+0 @I22@ INDI
+1 NAME Elias /Carver/
+1 SEX M
+1 BIRT
+2 DATE 20 MAR 1877
+2 PLAC Coffee County, Georgia, USA
+1 DEAT
+2 DATE 13 AUG 1954
+1 BURI
+2 PLAC Carver Baptist Church Cemetery, Douglas, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: PROBABLE - strong circumstantial case, no clinching document. Probable father of Mary Jane Carver. The 1950 census places the Carver household a few doors from the McKinnons in the
+2 CONC same enumeration district at Mora: Elias as head, Laura as wife aged 72, daughter 'Levada' aged 38 (matching Mary Jane's known sister Leevader Carver Starling); brother Ben Carver nearby. The census
+2 CONC never states the Mary Jane-to-Elias relationship outright. CAUTION: there was more than one Carver-McKinnon marriage in this community, and two McKinnon grandchildren who are NOT Monroe's are living
+2 CONC in the Carver house in 1950.
+1 SOUR @S26@
+1 SOUR @S5@
+1 FAMS @F12@
+0 @I23@ INDI
+1 NAME Laura /Story/
+1 SEX F
+1 BIRT
+2 DATE 5 SEP 1877
+1 DEAT
+2 DATE 11 NOV 1958
+1 BURI
+2 PLAC Carver Baptist Church Cemetery, Douglas, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: PROBABLE - strong circumstantial case, no clinching document. Married Elias Carver 24 December 1899 in Coffee County. Read directly off the 1950 census page: 'Carver, Laura - Wife - F
+2 CONC 72 - Georgia'. Her own parents given as Josiah Story and Jincy Willis Story - LEAD ONLY, from a memorial note not a record.
+1 SOUR @S26@
+1 SOUR @S5@
+1 FAMS @F12@
+0 @I24@ INDI
+1 NAME Richard Benjamin /Luke/
+1 SEX M
+1 BIRT
+2 DATE 24 DEC 1853
+2 PLAC Berrien County, Georgia, USA
+1 DEAT
+2 DATE 2 AUG 1926
+2 PLAC Coffee County, Georgia, USA
+1 BURI
+2 PLAC Luke Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'R. B.' or 'Ben'. THE DEEPEST CONFIRMED POINT IN THIS TREE, and he got here on a document: Lucius Luke's 1920
+2 CONC Georgia death certificate names his father plainly as 'R B Luke'. Headstone reads 'R.B. Luke, born Dec. 24, 1853, died Aug. 2, 1926'. HE ALSO RESOLVES THE JOHN J. LUKE QUESTION: that older John J.
+2 CONC Luke (1876-1939, married Julia Mims 1904, buried Luke Cemetery) was R. B. Luke's son, which makes him Jack's UNCLE, not his father. Both brothers' headstones carry Masonic emblems.
+1 SOUR @S1@
+1 SOUR @S22@
+1 FAMC @F14@
+1 FAMS @F13@
+0 @I25@ INDI
+1 NAME Jane /Yawn/
+1 SEX F
+1 BIRT
+2 DATE 1855
+1 DEAT
+2 DATE 1943
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Named on Lucius Luke's 1920 death certificate as his mother: 'Jane Yawn'. Also recorded as Janie Ruth Yawn. LEAD ON HER OWN
+2 CONC FAMILY: the Georgia death registers show an Elizabeth Luke nee Yawn, born December 1855, died Clinch County 1924, daughter of a Yawn father and a Smith mother; her brother Thomas Yawn (d. 1925, Cook
+2 CONC County) names their father as Antney (Anthony) Yawn, mother a Smith. Two Yawn women of nearly identical age both marrying Luke men suggests sisters. UNTESTED but the best available lead for pushing
+2 CONC past her.
+1 SOUR @S1@
+1 FAMS @F13@
+0 @I26@ INDI
+1 NAME John /Luke/
+1 SEX M
+1 BIRT
+2 DATE 1787
+1 DEAT
+2 DATE 1875
+1 NOTE EVIDENCE GRADE: LEAD ONLY - from user-submitted online trees. NOT PROOF. Research target. Given as R. B. Luke's father on an unsourced memorial - the frontier edge of the tree. ONE HARD ANCHOR EXISTS
+2 CONC for a Luke pioneer generation here: a 1920 Cook County death certificate for David Perry Luke, born 31 October 1825, died aged 94, father Daniel Luke. So a Daniel Luke really did father children in
+2 CONC this region in the 1820s. Whether John and Daniel were brothers, or one garbled tradition, is unresolved.
+1 SOUR @S27@
+1 FAMS @F14@
+0 @I27@ INDI
+1 NAME Telitha Jane /Graves/
+1 SEX F
+1 BIRT
+2 DATE 1819
+1 DEAT
+2 DATE 1896
+1 NOTE EVIDENCE GRADE: LEAD ONLY - from user-submitted online trees. NOT PROOF. Research target. Given as R. B. Luke's mother on an unsourced memorial. No document located. Note the 21-year gap against John
+2 CONC Luke's 1787 birth - not impossible, but the kind of detail that often signals a mislinked tree.
+1 FAMS @F14@
+0 @I30@ INDI
+1 NAME Versa Mae /Luke/
+1 SEX F
+1 BIRT
+2 DATE 18 JUL 1928
+2 PLAC Levy County, Florida, USA
+1 DEAT
+2 DATE 21 MAR 2020
+2 PLAC Fitzgerald, Ben Hill County, Georgia, USA
+1 BURI
+2 PLAC Lax Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Samuel Raymond Law (1923-2001) in 1945. Graduated Martha Berry School for Girls on scholarship; worked in the
+2 CONC Savannah shipyards during WWII building bomb casings; seamstress at Fitzgerald Underwear for 35 years.
+1 SOUR @S9@
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I31@ INDI
+1 NAME Inez /Luke/
+1 SEX F
+1 BIRT
+2 DATE 23 JUL 1930
+2 PLAC Irwin County, Georgia, USA
+1 DEAT
+2 DATE 4 NOV 2016
+2 PLAC Willacoochee, Atkinson County, Georgia, USA
+1 BURI
+2 PLAC Willacoochee City Cemetery, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Johnny Edward Crosby (1925-1981). Her obituary names both parents and lists ten siblings - one of the two
+2 CONC foundational documents for this sibling group.
+1 SOUR @S8@
+1 FAMC @F4@
+0 @I32@ INDI
+1 NAME Doris Kathleen /Luke/
+1 SEX F
+1 BIRT
+2 DATE 17 NOV 1931
+2 PLAC Lax, Irwin County, Georgia, USA
+1 DEAT
+2 DATE 15 APR 2002
+2 PLAC Center Hill, Sumter County, Florida, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. FOUND. Full name Doris Kathleen Luke Merritt (also recorded Doris Katie Luke). Her own Social Security application names her
+2 CONC parents as 'JACK LUKE' and 'NELIA HINTON' - a form she signed herself, which is what makes this identification airtight rather than a name match. Birthplaces on record: Lax, Irwin County, and Wray,
+2 CONC Georgia. SSN issued in Florida. Died at Center Hill, Sumter County, Florida. Age 18 in April 1950 but recorded as 17, consistent with the undercount running through that sheet. STILL UNKNOWN: her
+2 CONC husband's given name, her burial place, and her obituary.
+1 SOUR @S34@
+1 SOUR @S4@
+1 FAMC @F4@
+0 @I33@ INDI
+1 NAME Lucious /Luke/
+1 SEX M
+1 BIRT
+2 DATE 29 MAR 1933
+2 PLAC Irwin County, Georgia, USA
+1 DEAT
+2 DATE 27 SEP 2018
+2 PLAC Willacoochee, Atkinson County, Georgia, USA
+1 BURI
+2 PLAC Lax Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Named for his grandfather Lucius L. Luke. Retired from Sears (Union Point), Elixir Industries (Douglas) and the City of
+2 CONC Willacoochee. His obituary first revealed the existence of John Wesley Luke Jr.
+1 SOUR @S9@
+1 FAMC @F4@
+0 @I34@ INDI
+1 NAME Dorothy Lee /Luke/
+1 SEX F
+1 BIRT
+2 DATE ABT 1927
+2 PLAC Levy County, Florida, USA
+1 DEAT
+2 DATE BEF 1962
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. FOUND, and a family assumption overturned. She appears in the 1930 census as 'Dorthy Luke, daughter, age 2, born Florida' in
+2 CONC the household of J W Luke and Nealie - so she is NEALIE'S daughter, not Clyde McMillan's, and she is the ELDEST of Nealie's children, about a year ahead of Versa Mae. Born in FLORIDA about 1927,
+2 CONC which means her birth record is in Levy County, Florida, not Georgia - every previous search looked in the wrong state. She is absent from Social Security death files under Callaway, Calloway and
+2 CONC Luke, which suggests she died before about 1962. Her surname is spelled 'Calloway' in one sibling obituary and 'Callaway' in another.
+1 SOUR @S33@
+1 FAMC @F4@
+0 @I35@ INDI
+1 NAME James E. /Luke/
+1 SEX M
+1 BIRT
+2 DATE ABT 1937
+1 DEAT
+2 DATE BET 2018 AND 2023
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Lenora. Named as living in the 2016 and 2018 obituaries but absent from Brenda's July 2023 survivor list. DO NOT
+2 CONC MERGE with the James Wesley Luke (1966-2024) of Relihan Funeral Home - that is a different, unrelated Luke family.
+1 SOUR @S9@
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I36@ INDI
+1 NAME Curtis /Luke/
+1 SEX M
+1 BIRT
+2 DATE 12 APR 1936
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Christine 'Dean' Horton Luke (2 Dec 1946 - 20 Jan 2026). Confirmed living as of January 2026 by his wife's obituary.
+2 CONC Pre-need marker at Lax Cemetery.
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I37@ INDI
+1 NAME John Wesley /Luke/
+1 SEX M
+1 BIRT
+2 DATE 1 AUG 1938
+1 DEAT
+2 DATE 16 FEB 1982
+1 BURI
+2 PLAC Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as John Wesley Luke Jr. NOT IN THE ORIGINAL FAMILY LIST - discovered via Lucious Luke's 2018 obituary. Buried with his
+2 CONC parents at Brushy Creek. Wife Christell H. Luke (b. 1946), possibly living and a potential interview source.
+1 SOUR @S9@
+1 FAMC @F4@
+0 @I38@ INDI
+1 NAME Jewel Faye /Luke/
+1 SEX F
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Moore. Confirmed living July 2023.
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I39@ INDI
+1 NAME Voncile /Luke/
+1 SEX F
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'Bonnie'. Married Jim Cavender. Confirmed living July 2023.
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I40@ INDI
+1 NAME Ottis /Luke/
+1 SEX M
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Barbara. Confirmed living July 2023. Spelling 'Ottis' consistent across three obituaries.
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I41@ INDI
+1 NAME Butler /Luke/
+1 SEX M
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Linda. Confirmed living July 2023.
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I42@ INDI
+1 NAME Brenda Carol /Luke/
+1 SEX F
+1 BIRT
+2 DATE 1 FEB 1949
+2 PLAC Irwin County, Georgia, USA
+1 DEAT
+2 DATE 19 JUL 2023
+2 PLAC Tift County, Georgia, USA
+1 BURI
+2 PLAC Lax Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Clarence 'Sonny' Jewell Jr. HER OBITUARY IS THE RICHEST SINGLE LUKE SOURCE: it names both parents, lists six
+2 CONC surviving siblings, states she was preceded by eight siblings (6+8+1 = 15, confirming the sibling count), and names Richard Luke and Tommy Luke among the pallbearers.
+1 SOUR @S10@
+1 FAMC @F4@
+0 @I29@ INDI
+1 NAME Richard Cleo /Luke/
+1 SEX M
+1 BIRT
+2 DATE 19 JAN 1920
+2 PLAC Ocilla, Irwin County, Georgia, USA
+1 DEAT
+2 DATE 18 JUN 2005
+2 PLAC Fellsmere, Florida, USA
+1 BURI
+2 PLAC Fountainhead Memorial Park, Palm Bay, Brevard County, Florida, USA
+1 NOTE EVIDENCE GRADE: PROBABLE - strong circumstantial case, no clinching document. THE FAMILY'S 'CLEO' - and a HALF-BROTHER, not a full sibling. Son of Jack Luke's FIRST wife Clyde Elizabeth McMillan, not
+2 CONC Nealie. This resolves the arithmetic: 14 children by Nealie plus Cleo equals the 15 in family tradition.
+1 FAMC @F5@
+0 @I50@ INDI
+1 NAME Edward /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 1924
+1 DEAT
+2 DATE 2002
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record.
+1 FAMC @F7@
+0 @I51@ INDI
+1 NAME Harvey /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 16 JAN 1926
+2 PLAC Coffee County, Georgia, USA
+1 DEAT
+2 DATE 1 OCT 2018
+1 BURI
+2 PLAC St. Illa Baptist Church Cemetery, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. U.S. Army veteran, World War II; military honors by the Fort Stewart Honor Guard. Farmer; deacon of St. Illa Baptist Church.
+2 CONC Married Rudine Fussell McKinnon.
+1 SOUR @S28@
+1 FAMC @F7@
+0 @I52@ INDI
+1 NAME Willie Mae /McKinnon/
+1 SEX F
+1 BIRT
+2 DATE 12 MAR 1928
+1 DEAT
+2 DATE 10 MAY 2020
+1 BURI
+2 PLAC Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Never married; retired seamstress of 30 years. Her obituary names sisters-in-law including 'Lucille Burch' - corroborating
+2 CONC Lucille's remarriage.
+1 FAMC @F7@
+0 @I53@ INDI
+1 NAME Louise /McKinnon/
+1 SEX F
+1 BIRT
+2 DATE 11 JUN 1930
+1 DEAT
+2 DATE 20 MAY 2024
+1 BURI
+2 PLAC Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Beach E. Maulden (d. 2009), 48 years.
+1 FAMC @F7@
+0 @I54@ INDI
+1 NAME Arlen /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 1 OCT 1932
+1 DEAT
+2 DATE 28 AUG 2015
+1 BURI
+2 PLAC Mora Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Arlen McKinnon Sr. PFC, U.S. Army, Korea - CONFIRMED by VA gravesite record. Prominent farmer of the Mora community. Married
+2 CONC Betty Jowers McKinnon.
+1 SOUR @S12@
+1 FAMC @F7@
+0 @I55@ INDI
+1 NAME Randall /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 1935
+1 DEAT
+2 DATE 1999
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. DO NOT MERGE with Randall Eugene McKinnon (1963-2023) of Martinez, Georgia - a different person from a different family.
+1 FAMC @F7@
+0 @I56@ INDI
+1 NAME Betty Jean /McKinnon/
+1 SEX F
+1 BIRT
+2 DATE 1939
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Soles.
+1 FAMC @F7@
+0 @I57@ INDI
+1 NAME Florene /McKinnon/
+1 SEX F
+1 BIRT
+2 DATE 1940
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Phillips.
+1 FAMC @F7@
+0 @I58@ INDI
+1 NAME Monroe /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE 11 SEP 1941
+1 DEAT
+2 DATE 24 JUL 2023
+1 BURI
+2 PLAC Mora Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Monroe McKinnon Jr. Production manager at Fleetwood Homes; deacon of Mora Baptist Church. Married Linda Marie Harper
+2 CONC McKinnon, 55 years. His obituary names both parents and all eleven siblings by name and status.
+1 SOUR @S11@
+1 FAMC @F7@
+0 @I59@ INDI
+1 NAME Bobby /McKinnon/
+1 SEX M
+1 BIRT
+2 DATE ABT 1943
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Age 7 in the 1950 census. No Find a Grave memorial linked to his parents - the online family group shows only 10 of the 12
+2 CONC children.
+1 SOUR @S5@
+1 FAMC @F7@
+0 @I60@ INDI
+1 NAME Martha J. /McKinnon/
+1 SEX F
+1 BIRT
+2 DATE ABT 1945
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Denton. Age 5 in the 1950 census. No memorial linked to her parents.
+1 SOUR @S5@
+1 FAMC @F7@
+0 @I70@ INDI
+1 NAME Myrtle /Hall/
+1 SEX F
+1 BIRT
+2 DATE ABT 1930
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Shook. Age 20 in the 1950 census.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I71@ INDI
+1 NAME Henry /Hall/
+1 SEX M
+1 BIRT
+2 DATE ABT 1933
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Age 17 in the 1950 census.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I72@ INDI
+1 NAME Mitchell /Hall/
+1 SEX M
+1 BIRT
+2 DATE 20 SEP 1934
+1 DEAT
+2 DATE 14 DEC 2012
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. His obituary names Jessie Hall and Mattie Cribb Hall as parents and lists Sally Luke among the siblings.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I73@ INDI
+1 NAME Frank /Hall/
+1 SEX M
+1 BIRT
+2 DATE ABT 1936
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Recorded as 'Frank' in the 1950 census; likely the 'Pete Hall' of the obituaries.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I74@ INDI
+1 NAME Jesse James /Hall/
+1 SEX M
+1 BIRT
+2 DATE 29 DEC 1939
+2 PLAC Atkinson County, Georgia, USA
+1 DEAT
+2 DATE 17 JAN 2022
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'Buck'. His obituary names both parents and lists 'Sally Luke (married to Elmer) of Willacoochee'.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I75@ INDI
+1 NAME Lorraine /Hall/
+1 SEX F
+1 BIRT
+2 DATE ABT 1941
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Age 9 in the 1950 census.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I76@ INDI
+1 NAME Chester /Hall/
+1 SEX M
+1 BIRT
+2 DATE ABT 1944
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married Verneil; of Willacoochee.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I77@ INDI
+1 NAME Joe Ronald /Hall/
+1 SEX M
+1 BIRT
+2 DATE 23 MAY 1947
+2 PLAC Ocilla, Irwin County, Georgia, USA
+1 DEAT
+2 DATE 21 APR 2020
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'Bud'. His obituary names Jesse Lee Hall and Mattie Cribb Hall as parents and lists 'Sally Luke and husband Elmer
+2 CONC (Willacoochee, Georgia)'.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I78@ INDI
+1 NAME Judy /Hall/
+1 SEX F
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married a Luke - a SECOND Hall sister who married into the Luke family. Deceased. Useful cross-check.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I79@ INDI
+1 NAME Shirley /Hall/
+1 SEX F
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'Monk'. Married James Griner.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I80@ INDI
+1 NAME Myrtice /Hall/
+1 SEX F
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Known as 'Possum'. Married surname Brown.
+1 SOUR @S6@
+1 FAMC @F6@
+0 @I90@ INDI
+1 NAME Louell /Giddens/
+1 SEX F
+1 BIRT
+2 DATE 1923
+1 DEAT
+2 DATE 2008
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Bowen.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I91@ INDI
+1 NAME Ernest /Giddens/
+1 SEX M
+1 BIRT
+2 DATE 16 SEP 1929
+1 DEAT
+2 DATE 25 OCT 2011
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. HIS OBITUARY PROVED THIS ENTIRE BRANCH: it names 'Joe E. Giddens and Sally Mercer Giddens (both deceased)' as parents and
+2 CONC lists 'Lucille Birch of Douglas' among surviving siblings.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I92@ INDI
+1 NAME Luther Robert /Giddens/
+1 SEX M
+1 BIRT
+2 DATE 1931
+1 DEAT
+2 DATE 1996
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I93@ INDI
+1 NAME Mary R. /Giddens/
+1 SEX F
+1 BIRT
+2 DATE 1934
+1 DEAT
+2 DATE 2009
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Rau.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I94@ INDI
+1 NAME Fred /Giddens/
+1 SEX M
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Of Uvalda, Georgia. Confirmed living 2011.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I95@ INDI
+1 NAME Jo Ann /Giddens/
+1 SEX F
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Married surname Snipes. Of Albany, Georgia. Confirmed living 2011.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I96@ INDI
+1 NAME Jerry /Giddens/
+1 SEX M
+1 BIRT
+2 DATE 1947
+1 DEAT
+2 DATE 1947
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Twin of Larry; died in infancy.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I97@ INDI
+1 NAME Larry /Giddens/
+1 SEX M
+1 BIRT
+2 DATE 1947
+1 DEAT
+2 DATE 1947
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Twin of Jerry; died in infancy.
+1 SOUR @S13@
+1 FAMC @F8@
+0 @I100@ INDI
+1 NAME John J. /Luke/
+1 SEX M
+1 BIRT
+2 DATE 13 JAN 1876
+2 PLAC Coffee County, Georgia, USA
+1 DEAT
+2 DATE 21 NOV 1939
+2 PLAC Irwin County, Georgia, USA
+1 BURI
+2 PLAC Luke Cemetery, Coffee County, Georgia, USA
+1 NOTE EVIDENCE GRADE: PROBABLE - strong circumstantial case, no clinching document. MARRIED Julia Mims 21 April 1904. QUESTION RESOLVED: he is NOT in the direct line and NOT Jack's father - he is a son of
+2 CONC R. B. Luke, which makes him Jack's PATERNAL UNCLE. Headstone: 'John J. Luke / b. Jan. 13, 1876 / d. Nov. 21, 1939 / Beloved Father' with a Masonic emblem.
+1 FAMC @F13@
+0 @I101@ INDI
+1 NAME Willie L. /Luke/
+1 SEX M
+1 BIRT
+2 DATE 1895
+1 DEAT
+2 DATE 10 FEB 1925
+2 PLAC Ocilla, Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Son of Lucius Luke and Narcis Harper per Georgia death certificate no. 25403. Likely the eldest child of the 1894 marriage.
+1 SOUR @S3@
+1 FAMC @F9@
+0 @I102@ INDI
+1 NAME Lessie May /Luke/
+1 SEX F
+1 BIRT
+2 DATE 28 FEB 1918
+1 DEAT
+2 DATE 3 DEC 1919
+2 PLAC Irwin County, Georgia, USA
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. Died aged 1 year 9 months 5 days. Daughter of L. L. Luke and Narcisus Harper per Georgia death certificate no. 20579.
+1 SOUR @S2@
+1 FAMC @F9@
+0 @I103@ INDI
+1 NAME John /Rickerson/
+1 SEX M
+1 BIRT
+2 DATE ABT 1824
+2 PLAC Georgia, USA
+1 DEAT
+2 DATE 1912
+1 NOTE EVIDENCE GRADE: CONFIRMED - supported by a primary or near-primary record. A NEW ANCESTOR, found on federal census evidence. He appears in the 1910 Pearson, Coffee County household aged 86, and the
+2 CONC enumerator recorded his relationship explicitly as 'maternal grandfather' - meaning Martha McKinnon's own father, living with his daughter's family in his eighties. This is what converts the
+2 CONC Ricketson maiden name from a tree claim into a documented fact. The spelling on the page is 'Rickerson', a common variant of Ricketson. An unsourced memorial names him as John P. Griffis Ricketson
+2 CONC (1830-1912) with wife Martha Amanda Overstreet; the census age points to about 1824 rather than 1830, but an 1824 birth and a 1912 death are consistent with a man of 86 in 1910.
+1 SOUR @S31@
+1 FAMS @F15@
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 CHIL @I1@
+1 NOTE Married at Mora Baptist Church, Mora, Coffee County, Georgia.
+0 @F2@ FAM
+1 HUSB @I4@
+1 WIFE @I5@
+1 CHIL @I2@
+1 NOTE Richard Luke and his brother Tommy Luke are the known children.
+0 @F3@ FAM
+1 HUSB @I6@
+1 WIFE @I7@
+1 CHIL @I3@
+0 @F4@ FAM
+1 HUSB @I8@
+1 WIFE @I9@
+1 CHIL @I30@
+1 CHIL @I31@
+1 CHIL @I32@
+1 CHIL @I33@
+1 CHIL @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHIL @I37@
+1 CHIL @I38@
+1 CHIL @I39@
+1 CHIL @I40@
+1 CHIL @I41@
+1 CHIL @I42@
+1 NOTE Fourteen children. Marriage record NOT FOUND - genuine negative. The complete Irwin County index has no such marriage; the free Coffee and Atkinson indexes stop at 1904 and 1922. Probable window
+2 CONC 1926-27. Look in Coffee County 1905-1930, Atkinson County 1923-1930, or Levy County, Florida.
+1 SOUR @S4@
+1 SOUR @S8@
+1 SOUR @S9@
+1 SOUR @S10@
+0 @F5@ FAM
+1 HUSB @I8@
+1 WIFE @I28@
+1 CHIL @I29@
+1 MARR
+2 DATE 8 SEP 1918
+2 PLAC Irwin County, Georgia, USA
+1 NOTE Jack Luke's FIRST marriage, recorded in the Irwin County index as 'LUKE, JOHNNIE - McMILLAN, CLYDE - 09/08/1918'. This marriage explains 'Cleo', who is a half-brother to the other fourteen children.
+1 SOUR @S7@
+0 @F6@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+1 CHIL @I70@
+1 CHIL @I71@
+1 CHIL @I72@
+1 CHIL @I73@
+1 CHIL @I74@
+1 CHIL @I75@
+1 CHIL @I76@
+1 CHIL @I77@
+1 CHIL @I78@
+1 CHIL @I79@
+1 CHIL @I80@
+1 CHIL @I5@
+1 NOTE Ten children enumerated together in the 1950 census at Ambrose, Coffee County; the full sibling set is composited from three obituaries.
+1 SOUR @S6@
+1 SOUR @S14@
+1 SOUR @S15@
+1 SOUR @S16@
+0 @F7@ FAM
+1 HUSB @I12@
+1 WIFE @I13@
+1 CHIL @I50@
+1 CHIL @I51@
+1 CHIL @I52@
+1 CHIL @I53@
+1 CHIL @I54@
+1 CHIL @I55@
+1 CHIL @I6@
+1 CHIL @I56@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHIL @I59@
+1 CHIL @I60@
+1 MARR
+2 DATE 12 NOV 1922
+1 NOTE Twelve children. The marriage date of 12 November 1922 is stated on both memorials but is LEAD ONLY - no county record located. Order the return from Coffee or Atkinson County Probate Court.
+1 SOUR @S5@
+1 SOUR @S11@
+1 SOUR @S12@
+0 @F8@ FAM
+1 HUSB @I14@
+1 WIFE @I15@
+1 CHIL @I90@
+1 CHIL @I91@
+1 CHIL @I92@
+1 CHIL @I93@
+1 CHIL @I94@
+1 CHIL @I95@
+1 CHIL @I7@
+1 CHIL @I96@
+1 CHIL @I97@
+1 NOTE Eight children plus infant twins. The sibling set agrees across Ernest Giddens's obituary (three brothers and two sisters predeceased him) and the cemetery group.
+1 SOUR @S13@
+0 @F9@ FAM
+1 HUSB @I16@
+1 WIFE @I17@
+1 CHIL @I101@
+1 CHIL @I8@
+1 CHIL @I102@
+1 MARR
+2 DATE 27 OCT 1894
+2 PLAC Irwin County, Georgia, USA
+1 NOTE Marriage CONFIRMED by the Irwin County index: 'LUKE, LUCIOUS - HARPER, NARSIS - 10/27/1894'. THE PLACEMENT OF JOHN WESLEY 'JACK' LUKE AS THEIR SON IS NOW CONFIRMED by two federal censuses: 'John',
+2 CONC age 3, in the 1900 Irwin County household, and 'John C W Luke', age 12, in 1910. NOTE: Narcisus is 22 in 1900 and 32 in 1910, both pointing to a birth about 1877-78, not the 1874 in circulation.
+1 SOUR @S29@
+1 SOUR @S30@
+1 SOUR @S7@
+1 SOUR @S2@
+1 SOUR @S3@
+0 @F10@ FAM
+1 HUSB @I18@
+1 WIFE @I19@
+1 CHIL @I9@
+1 NOTE MOTHER CONFIRMED by the 1910 U.S. Census, Levyville, Levy County, Florida, where Abigail heads the household as a 26-year-old widow with 'Neal', age 2, among her children. FATHER PROBABLE: Mackie
+2 CONC Hinton is not in the record, but Abby's widowhood and a one-year-old son named Mack both point at him. Nealie's Tift County death certificate (20 February 1983) would name him outright and settle it.
+1 SOUR @S32@
+1 SOUR @S33@
+0 @F11@ FAM
+1 HUSB @I20@
+1 WIFE @I21@
+1 CHIL @I12@
+1 NOTE CONFIRMED by the 1910 U.S. Census, Pearson, Coffee County, Georgia, which lists Monroe, age 9, as a son of 'Art' (George Albert) McKinnon and Martha - with Martha's own father John Rickerson in the
+2 CONC household, labelled 'maternal grandfather' by the enumerator.
+1 SOUR @S31@
+1 SOUR @S25@
+0 @F12@ FAM
+1 HUSB @I22@
+1 WIFE @I23@
+1 CHIL @I13@
+1 MARR
+2 DATE 24 DEC 1899
+2 PLAC Coffee County, Georgia, USA
+1 NOTE PROBABLE. Supported by the 1950 census placing the Carver household in the same enumeration district as the McKinnons at Mora, with Mary Jane's known siblings Levada and Ben enumerated there. The
+2 CONC census never states the relationship outright.
+1 SOUR @S26@
+1 SOUR @S5@
+0 @F13@ FAM
+1 HUSB @I24@
+1 WIFE @I25@
+1 CHIL @I16@
+1 CHIL @I100@
+1 NOTE CONFIRMED by Georgia death certificate no. 18075, which names Lucius Luke's parents as 'R B Luke' and 'Jane Yawn'. John J. Luke's inclusion as a son rests on corroborating memorials rather than a
+2 CONC document, but it resolves his relationship to the direct line: he is Jack's uncle.
+1 SOUR @S1@
+1 SOUR @S22@
+0 @F15@ FAM
+1 HUSB @I103@
+1 CHIL @I21@
+1 NOTE John Rickerson is recorded as Martha's father by the 1910 census, which enumerates him in the McKinnon household as 'maternal grandfather'. His wife is not established from a record; an unsourced
+2 CONC memorial gives Martha Amanda Overstreet.
+1 SOUR @S31@
+0 @F14@ FAM
+1 HUSB @I26@
+1 WIFE @I27@
+1 CHIL @I24@
+1 NOTE LEAD ONLY - the frontier edge of the tree, from an unsourced memorial. Note the 21-year gap between the stated births of John Luke (1787) and Telitha Jane Graves (1819).
+0 @S1@ SOUR
+1 TITL Georgia Death Certificate no. 18075, Lucius Luke, Irwin County, 21 June 1920
+1 REPO
+2 NOTE Death Certificates, Vital Records, Public Health, RG 26-5-95, Georgia Archives
+1 PUBL https://vault.georgiaarchives.org/digital/collection/gadeaths/id/39416
+0 @S2@ SOUR
+1 TITL Georgia Death Certificate no. 20579, Lessie Mae Luke, Irwin County, 3 December 1919
+1 REPO
+2 NOTE Death Certificates, Vital Records, Public Health, RG 26-5-95, Georgia Archives
+1 PUBL https://vault.georgiaarchives.org/digital/collection/gadeaths/id/34891
+0 @S3@ SOUR
+1 TITL Georgia Death Certificate no. 25403, Willie Luke, Irwin County, 10 February 1925
+1 REPO
+2 NOTE Death Certificates, Vital Records, Public Health, RG 26-5-95, Georgia Archives
+1 PUBL https://vault.georgiaarchives.org/digital/collection/gadeaths/id/251766
+0 @S4@ SOUR
+1 TITL 1950 U.S. Census, Georgia, Coffee County, ED 34-26, Bridgetown, sheet 7 (Jack W. Luke household, enumerated 11 April 1950)
+1 REPO
+2 NOTE National Archives and Records Administration
+1 PUBL https://1950census.archives.gov/search/?county=Coffee&ed=34-26&page=1&state=GA
+0 @S5@ SOUR
+1 TITL 1950 U.S. Census, Georgia, Coffee County, ED 34-13, Mora, sheets 17-18 (Monroe McKinnon household, dwelling 136 / family 71)
+1 REPO
+2 NOTE National Archives and Records Administration
+1 PUBL https://1950census.archives.gov/search/?county=Coffee&ed=34-13&page=1&state=GA
+0 @S6@ SOUR
+1 TITL 1950 U.S. Census, Georgia, Coffee County, ED 34-23, Ambrose, sheet 15 (Jessie C. Hall household, dwelling 63 / household 106)
+1 REPO
+2 NOTE National Archives and Records Administration
+1 PUBL https://1950census.archives.gov/search/?county=Coffee&ed=34-23&page=1&state=GA
+0 @S7@ SOUR
+1 TITL Irwin County, Georgia marriage index (complete, all years)
+1 REPO
+2 NOTE South Georgia Genealogy
+1 PUBL http://www.southgeorgiagenealogy.com/marrfix1.htm
+0 @S8@ SOUR
+1 TITL Obituary of Inez Luke Crosby, d. 4 November 2016
+1 REPO
+2 NOTE Relihan Funeral Home, Pearson, Georgia
+1 PUBL https://www.relihanfuneralhome.com/obituaries/5151921
+0 @S9@ SOUR
+1 TITL Obituary of Lucious Luke, d. 27 September 2018
+1 REPO
+2 NOTE Relihan Funeral Home, Pearson, Georgia
+1 PUBL https://www.relihanfuneralhome.com/obituaries/lucious-luke
+0 @S10@ SOUR
+1 TITL Obituary of Brenda Carol Luke Jewell, d. 19 July 2023
+1 REPO
+2 NOTE Tifton Gazette / Bowen-Donaldson Home for Funerals
+1 PUBL https://obituaries.tiftongazette.com/obituary/brenda-jewell-1088589275
+0 @S11@ SOUR
+1 TITL Obituary of Monroe McKinnon Jr., d. 24 July 2023
+1 REPO
+2 NOTE Ricketson Funeral Home, Douglas, Georgia
+1 PUBL https://www.ricketsonfuneralhome.com/obituaries/monroe-mckinnon/
+0 @S12@ SOUR
+1 TITL Obituary of Arlen McKinnon Sr., d. 28 August 2015
+1 REPO
+2 NOTE Ricketson Funeral Home, Douglas, Georgia
+1 PUBL https://www.ricketsonfuneralhome.com/obituaries/arlen-mckinnon/
+0 @S13@ SOUR
+1 TITL Obituary of Ernest Giddens, d. 25 October 2011
+1 REPO
+2 NOTE Tifton Gazette
+1 PUBL https://obituaries.tiftongazette.com/obituary/ernest-giddens-739580082
+0 @S14@ SOUR
+1 TITL Obituary of Joe 'Bud' Ronald Hall, d. 21 April 2020
+1 REPO
+2 NOTE Relihan Funeral Home, Pearson, Georgia
+1 PUBL https://www.relihanfuneralhome.com/obituaries/joe-bud-hall
+0 @S15@ SOUR
+1 TITL Obituary of Jesse James 'Buck' Hall, d. 17 January 2022
+1 REPO
+2 NOTE Paulk Funeral Home, Ocilla, Georgia
+1 PUBL https://www.currentobituary.com/obit/262396
+0 @S16@ SOUR
+1 TITL Obituary of Mitchell Hall, d. 14 December 2012
+1 REPO
+2 NOTE Tifton Gazette
+1 PUBL https://obituaries.tiftongazette.com/obituary/mitchell-hall-739677462
+0 @S17@ SOUR
+1 TITL Find a Grave memorial 41253001, John Wesley Luke, Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia (headstone photograph)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/41253001/john-wesley-luke
+0 @S18@ SOUR
+1 TITL Find a Grave memorial 41253006, Nealie Hinton Luke, Brushy Creek Primitive Baptist Church Cemetery, Ocilla, Irwin County, Georgia (headstone photograph)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/41253006/nealie-luke
+0 @S19@ SOUR
+1 TITL Find a Grave memorial 61237192, Monroe McKinnon Sr., Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia (headstone photograph)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/61237192/monroe-mckinnon
+0 @S20@ SOUR
+1 TITL Find a Grave memorial 61237207, Mary Jane Carver McKinnon, Arna Primitive Baptist Church Cemetery, Willacoochee, Atkinson County, Georgia (headstone photograph)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/61237207/mary-jane-mckinnon
+0 @S21@ SOUR
+1 TITL Find a Grave memorial 90560546, Andrew McKinnon, Mora Cemetery, Coffee County, Georgia (headstone photograph)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/90560546/andrew-mckinnon
+0 @S22@ SOUR
+1 TITL Find a Grave memorial 35224777, Richard Benjamin Luke, Luke Cemetery, Coffee County, Georgia (headstone inscription)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/35224777/richard-benjamin-luke
+0 @S23@ SOUR
+1 TITL Find a Grave memorial 32978224, Joe Edd Giddens, Sweetwater United Methodist Church Cemetery, Pearson, Atkinson County, Georgia (headstone photograph)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/32978224/joe_edd-giddens
+0 @S24@ SOUR
+1 TITL Obituary of Johnny Burch, d. 22 July 2026
+1 REPO
+2 NOTE DouglasNow
+1 PUBL https://douglasnow.com/johnny-burch-85/
+0 @S25@ SOUR
+1 TITL Find a Grave memorial 33601515, George Albert McKinnon, Arna Primitive Baptist Church Cemetery (headstone photographs). NOTE: parent-child links user-entered.
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/33601515/albert-mckinnon
+0 @S26@ SOUR
+1 TITL Find a Grave memorial 35358790, Elias Carver, Carver Baptist Church Cemetery, Douglas, Coffee County, Georgia (headstone photographs)
+1 REPO
+2 NOTE Find a Grave
+1 PUBL https://www.findagrave.com/memorial/35358790/elias-carver
+0 @S27@ SOUR
+1 TITL Georgia Death Certificate, David Perry Luke, Cook County, 5 June 1920 (b. 31 Oct 1825; father Daniel Luke)
+1 REPO
+2 NOTE Death Certificates, RG 26-5-95, Georgia Archives
+1 PUBL https://vault.georgiaarchives.org/digital/collection/gadeaths/id/41362
+0 @S28@ SOUR
+1 TITL Obituary of Harvey McKinnon, d. 1 October 2018
+1 REPO
+2 NOTE DouglasNow
+1 PUBL https://douglasnow.com/harvey-mckinnon/
+0 @S29@ SOUR
+1 TITL 1900 U.S. Census, Militia Districts 432 & 518, ED 46, Irwin County, Georgia, sheet 12A, household 207, line 45 (Lucius Luke household; John Luke, son, age 3)
+1 REPO
+2 NOTE National Archives / FamilySearch
+1 PUBL https://www.familysearch.org/ark:/61903/1:1:M3JC-3CC
+0 @S30@ SOUR
+1 TITL 1910 U.S. Census, Militia District 518, Irwin County, Georgia, sheet 8A, NARA T624 (Lucius L. Luke household; John C W Luke, son, age 12)
+1 REPO
+2 NOTE National Archives / FamilySearch
+1 PUBL https://www.familysearch.org/ark:/61903/1:1:ML2H-JFH
+0 @S31@ SOUR
+1 TITL 1910 U.S. Census, Pearson, ED 46, Coffee County, Georgia, sheet 12A, NARA T624 (Art McKinnon household; Monroe McKinnon, son, age 9; John Rickerson, maternal grandfather, age 86)
+1 REPO
+2 NOTE National Archives / FamilySearch
+1 PUBL https://www.familysearch.org/ark:/61903/1:1:MLKH-2Z4
+0 @S32@ SOUR
+1 TITL 1910 U.S. Census, Levyville, ED 82, Levy County, Florida, sheet 5B, NARA T624 (Abagil Hinton household, widowed; Neal Hinton, daughter, age 2)
+1 REPO
+2 NOTE National Archives / FamilySearch
+1 PUBL https://www.familysearch.org/ark:/61903/1:1:MVKD-BS6
+0 @S33@ SOUR
+1 TITL 1930 U.S. Census, Holt, ED 14, Irwin County, Georgia, sheet 4A, household 69, line 41, NARA T626 (J W Luke household; Dorthy Luke, daughter, age 2, born Florida)
+1 REPO
+2 NOTE National Archives / FamilySearch
+1 PUBL https://www.familysearch.org/ark:/61903/1:1:3WL3-KMM
+0 @S34@ SOUR
+1 TITL Social Security Applications and Claims Index entry for Doris Kathleen Luke Merritt, b. 17 Nov 1931, d. 15 Apr 2002; parents given as JACK LUKE and NELIA HINTON
+1 REPO
+2 NOTE Social Security Administration (via sortedbyname.com mirror)
+1 PUBL https://sortedbyname.com/letter_m/merritt/doris_merritt.html
+0 TRLR
