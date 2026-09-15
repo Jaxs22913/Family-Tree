@@ -46,6 +46,26 @@
 .docfoot{padding:10px 18px;border-top:1px solid var(--rule);font-size:12px}
 .docfoot a{font-weight:600;text-decoration:none}
 .docfoot a:hover{text-decoration:underline}
+#docBar{position:sticky;top:0;z-index:20;margin:0 0 22px;padding:10px 0 11px;
+  background:color-mix(in srgb,var(--ground) 93%,transparent);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--rule-soft)}
+#docBar .chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{background:var(--panel);border:1px solid var(--rule);border-radius:99px;cursor:pointer;
+  padding:5px 12px;font:inherit;font-size:11.5px;color:var(--ink-2);white-space:nowrap}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-selected="true"]{background:var(--verdigris-wash);border-color:var(--verdigris);color:var(--verdigris);font-weight:600}
+.chip .n{font-family:"IBM Plex Mono",monospace;font-size:10px;opacity:.7;margin-left:5px}
+.idxToggle{margin-top:8px;background:none;border:0;padding:0;cursor:pointer;font:inherit;
+  font-size:11.5px;color:var(--ink-3);text-decoration:underline;text-underline-offset:3px}
+.idxToggle:hover{color:var(--ink)}
+.idx{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px 20px}
+.idx a{display:block;padding:4px 0;font-size:11.5px;color:var(--ink-2);text-decoration:none;
+  border-bottom:1px solid var(--rule-soft)}
+.idx a:hover{color:var(--verdigris)}
+.idx a[hidden]{display:none}
+.idx a .y{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-3);margin-right:7px}
+.docwrap[hidden]{display:none}
+@media(max-width:700px){ .idx{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -54,25 +74,25 @@
 <header class="mast">
   <div class="eyebrow">The record shelf</div>
   <h1>Documents
-    <span class="sub">Nine records reproduced in full — four Georgia death certificates, two Confederate
-    pension files, and three federal census households, one of which runs across two sheets. Click any one to open it full size and zoom in far enough to
-    read the handwriting.</span>
+    <span class="sub" id="docIntro"></span>
   </h1>
-  <div class="mast-meta">
-    <span><b>9</b> records · <b>10</b> sheets hosted here</span>
-    <span><b>28</b> more linked</span>
-    <span>Spanning <b>1850 – 2011</b></span>
-  </div>
+  <div class="mast-meta" id="docMeta"></div>
 </header>
 
 <div class="note">
-  <p><b>Why only these nine are hosted here.</b> Everything on this page is a United States
+  <p><b>Why only these <span id="hostedWord"></span> are hosted here.</b> Everything on this page is a United States
   federal record or a Georgia state record — public documents, free to reproduce. They are
   copied from the National Archives and the Georgia Archives and served from this site, so they
   open instantly and will still be here if those sites change.</p>
   <p>Headstone photographs belong to the people who took them, and the newspaper archive sits
   behind an access challenge. <b>Those are linked rather than copied</b>, and quoted where the
   words matter — which for a newspaper is usually the point anyway.</p>
+</div>
+
+<div id="docBar">
+  <div class="chips" id="docChips" role="tablist" aria-label="Filter documents by kind"></div>
+  <button class="idxToggle" id="idxToggle" aria-expanded="false">Jump to a record</button>
+  <div class="idx" id="docIdx" hidden></div>
 </div>
 
 <div id="docList"></div>
@@ -117,11 +137,84 @@ document.getElementById('docList').innerHTML = DOCS.map(d => `
       <div class="docread">
         <h4>What the document says</h4>
         <dl class="fields">${d.reads.map(([k,v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
-        <div class="docwhy">${d.why}</div>
+        <div class="docwhy">${d.why || d.note || ''}</div>
       </div>
     </div>
     <div class="docfoot"><a href="${d.url}" target="_blank" rel="noopener">See it at the source archive &rarr;</a></div>
   </article>`).join('');
+
+/* ------------------------------------------------------------------
+   Every number on this page is counted from the data. The old ones were
+   typed by hand when there were nine records and said "nine" long after
+   there were twenty-one.
+   ------------------------------------------------------------------ */
+const WORDS = ['no','one','two','three','four','five','six','seven','eight','nine','ten',
+  'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen',
+  'nineteen','twenty','twenty-one','twenty-two','twenty-three','twenty-four','twenty-five'];
+const word = n => WORDS[n] || String(n);
+const sheets = DOCS.reduce((a,d) => a + 1 + (d.img2 ? 1 : 0), 0);
+const years  = DOCS.map(d => (d.title.match(/\b(1[6-9]\d\d|20\d\d)\b/) || [])[0])
+                   .filter(Boolean).map(Number).sort((a,b) => a-b);
+
+/* group by kind, commonest first, so the sentence reads the way a person would say it */
+const byKind = {};
+DOCS.forEach(d => { (byKind[d.kind] = byKind[d.kind] || []).push(d); });
+const kinds = Object.keys(byKind).sort((a,b) => byKind[b].length - byKind[a].length);
+const PROPER = /\b(confederate|georgia|union|american)\b/g;
+const cap = t => t.replace(PROPER, w => w[0].toUpperCase() + w.slice(1));
+const plural = (k,n) => cap(n === 1 ? k.toLowerCase()
+  : k.toLowerCase().replace(/^(.*?)(file|certificate|census|book)$/, (m,p1,p2) =>
+      p1 + (p2 === 'census' ? 'census households' : p2 + 's')));
+const listOut = arr => arr.length < 2 ? (arr[0] || '')
+  : arr.slice(0,-1).join(', ') + ' and ' + arr[arr.length-1];
+
+document.getElementById('hostedWord').textContent = word(DOCS.length);
+document.getElementById('docIntro').innerHTML =
+  word(DOCS.length).replace(/^./, c => c.toUpperCase()) + ' records reproduced in full — ' +
+  listOut(kinds.map(k => word(byKind[k].length) + ' ' + plural(k, byKind[k].length))) +
+  '. Click any one to open it full size and zoom in far enough to read the handwriting.';
+document.getElementById('docMeta').innerHTML =
+  '<span><b>' + DOCS.length + '</b> records · <b>' + sheets + '</b> sheets hosted here</span>' +
+  '<span><b>' + LINKED.length + '</b> more linked</span>' +
+  (years.length ? '<span>Spanning <b>' + years[0] + ' – ' + years[years.length-1] + '</b></span>' : '');
+
+/* ---- filter chips + jump index ---- */
+const chips = document.getElementById('docChips');
+chips.innerHTML = ['All'].concat(kinds).map((k,i) =>
+  '<button class="chip" role="tab" data-kind="' + (k === 'All' ? '' : k) + '"' +
+    (i === 0 ? ' aria-selected="true"' : '') + '>' + k +
+    '<span class="n">' + (k === 'All' ? DOCS.length : byKind[k].length) + '</span></button>').join('');
+
+function applyFilter(kind){
+  DOCS.forEach(d => {
+    const el = document.getElementById(d.id);
+    if(el) el.hidden = !!kind && d.kind !== kind;
+  });
+  document.querySelectorAll('#docIdx a').forEach(a => {
+    a.hidden = !!kind && a.dataset.kind !== kind;
+  });
+}
+chips.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if(!b) return;
+  chips.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-selected', c === b ? 'true' : 'false'));
+  applyFilter(b.dataset.kind);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const idx = document.getElementById('docIdx');
+idx.innerHTML = DOCS.map(d => {
+  const y = (d.title.match(/\b(1[6-9]\d\d|20\d\d)\b/) || [])[0] || '';
+  return '<a href="#' + d.id + '" data-kind="' + d.kind + '">' +
+    (y ? '<span class="y">' + y + '</span>' : '') +
+    d.title.replace(/\s+—\s+\d{4}$/,'') + '</a>';
+}).join('');
+const idxToggle = document.getElementById('idxToggle');
+idxToggle.addEventListener('click', () => {
+  const open = idx.hidden;
+  idx.hidden = !open;
+  idxToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  idxToggle.textContent = open ? 'Hide the index' : 'Jump to a record';
+});
 
 document.getElementById('linkList').innerHTML = LINKED.map(([kind,title,desc,url,where]) => `
   <div class="rec">

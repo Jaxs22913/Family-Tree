@@ -106,15 +106,85 @@ body{display:flex;flex-direction:column}
 #key .kr{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--ink-2)}
 #key .sw{width:14px;height:3px;border-radius:2px;flex:none}
 #key .hint{font-size:10px;color:var(--ink-3);font-style:italic;margin-top:2px}
+#key{transition:opacity .45s ease}
+#key.folded{opacity:0;pointer-events:none}
+#keyPill{position:absolute;right:14px;bottom:14px;z-index:12;opacity:0;pointer-events:none;
+  transition:opacity .45s ease}
+#keyPill.on{opacity:1;pointer-events:auto}
 
 #hint{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:12;
   font-size:11.5px;color:var(--ink-3);background:color-mix(in srgb,var(--ground) 86%,transparent);
   padding:5px 12px;border-radius:99px;border:1px solid var(--rule-soft);
   backdrop-filter:blur(4px);pointer-events:none;transition:opacity .5s ease}
 
+
+/* ---- search ---- */
+#find{position:absolute;left:14px;top:14px;z-index:14;width:250px}
+#findWrap{display:flex;align-items:center;gap:7px;background:var(--panel);
+  border:1px solid var(--rule);border-radius:3px;padding:7px 10px;
+  box-shadow:0 1px 2px rgba(22,25,26,.05)}
+#findWrap:focus-within{border-color:var(--verdigris);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--verdigris) 14%,transparent)}
+#findWrap svg{flex:none;opacity:.5}
+#q{border:0;background:none;outline:0;width:100%;font:inherit;font-size:12.5px;color:var(--ink)}
+#q::placeholder{color:var(--ink-3)}
+#findKbd{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-3);
+  border:1px solid var(--rule);border-radius:3px;padding:1px 4px;flex:none}
+#findWrap:focus-within #findKbd{display:none}
+#hits{margin-top:5px;background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  box-shadow:0 10px 26px -16px rgba(22,25,26,.4);max-height:52vh;overflow:auto;display:none}
+#hits.on{display:block}
+#hits .hit{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  padding:7px 11px;border-bottom:1px solid var(--rule-soft);font:inherit}
+#hits .hit:last-child{border-bottom:0}
+#hits .hit:hover,#hits .hit[aria-selected="true"]{background:var(--raised)}
+#hits .hit b{display:block;font-family:Spectral,serif;font-size:12.5px;font-weight:600;color:var(--ink)}
+#hits .hit span{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-3);margin-top:1px}
+#hits .none{padding:9px 11px;font-size:11.5px;color:var(--ink-3);font-style:italic}
+
+/* ---- zoom tiers: cards shed detail as the view pulls back ---- */
+#canvas[data-z="far"] .av,
+#canvas[data-z="far"] .nm .yr,
+#canvas[data-z="far"] .nm .pl,
+#canvas[data-z="far"] .nm .tr,
+#canvas[data-z="mid"] .nm .pl,
+#canvas[data-z="mid"] .nm .tr{display:none}
+#canvas[data-z="far"] .node{justify-content:center;padding:4px 6px}
+#canvas[data-z="far"] .nm{flex:none;text-align:center;width:100%}
+#canvas[data-z="far"] .nm b{font-size:clamp(14px,calc(11px / var(--s,1)),40px);line-height:1.05}
+.nm b i{font-style:normal;display:none}
+.nm b .nfull{display:block}
+#canvas[data-z="mid"] .nm b .nfull,#canvas[data-z="far"] .nm b .nfull{display:none}
+#canvas[data-z="mid"] .nm b .nshort{display:block}
+#canvas[data-z="far"] .nm b .nsur{display:block}
+#canvas[data-z="far"] .kid .ky{display:none}
+#canvas[data-z="far"] .kid{text-align:center}
+#canvas[data-z="far"] .kid b{font-size:clamp(12px,calc(9.5px / var(--s,1)),22px);line-height:1.05;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kid b i{font-style:normal;display:none}
+.kid b .kfull{display:block}
+#canvas[data-z="far"] .kid b .kfull{display:none}
+#canvas[data-z="far"] .kid b .kshort{display:block}
+#canvas[data-z="mid"] .av{width:26px;height:26px}
+#canvas[data-z="mid"] .nm b{font-size:clamp(13.5px,calc(11px / var(--s,1)),19px)}
+
+/* ---- focus: one household lit, the rest pulled back ---- */
+#canvas.focusing .node,#canvas.focusing .kid{opacity:.13;filter:saturate(.3)}
+#canvas.focusing .node.lit,#canvas.focusing .kid.lit{opacity:1;filter:none}
+#canvas.focusing #wires{opacity:.12}
+.node.flash{animation:flash 1.5s ease}
+@keyframes flash{0%,100%{box-shadow:0 0 0 0 transparent}
+  18%{box-shadow:0 0 0 5px color-mix(in srgb,var(--verdigris) 34%,transparent)}
+  70%{box-shadow:0 0 0 5px color-mix(in srgb,var(--verdigris) 20%,transparent)}}
+
+@media(max-width:700px){
+  #find{width:calc(100% - 28px)}
+  #hits{max-height:44vh}
+}
+
 @media(max-width:700px){
   #key{display:none}
-  #hint{font-size:10.5px}
+  #hint{display:none}
 }
 </style>
 </head>
@@ -122,6 +192,15 @@ body{display:flex;flex-direction:column}
 
 <div id="stage">
   <div id="canvas"><svg id="wires"></svg></div>
+
+  <div id="find">
+    <div id="findWrap">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search anyone — name, year, place" aria-label="Search the tree" aria-controls="hits" aria-expanded="false">
+      <span id="findKbd">/</span>
+    </div>
+    <div id="hits" role="listbox" aria-label="Search results"></div>
+  </div>
 
   <div id="hint">Drag or two-finger swipe to move · pinch or scroll to zoom · click anyone to open their records</div>
 
@@ -131,6 +210,7 @@ body{display:flex;flex-direction:column}
     <button class="btn sq" id="bOut" aria-label="Zoom out">−</button>
     <button class="btn" id="bMe">Find me</button>
     <button class="btn tog" id="bKids" aria-pressed="false">Show children</button>
+    <button class="btn tog" id="bFocus" aria-pressed="false" title="Dim everyone but the person you pick and their household">Focus</button>
   </div>
 
   <div id="key">
@@ -141,6 +221,8 @@ body{display:flex;flex-direction:column}
     <div class="hint">Dashed line = the relationship itself is unproven</div>
     <div class="hint">Italic line = trade, where a record states one</div>
     <div class="hint">Small cards = siblings, when children are shown</div>
+
+  <button id="keyPill" class="btn">Key</button>
   </div>
 </div>
 
@@ -281,6 +363,20 @@ const wires  = document.getElementById('wires');
 const initials = n => n.replace(/["“”]/g,'').split(/\s+/)
   .filter(w => /^[A-Z]/.test(w) && !/^(Sr\.|Jr\.|de|van)$/i.test(w))
   .slice(0,2).map(w => w[0]).join('');
+/* At a distance a card can only carry a word or two. Full name up close,
+   first-and-last in the middle, bare surname when the whole tree is on screen —
+   surnames are short enough to stay legible at fit, which is the point. */
+const strip = n => n.replace(/["\u201c\u201d]/g,' ').replace(/\s+/g,' ').trim();
+const SUFFIX = /^(Sr\.?|Jr\.?|II|III|IV)$/i;
+function surname(n){
+  const w = strip(n).split(' ').filter(x => !SUFFIX.test(x));
+  return w[w.length-1] || strip(n);
+}
+function shortName(n){
+  const w = strip(n).split(' ').filter(x => !SUFFIX.test(x));
+  if(w.length <= 2) return w.join(' ');
+  return w[0] + ' ' + w[w.length-1];
+}
 const NS = 'http://www.w3.org/2000/svg';
 const GC = { c:'var(--verdigris)', pr:'var(--ochre)', l:'var(--rust)', u:'var(--ink-3)' };
 
@@ -308,9 +404,12 @@ function render(withKids){
     const place = p.bur ? p.bur.split(',')[0] : (p.bp ? p.bp.replace(/<[^>]+>/g,'') : '');
     const trade = p.occ ? p.occ[0] : '';
 
+    const clean = p.n.replace(/<[^>]+>/g,'');
     el.innerHTML =
       '<span class="av"><span class="mono">' + initials(p.n) + '</span></span>' +
-      '<span class="nm"><b>' + p.n.replace(/<[^>]+>/g,'') + '</b>' +
+      '<span class="nm"><b><i class="nfull">' + clean + '</i>' +
+        '<i class="nshort">' + shortName(clean) + '</i>' +
+        '<i class="nsur">' + surname(clean) + '</i></b>' +
       (dates ? '<span class="yr">' + dates + '</span>' : '') +
       (trade ? '<span class="tr ' + p.occ[1] + '">' + trade + '</span>'
              : (place ? '<span class="pl">' + place + '</span>' : '')) + '</span>';
@@ -335,7 +434,8 @@ function render(withKids){
     el.dataset.kid = i;
     el.style.left = (k.x - KID_W/2) + 'px';
     el.style.top  = (k.y - KID_H/2) + 'px';
-    el.innerHTML = '<b>' + k.row[0] + '</b>' +
+    el.innerHTML = '<b><i class="kfull">' + k.row[0] + '</i>' +
+                     '<i class="kshort">' + strip(k.row[0]).split(' ')[0] + '</i></b>' +
                    (k.row[1] ? '<span class="ky">' + k.row[1] + '</span>' : '');
     el.title = k.row[2] || k.row[0];
     frag.appendChild(el);
@@ -424,9 +524,14 @@ const CALM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const clamp = s => Math.min(MAX_S, Math.max(MIN_S, s));
 
+let zTier = '';
 function paint(){
   canvas.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,' +
                            ty.toFixed(2) + 'px,0) scale(' + scale.toFixed(4) + ')';
+  /* how much detail a card can carry depends entirely on how far away it is */
+  const t = scale < .52 ? 'far' : scale < .88 ? 'mid' : 'near';
+  if(t !== zTier){ zTier = t; canvas.dataset.z = t; }
+  canvas.style.setProperty('--s', scale.toFixed(3));
 }
 function schedule(){ if(!req) req = requestAnimationFrame(tick); }
 
@@ -625,8 +730,248 @@ canvas.addEventListener('click', e => {
   document.getElementById('drClose').addEventListener('click', closePerson);
 });
 
+
+/* ==================================================================
+   Finding people
+   ------------------------------------------------------------------
+   Fifty-three cards is more than anyone can scan by eye, so the tree
+   needs a way in that is not "pan until you spot them". Search matches
+   names, years, places and trades, and covers the sibling cards too,
+   which are otherwise unreachable without turning children on.
+   ================================================================== */
+const qEl = document.getElementById('q');
+const hitsEl = document.getElementById('hits');
+
+function searchIndex(){
+  const rows = [];
+  Object.keys(PEOPLE).forEach(id => {
+    const p = PEOPLE[id];
+    const n = p.n.replace(/<[^>]+>/g,'');
+    const dates = p.liv ? 'living'
+      : [(p.b||''),(p.d||'')].filter(Boolean).join(' – ');
+    const where = (p.bur || p.bp || '').replace(/<[^>]+>/g,'');
+    rows.push({ kind:'person', id, name:n,
+      meta:[dates, where.split(',').slice(0,2).join(',').trim(), p.occ?p.occ[0]:'']
+            .filter(Boolean).join(' · '),
+      hay:(n+' '+dates+' '+where+' '+(p.occ?p.occ.join(' '):'')+' '+(p.ev||''))
+            .replace(/<[^>]+>/g,' ').toLowerCase() });
+  });
+  kidNodes.forEach((k, i) => {
+    const via = PEOPLE[k.via] ? PEOPLE[k.via].n.replace(/<[^>]+>/g,'') : k.via;
+    rows.push({ kind:'kid', id:i, name:k.row[0],
+      meta:[k.row[1]||'', 'sibling of ' + shortName(via)].filter(Boolean).join(' · '),
+      hay:((k.row[0]||'')+' '+(k.row[1]||'')+' '+(k.row[2]||'')).toLowerCase() });
+  });
+  return rows;
+}
+let INDEX = [], hitList = [], hitAt = -1;
+
+/* a card the search sent you to should announce itself, or you have to hunt
+   for it a second time once the view stops moving */
+function flash(el){
+  if(!el) return;
+  el.classList.remove('flash');
+  void el.offsetWidth;
+  el.classList.add('flash');
+  setTimeout(() => el.classList.remove('flash'), 1600);
+}
+function nodeEl(id){ return canvas.querySelector('.node[data-id="' + CSS.escape(id) + '"]'); }
+function kidEl(i){ return canvas.querySelector('.kid[data-kid="' + i + '"]'); }
+
+function goTo(hit, openIt){
+  closeHits();
+  if(hit.kind === 'person'){
+    if(!pos[hit.id]) return;
+    centreOn(hit.id, Math.max(scale, .95));
+    setTimeout(() => flash(nodeEl(hit.id)), 260);
+    select(hit.id);
+    if(openIt) setTimeout(() => openPerson(hit.id), 420);
+  } else {
+    const k = kidNodes[hit.id]; if(!k) return;
+    if(!kidsOn && k.via !== 'jaxon'){ build(true); }
+    const r = stage.getBoundingClientRect(), sc = Math.max(scale, .95);
+    glideTo(sc, r.width/2 - k.x * sc, r.height/2 - k.y * sc);
+    setTimeout(() => flash(kidEl(hit.id)), 300);
+  }
+}
+
+function renderHits(){
+  if(!hitList.length){
+    hitsEl.innerHTML = '<div class="none">Nobody by that name on this tree.</div>';
+    hitsEl.classList.add('on'); qEl.setAttribute('aria-expanded','true');
+    return;
+  }
+  hitsEl.innerHTML = hitList.map((h, i) =>
+    '<button class="hit" role="option" data-i="' + i + '"' +
+      (i === hitAt ? ' aria-selected="true"' : '') + '>' +
+      '<b>' + h.name + '</b>' + (h.meta ? '<span>' + h.meta + '</span>' : '') +
+    '</button>').join('');
+  hitsEl.classList.add('on'); qEl.setAttribute('aria-expanded','true');
+}
+function closeHits(){
+  hitsEl.classList.remove('on'); qEl.setAttribute('aria-expanded','false');
+  hitAt = -1;
+}
+function runSearch(){
+  const q = qEl.value.trim().toLowerCase();
+  if(q.length < 2){ hitList = []; closeHits(); return; }
+  if(!INDEX.length) INDEX = searchIndex();
+  const starts = [], holds = [];
+  INDEX.forEach(r => {
+    const n = r.name.toLowerCase();
+    if(n.startsWith(q) || n.split(' ').some(w => w.startsWith(q))) starts.push(r);
+    else if(r.hay.indexOf(q) > -1) holds.push(r);
+  });
+  hitList = starts.concat(holds).slice(0, 12);
+  hitAt = hitList.length ? 0 : -1;
+  renderHits();
+}
+qEl.addEventListener('input', runSearch);
+qEl.addEventListener('focus', () => { if(qEl.value.trim().length > 1) runSearch(); });
+qEl.addEventListener('keydown', e => {
+  if(e.key === 'ArrowDown' || e.key === 'ArrowUp'){
+    e.preventDefault();
+    if(!hitList.length) return;
+    hitAt = (hitAt + (e.key === 'ArrowDown' ? 1 : hitList.length - 1)) % hitList.length;
+    renderHits();
+    const sel = hitsEl.querySelector('[aria-selected="true"]');
+    if(sel) sel.scrollIntoView({block:'nearest'});
+  } else if(e.key === 'Enter'){
+    e.preventDefault();
+    if(hitList[hitAt]) goTo(hitList[hitAt], true);
+  } else if(e.key === 'Escape'){
+    if(hitsEl.classList.contains('on')) closeHits();
+    else { qEl.value = ''; qEl.blur(); }
+  }
+});
+hitsEl.addEventListener('click', e => {
+  const b = e.target.closest('.hit'); if(!b) return;
+  goTo(hitList[+b.dataset.i], true);
+});
+document.addEventListener('click', e => {
+  if(!e.target.closest('#find')) closeHits();
+});
+/* "/" is the search shortcut everywhere else on the web; make it work here */
+document.addEventListener('keydown', e => {
+  if(e.key === '/' && document.activeElement !== qEl &&
+     !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); qEl.focus(); qEl.select();
+  }
+});
+
+/* ==================================================================
+   Focus — one household lit, the rest pulled back
+   ================================================================== */
+const bFocus = document.getElementById('bFocus');
+let focusOn = false, selected = null;
+
+function household(id){
+  const set = new Set([id]);
+  (PARENTS[id] || []).filter(Boolean).forEach(k => set.add(k));
+  Object.keys(PARENTS).forEach(c => {
+    if((PARENTS[c] || []).indexOf(id) > -1) set.add(c);
+  });
+  /* a spouse is the other half of the pair the generation rows already record */
+  GENS.forEach(g => g.rows.forEach(r => {
+    if(r.a === id && r.b) set.add(r.b);
+    if(r.b === id && r.a) set.add(r.a);
+  }));
+  return set;
+}
+function applyFocus(){
+  canvas.querySelectorAll('.lit').forEach(n => n.classList.remove('lit'));
+  if(!focusOn || !selected){ canvas.classList.remove('focusing'); return; }
+  const set = household(selected);
+  set.forEach(id => { const el = nodeEl(id); if(el) el.classList.add('lit'); });
+  kidNodes.forEach((k, i) => {
+    if(k.via === selected || set.has(k.via)){ const el = kidEl(i); if(el) el.classList.add('lit'); }
+  });
+  canvas.classList.add('focusing');
+}
+/* focusing should frame the whole household, not just centre one card of it —
+   otherwise a wife or a child sits half off the bottom of the screen */
+function frameHousehold(){
+  if(!selected) return;
+  const set = household(selected);
+  const xs = [], ys = [];
+  set.forEach(id => { const q = pos[id]; if(q){ xs.push(q.x); ys.push(q.y); } });
+  kidNodes.forEach(k => { if(k.via === selected || set.has(k.via)){ xs.push(k.x); ys.push(k.y); } });
+  if(!xs.length) return;
+  const PADX = CARD_W/2 + 90, PADY = CARD_H/2 + 80;
+  const x0 = Math.min.apply(null, xs) - PADX, x1 = Math.max.apply(null, xs) + PADX;
+  const y0 = Math.min.apply(null, ys) - PADY, y1 = Math.max.apply(null, ys) + PADY;
+  const r = stage.getBoundingClientRect();
+  const sc = clamp(Math.min(r.width / (x1 - x0), r.height / (y1 - y0), 1.25));
+  glideTo(sc, r.width/2 - ((x0 + x1)/2) * sc, r.height/2 - ((y0 + y1)/2) * sc);
+}
+function select(id){ selected = id; applyFocus(); }
+function clearSelect(){ selected = null; applyFocus(); }
+
+bFocus.addEventListener('click', () => {
+  focusOn = !focusOn;
+  bFocus.setAttribute('aria-pressed', focusOn ? 'true' : 'false');
+  if(focusOn && !selected) select('jaxon');
+  applyFocus();
+  if(focusOn) frameHousehold();
+});
+/* in focus mode a click walks the tree rather than opening the drawer */
+canvas.addEventListener('click', e => {
+  const n = e.target.closest('.node[data-id]');
+  if(!n || !focusOn) return;
+  e.stopPropagation();
+  select(n.dataset.id);
+  frameHousehold();
+}, true);
+stage.addEventListener('pointerdown', e => {
+  if(focusOn && !e.target.closest('.node') && !e.target.closest('.kid') &&
+     !e.target.closest('.btn') && !e.target.closest('#find')) clearSelect();
+});
+
+/* ==================================================================
+   A link for every person, so a page can be sent to somebody
+   ================================================================== */
+function idFromHash(){
+  const h = decodeURIComponent((location.hash || '').replace(/^#/,''));
+  return (h && PEOPLE[h]) ? h : null;
+}
+function openFromHash(scroll){
+  const id = idFromHash(); if(!id || !pos[id]) return;
+  centreOn(id, .95);
+  setTimeout(() => { flash(nodeEl(id)); openPerson(id); }, 320);
+}
+window.addEventListener('hashchange', () => {
+  const id = idFromHash();
+  if(id) openFromHash();
+  else closePerson();
+});
+/* the drawer and the address bar stay in step both ways */
+const _open = window.openPerson, _close = window.closePerson;
+window.openPerson = function(id){
+  _open(id);
+  if(PEOPLE[id] && location.hash !== '#' + id) history.pushState(null, '', '#' + id);
+};
+window.closePerson = function(){
+  _close();
+  if(location.hash) history.pushState(null, '', location.pathname + location.search);
+};
+
+/* ==================================================================
+   The legend has said its piece after a few seconds
+   ================================================================== */
+const keyBox = document.getElementById('key'), keyPill = document.getElementById('keyPill');
+let keyTimer = setTimeout(foldKey, 9000);
+function foldKey(){ keyBox.classList.add('folded'); keyPill.classList.add('on'); }
+function showKey(){
+  clearTimeout(keyTimer);
+  keyBox.classList.remove('folded'); keyPill.classList.remove('on');
+  keyTimer = setTimeout(foldKey, 9000);
+}
+keyPill.addEventListener('click', showKey);
+keyPill.addEventListener('mouseenter', showKey);
+
 build(kidsOn, true);
 fit(false);
+if(idFromHash()) setTimeout(() => openFromHash(), 260);
 setTimeout(() => { const h = document.getElementById('hint'); if(h) h.style.opacity = 0; }, 6500);
 </script>
 </body>
