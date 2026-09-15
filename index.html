@@ -408,6 +408,12 @@ let scale = 1, tx = 0, ty = 0;          /* what is on screen now */
 let gScale = 1, gTx = 0, gTy = 0;       /* where it is heading */
 let req = 0, gliding = false;
 
+/* momentum: a drag that stops dead the instant you lift the pointer is what
+   reads as abrupt, so the view keeps the velocity it had and slows down */
+let vx = 0, vy = 0, lastMove = 0, coasting = false;
+const FRICTION = .94, MAX_V = 3.5;
+const CALM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const clamp = s => Math.min(MAX_S, Math.max(MIN_S, s));
 
 function paint(){
@@ -418,7 +424,13 @@ function schedule(){ if(!req) req = requestAnimationFrame(tick); }
 
 function tick(){
   req = 0;
-  if(gliding){
+  if(coasting){
+    tx += vx * 16; ty += vy * 16;
+    vx *= FRICTION; vy *= FRICTION;
+    gTx = tx; gTy = ty; gScale = scale;
+    if(Math.abs(vx) < .012 && Math.abs(vy) < .012) coasting = false;
+    else schedule();
+  } else if(gliding){
     const k = .26;
     const ds = gScale - scale, dx = gTx - tx, dy = gTy - ty;
     if(Math.abs(ds) < .0004 && Math.abs(dx) < .3 && Math.abs(dy) < .3){
@@ -435,12 +447,12 @@ function tick(){
 function setNow(x, y){
   gScale = scale;
   tx = gTx = x; ty = gTy = y;
-  gliding = false; schedule();
+  gliding = false; coasting = false; schedule();
 }
 /* glide there — used for zooming, Fit and Find me */
 function glideTo(s, x, y){
   gScale = s; gTx = x; gTy = y;
-  gliding = true; schedule();
+  gliding = true; coasting = false; schedule();
 }
 
 function fit(glide){
@@ -493,7 +505,10 @@ stage.addEventListener('pointerdown', e => {
   if(e.pointerType === 'mouse' && e.button !== 0) return;
   if(e.target.closest('.node') || e.target.closest('.kid') || e.target.closest('.btn')) return;
   dragging = true; travelled = 0; swallowClick = false;
-  gScale = scale; gTx = tx; gTy = ty; gliding = false;   /* adopt what is on screen */
+  /* grabbing takes over from whatever the view was doing, from where it is */
+  gScale = scale; gTx = tx; gTy = ty;
+  gliding = false; coasting = false;
+  vx = vy = 0; lastMove = e.timeStamp || performance.now();
   sx = e.clientX - tx; sy = e.clientY - ty;
   stage.classList.add('drag');
   try { stage.setPointerCapture(e.pointerId); } catch(_){}
@@ -502,6 +517,12 @@ stage.addEventListener('pointerdown', e => {
 stage.addEventListener('pointermove', e => {
   if(!dragging) return;
   const nx = e.clientX - sx, ny = e.clientY - sy;
+  const now = e.timeStamp || performance.now();
+  const dt = Math.min(64, Math.max(4, now - lastMove));
+  /* smoothed, so one stuttering sample cannot throw the whole flick */
+  vx = vx * .7 + ((nx - tx) / dt) * .3;
+  vy = vy * .7 + ((ny - ty) / dt) * .3;
+  lastMove = now;
   travelled += Math.abs(nx - tx) + Math.abs(ny - ty);
   setNow(nx, ny);
 });
@@ -512,6 +533,14 @@ stage.addEventListener('pointermove', e => {
   stage.classList.remove('drag');
   if(travelled > 6) swallowClick = true;   /* a real drag must not open a card */
   try { stage.releasePointerCapture(e.pointerId); } catch(_){}
+
+  /* let go mid-movement and the view carries on, then settles */
+  const stale = ((e.timeStamp || performance.now()) - lastMove) > 90;
+  vx = Math.max(-MAX_V, Math.min(MAX_V, vx));
+  vy = Math.max(-MAX_V, Math.min(MAX_V, vy));
+  if(!CALM && !stale && (Math.abs(vx) > .05 || Math.abs(vy) > .05)){
+    coasting = true; schedule();
+  } else { vx = vy = 0; }
 }));
 
 /* a drag that happens to finish over a card would otherwise fire a click on it */
