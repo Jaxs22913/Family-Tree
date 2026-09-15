@@ -449,15 +449,17 @@ telitha:{n:'Telitha Jane Graves', g:'c', b:'10 Jun 1819', bp:'<b>North Carolina<
        S.fg('https://www.findagrave.com/memorial/38336658/tetlita-jane-luke')],
   cen:['c1860b','c1870b']},
 
-hscharper:{n:'Henry S. C. Harper', g:'c', b:'about 1817', bp:'Georgia',
-  ev:'Narcisus Harper’s grandfather. The 1870 census finds him at Irwinville, aged 53, a farmer with $500 in land and $1,810 in personal property, his wife Nancy beside him and seven children at home including <b>"Henry S., 16"</b> — Narcisus’s father.<br><br>In 1860 he was better off still: <b>$1,400 in land and $2,235 in personal property</b>. <b>And he held no enslaved people</b> — he is absent from the Irwin County slave schedule for both 1850 and 1860.<br><br>That pairing is the single most useful lesson in this whole archive. In the same county the same year, Susan Harper held $2,485 in personal property <i>and</i> two enslaved men. Nearly identical estates, opposite records. In wiregrass Georgia personal property meant <b>cattle</b> — herds of several hundred head were ordinary. <b>Property value is not a proxy for slaveholding in either direction.</b><br><br>His land fell from $1,400 to $500 between 1860 and 1870. Since he held no one, that decline is wartime loss — impressment, currency collapse, devalued land — not emancipation.',
+hscharper:{n:'Henry S. C. Harper', g:'c', b:'about 1817', bp:'<b>Irwin County, Georgia</b>',
+  ev:'<b>Born in Irwin County itself.</b> Two of his sons’ death certificates, filed two years apart by two different informants, both give his birthplace as <b>Irwin Co., Ga.</b> He was born about 1817 and the county was created in <b>1818</b> — so the Harpers were on that ground from the county’s first year, earlier than the Lukes, who do not appear there until the 1820s.<br><br>Narcisus Harper’s grandfather. The 1870 census finds him at Irwinville, aged 53, a farmer with $500 in land and $1,810 in personal property, his wife Nancy beside him and seven children at home including <b>"Henry S., 16"</b> — Narcisus’s father.<br><br>In 1860 he was better off still: <b>$1,400 in land and $2,235 in personal property</b>. <b>And he held no enslaved people</b> — he is absent from the Irwin County slave schedule for both 1850 and 1860.<br><br>That pairing is the single most useful lesson in this whole archive. In the same county the same year, Susan Harper held $2,485 in personal property <i>and</i> two enslaved men. Nearly identical estates, opposite records. In wiregrass Georgia personal property meant <b>cattle</b> — herds of several hundred head were ordinary. <b>Property value is not a proxy for slaveholding in either direction.</b><br><br>His land fell from $1,400 to $500 between 1860 and 1870. Since he held no one, that decline is wartime loss — impressment, currency collapse, devalued land — not emancipation.',
   src:[S.fs('http://us-census.org/pub/usgenweb/census/ga/irwin/1870/pg0269a.txt'),
        S.sl('http://us-census.org/pub/usgenweb/census/ga/irwin/1860/slave.txt')], cen:[]},
 
 nancymerritt:{n:'Nancy Merritt', g:'c', b:'about 1817', bp:'<b>North Carolina</b>',
-  ev:'Recorded in the 1870 census at Irwinville as Nancy, 53, born North Carolina — the transcriber notes her as née Nancy Anna Merritt. She is the second North Carolina birth in this tree, alongside Telitha Jane Graves, and both point the family back toward the Carolinas a generation before Georgia.<br><br>A 1932 county history lists the couple’s thirteen children, among them Henry S., who married Polly Vickers and fathered Narcisus.',
+  ev:'<b>North Carolina, corroborated — and contradicted.</b> The 1870 census at Irwinville records her as Nancy, 53, <b>born North Carolina</b>. Her son <b>George J. Harper</b>’s 1924 death certificate says the same thing independently, fifty-four years later: maiden name <i>Nancy Merritt</i>, birthplace <b>N.C.</b><br><br>But her son <b>Luke L. Harper</b>’s certificate, filed in 1926 by a different informant, names the same parents and then gives her birthplace as <b>Irwin Co., Ga.</b> Two of three say North Carolina, and it is the harder answer to invent — an informant guessing reaches for the county he is standing in, not a state five hundred miles away. But the disagreement is on the record and belongs here.<br><br>The transcriber of the 1870 sheet notes her as née Nancy Anna Merritt. She is the second North Carolina birth in this tree, alongside Telitha Jane Graves, and both point the family back toward the Carolinas a generation before Georgia.<br><br>A 1932 county history lists the couple’s <b>thirteen</b> children. Four of them can now be named from documents rather than from the book: George J. (1842—1924), Luke L. (about 1845—1926), Flem B. (about 1849—1923), and Henry S., who married Polly Vickers and fathered Narcisus. Turn on <i>Show children</i> to see them.',
   src:[S.fs('http://us-census.org/pub/usgenweb/census/ga/irwin/1870/pg0269a.txt'),
-       S.bk('https://archive.org/download/historyofirwinco00clem/historyofirwinco00clem_djvu.txt')], cen:[]},
+       S.bk('https://archive.org/download/historyofirwinco00clem/historyofirwinco00clem_djvu.txt'),
+       S.ga('https://vault.georgiaarchives.org/digital/collection/gadeaths/id/215283'),
+       S.ga('https://vault.georgiaarchives.org/digital/collection/gadeaths/id/289491')], cen:[]},
 
 jamesmalcolm:{n:'James Malcolm McKinnon Sr.', g:'pr', b:'about 1804', bp:'<b>North Carolina</b>',
   d:'1880', dp:'Coffee County, Georgia',
@@ -597,6 +599,13 @@ jack:{ g:'c', of:'Lucius L. Luke & Narcisus Harper', src:'1900 and 1910 censuses
   ['Willie L. Luke','1895 – 1925','"a well known young farmer of Irwin County"; died of pneumonia after influenza'],
   ['John Wesley "Jack" Luke','1896 – 1964','your great-grandfather','me'],
   ['Lessie May Luke','1918 – 1919','died at one year, nine months and five days']]},
+
+henrysharper:{ g:'c', of:'Henry S. C. Harper & Nancy Merritt', src:'Four of the thirteen children the 1932 county history reports, each one now carried by a Georgia death certificate naming both parents',
+ list:[
+  ['George J. Harper','12 Jan 1842 — 4 Mar 1924','farmer at Wray; b. and d. Irwin County; New Hope Cemetery. His certificate gives his mother\u2019s birthplace as N.C.'],
+  ['Luke L. Harper','abt 1845 — 15 Jun 1926','farmer at Ocilla; died of sarcoma. His certificate gives the same father and mother, but says she was born in Irwin County'],
+  ['Flem B. Harper','abt 1849 — Mar 1923','died in Coffee County. Two certificates were filed for him a day apart, and they disagree about his parents'],
+  ['Henry S. Harper','abt 1854','m. Polly Vickers; father of Narcisus — your line','me']]},
 
 janeyawn:{ g:'pr', of:'Antney Yawn & Elizabeth Yawn', src:'1860 Coffee County census, where all three were boarded with the Elias Johns family',
  list:[
