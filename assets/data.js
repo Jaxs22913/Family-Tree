@@ -317,11 +317,40 @@ joegiddens:{n:'Joe Edd Giddens', g:'c', b:'22 Nov 1893', d:'7 Oct 1974',
   ev:'<b>One free record would settle the barbershop.</b> The <b>1950 census</b> asked every working man his trade, and Joe Edd was 56 that April with Lucille aged five in the house. The sheets are free to read at the National Archives. Atkinson County is enumeration districts <b>2-1 to 2-10</b> (2-1 to 2-3 are Willacoochee, 2-4 to 2-8 Pearson), and the household to look for is a Giddens head aged about 56 with a wife about 49 and a five-year-old daughter. Column 20a will say the trade in the enumerator’s own hand. The name index for these sheets is crowd-transcribed and badly garbled (<i>biddens, Hiddens, siddens, Kiddens</i>), which is why it has to be read rather than searched — one of the Willacoochee sheets has already been checked and holds a different family, R. Eugene Giddens, a farmer.<br><br><b>Where their marriage record is, and why it is not here.</b> The Giddens and Mercer families are <b>Atkinson County</b> people — Pearson, and Sweetwater church — and Atkinson County has <i>no</i> marriage books at all in the Georgia Archives’ filmed series. Both indexed Coffee County books covering the period were read through and neither carries a Giddens—Mercer marriage, which is the expected answer rather than a disappointing one: they married in their own county, and that county’s books have never been filmed. They are held locally by the Atkinson County Probate Court at Pearson.<br><br>Family tradition called him "Joe Giddens"; his full name was <b>Joe Edd Giddens</b>. Headstone photographed October 2013, and named as "Joe E. Giddens" in his son Ernest’s obituary.<br><br><b>Giddens is one of the most locally rooted names in your tree</b> — about twelve times more concentrated in these counties than chance, and in Berrien County thirty-four times. English, habitational, from one of several villages: Giddinge in Kent, Gedding in Suffolk, or the Gidding villages near Huntingdon. The confident "Giddings of Huntingdonshire" story you may have heard is a simplification.',
   src:[S.fg('https://www.findagrave.com/memorial/32978224/joe_edd-giddens')], cen:[]},
 
-sallymercer:{n:'Sallie Mae Mercer', g:'c', b:'1901', d:'1992',
+sallymercer:{n:'Sallie Mae Mercer', g:'c', b:'6 Nov 1901', d:'18 Sep 1992',
   bur:'Sweetwater United Methodist Church Cemetery, Pearson, Atkinson County',
-  ev:'Family tradition called her "Sally Mercer"; her full name was <b>Sallie Mae Mercer</b>. Confirmed as Lucille’s mother by Ernest Giddens’s obituary naming "Sally Mercer Giddens."<br><br><b>A new lead on her own parents:</b> a 1925 Atkinson County death certificate records Denis Mercer, born 12 February 1902 at Pearson, son of <b>Charley Mercer and Ida F. Brown</b>. Same surname, same small town, born months apart from Sallie Mae. Worth testing — not yet evidence.',
+  ev:'Family tradition called her "Sally Mercer"; her full name was <b>Sallie Mae Mercer</b>. Confirmed as Lucille’s mother by Ernest Giddens’s obituary naming "Sally Mercer Giddens." She outlived Joe Edd by eighteen years and lies beside him.<br><br><b>Her parents are now named by a record, not by a family tree.</b> The 1925 Atkinson County death certificate of <b>Denis Mercer</b> of Pearson gives his father as <b>Charley Mercer</b>, born Georgia, and his mother as <b>Ida F. Brown</b>, born <b>Clinch County, Georgia</b> — and the informant who supplied those answers, signing at the foot of the page, is <b>C. R. Mercer of Pearson</b>. The father, reporting his own son. Denis was buried at <b>Sweet Water</b> on 31 March 1925, the same churchyard where Sallie Mae lies.<br><br><b>What that settles and what it does not.</b> It settles Charles Robert Mercer and Ida Frances Brown as a couple raising children at Pearson, on a state record, in the father’s own testimony. That Sallie Mae was one of those children still rests on the cemetery’s family links rather than on a document naming her — which is why she is drawn here as their <i>probable</i> daughter and not their proven one. <b>Her own 1992 Georgia death certificate would end the question outright</b>, and the State holds it.<br><br><b>One thing does not add up, and it is worth saying plainly.</b> The certificate puts Denis’s birth at <b>12 February 1902</b>. Sallie Mae’s headstone says <b>6 November 1901</b>. Three months apart is not possible for two children of one mother. Either the stone is wrong, or a grieving father guessed at a birth date under a registrar’s pen — the likelier of the two, and probably why the cemetery records Denis as born in 1900 instead.',
   src:[S.ob('https://obituaries.tiftongazette.com/obituary/ernest-giddens-739580082'),
-       S.ga('https://vault.georgiaarchives.org/digital/collection/gadeaths/id/262038')], cen:[]},
+       S.ga('https://vault.georgiaarchives.org/digital/collection/gadeaths/id/262038'),
+       S.fg('https://www.findagrave.com/memorial/85831793/sallie_mae-giddens')], cen:[]},
+
+charliemercer:{n:'Charles Robert "Charlie" Mercer', g:'pr', b:'15 Nov 1869', bp:'Lowndes County, Georgia',
+  d:'3 Sep 1943', dp:'Atkinson County', bur:'Sweetwater United Methodist Church Cemetery, Pearson',
+  ev:'<b>He enters this tree as a signature.</b> At the bottom of his son Denis’s death certificate, under "THE ABOVE IS TRUE TO THE BEST OF MY KNOWLEDGE," is written <b>C. R. Mercer, Pearson, Ga.</b> — and above it, in the registrar’s hand, the father is <i>Charley Mercer, born Georgia</i>. A man naming himself as the father of his own dead son is about as direct as a genealogical statement gets.<br><br>Born in <b>Lowndes County</b> in November 1869 and married <b>Ida Frances Brown in 1891</b>, he moved north into what became Atkinson County and raised eight children at Pearson. He outlived his wife by twenty-four years and died there on <b>3 September 1943</b>, aged 73.<br><br><b>His own certificate exists and can be had.</b> Georgia registered deaths from 1919, and the Georgia Archives holds the originals through 1943 — his is inside that window by four months. It would name <i>his</i> parents, and settle the generation above him, which currently rests on nothing but a cemetery note.',
+  src:[S.ga('https://vault.georgiaarchives.org/digital/collection/gadeaths/id/262038'),
+       S.fg('https://www.findagrave.com/memorial/32978358/charles_robert-mercer')], cen:[]},
+
+idabrown:{n:'Ida Frances Brown', g:'pr', b:'4 Apr 1874', bp:'Clinch County, Georgia',
+  d:'25 Jan 1919', dp:'Atkinson County', bur:'Sweetwater United Methodist Church Cemetery, Pearson',
+  ev:'<b>Two sources that never copied one another agree on where she came from.</b> Her headstone gives her birth as 4 April 1874 in <b>Clinch County</b>; her son’s 1925 death certificate, filled in by her husband six years after she was dead, gives the mother’s birthplace as <b>"Clinch Co Ga."</b> That is independent corroboration of the one fact that matters most about her — which county to search next.<br><br><b>She died on 25 January 1919, aged forty-four</b>, in the last weeks of the influenza pandemic that killed more Americans than the war had. Her youngest, Doris, was a year old.<br><br><b>Her death was never registered by the State, and that is a finding rather than a gap.</b> Georgia began recording deaths in 1919, but the machinery took years to reach the pine country. For the whole of Atkinson County in the whole of 1919 the state holds <b>nine</b> death certificates, and none of them is hers. There is no document to order. What is left of her death is a stone, a date, and a line on her husband’s later paperwork.',
+  src:[S.ga('https://vault.georgiaarchives.org/digital/collection/gadeaths/id/262038'),
+       S.fg('https://www.findagrave.com/memorial/32978361/ida_frances-mercer')], cen:[]},
+
+jamesrmercer:{n:'James R. Mercer', g:'l', b:'abt 1822', d:'1910',
+  ev:'<b>A lead, and nothing more yet.</b> The Sweetwater cemetery records give Charlie Mercer’s father as James R. Mercer, 1822–1910, and a free-text note on the same page adds a mother, <i>Bedona Robinson Mercer, 1833–1889.</i> Neither statement carries a source.<br><br>He would have been born in Georgia around 1822 and died in 1910 — <b>nine years before the State began registering deaths</b>, so there is no certificate to settle it. The route to proof runs through Charlie’s own 1943 certificate, which the Archives holds, and through the 1870 and 1880 censuses of Lowndes County.',
+  src:[S.fg('https://www.findagrave.com/memorial/32978358/charles_robert-mercer')], cen:[]},
+
+bedona:{n:'Bedona Robinson', g:'l', b:'abt 1833', d:'1889',
+  ev:'<b>The weakest kind of claim in this tree, and it is labelled as such.</b> She appears only as a handwritten line above the family list on her son’s memorial page — "mother was Bedona Robinson Mercer 1833-1889" — not as a linked record, not as a transcription of a stone, not with any source at all. She is carried here so the name is not lost, at the grade the evidence actually supports.',
+  src:[S.fg('https://www.findagrave.com/memorial/32978358/charles_robert-mercer')], cen:[]},
+
+jamesbrown:{n:'James Brown', g:'l', b:'abt 1828', d:'1900',
+  ev:'<b>Named as Ida Frances Brown’s father in the Sweetwater cemetery records, with no source given.</b> A Clinch County man, born about 1828, dead in 1900 — nineteen years before Georgia registered deaths. Three of his children are listed with him: Kizziah, Rachel Lacretia and Charley E. Brown.<br><br>The independent corroboration that Ida was <i>born in Clinch County</i> comes from her son’s 1925 certificate, and that at least puts the search in the right county. Clinch County marriage books and the 1870 and 1880 censuses are where this either becomes real or falls away.',
+  src:[S.fg('https://www.findagrave.com/memorial/32978361/ida_frances-mercer')], cen:[]},
+
+sarahhughes:{n:'Sarah M. "Sally" Hughes', g:'l', b:'abt 1847', d:'1904',
+  ev:'<b>Named as Ida Frances Brown’s mother in the Sweetwater cemetery records, with no source given.</b> Born about 1847 — nineteen years after the James Brown she is paired with — and dead in 1904. The Hughes surname is the only new thread she adds, and it is a thread, not a finding.',
+  src:[S.fg('https://www.findagrave.com/memorial/32978361/ida_frances-mercer')], cen:[]},
 
 lucius:{n:'Lucius L. Luke', g:'c', b:'9 Oct 1872', d:'21 Jun 1920', dp:'Ocilla, Irwin County',
   bur:'Brushy Creek Primitive Baptist Church Cemetery, Ocilla',
@@ -587,6 +616,17 @@ sally:{ g:'c', of:'Jesse Lee Hall & Mattie Cribb', src:'1950 census at Ambrose, 
   ['Shirley "Monk" Hall Griner','—','m. James Griner'],
   ['Myrtice "Possum" Hall Brown','—','']]},
 
+sallymercer:{ g:'pr', lg:'pr', of:'Charles Robert Mercer & Ida Frances Brown', src:'Sweetwater United Methodist Church Cemetery records — corroborated for one child, Denis, by his 1925 Georgia death certificate',
+ list:[
+  ['Luther Robert Mercer','1894 – 1973',''],
+  ['George Franklin Mercer','1896 – 1970',''],
+  ['Dennis Mercer','1900 – 1925','a farmer in Clinch County; died of pneumonia at Pearson after five days. <b>His certificate is the record that named this whole family.</b>'],
+  ['Sallie Mae Mercer','1901 – 1992','m. Joe Edd Giddens — your great-grandmother','me'],
+  ['Lucy Mercer Morgan','1904 – 1984',''],
+  ['Mattie Lee Mercer Davis','1908 – 1987',''],
+  ['James Elton "Buck" Mercer','1914 – 1987',''],
+  ['Doris Mercer Reed','1917 – 2011','a year old when her mother died']]},
+
 lucille:{ g:'c', of:'Joe Edd Giddens & Sallie Mae Mercer', src:'Ernest Giddens’s 2011 obituary, which named the parents and every sibling',
  list:[
   ['Louell Giddens Bowen','1923 – 2008',''],
@@ -645,12 +685,15 @@ const GENS = [
    {lab:'Luke — Ocilla, Irwin County', a:'lucius', b:'narcisus'},
    {lab:'Hinton — Levyville, Levy County, Florida', a:'mackie', b:'abby'},
    {lab:'McKinnon — Pearson, Coffee County', a:'george', b:'martha'},
-   {lab:'Carver — Douglas, Coffee County', a:'elias', b:'laura'}]},
- {no:'VI', t:'Third great-grandparents', era:'1828 – 1943', rows:[
+   {lab:'Carver — Douglas, Coffee County', a:'elias', b:'laura'},
+   {lab:'Mercer — Pearson, Atkinson County', a:'charliemercer', b:'idabrown'}]},
+ {no:'VI', t:'Third great-grandparents', era:'1822 – 1943', rows:[
    {lab:'Luke — near Lax, Coffee County', a:'rb', b:'janeyawn'},
    {lab:'Harper — Irwinville, Irwin County', a:'henrysharper', b:'pollyvickers'},
    {lab:'McKinnon — Waresboro, then Coffee County', a:'jimmckinnon', b:'marydurham'},
-   {lab:'Ricketson — Montgomery County, then Coffee', a:'rickerson', b:'marthaoverstreet'}]},
+   {lab:'Ricketson — Montgomery County, then Coffee', a:'rickerson', b:'marthaoverstreet'},
+   {lab:'Mercer — Lowndes County', a:'jamesrmercer', b:'bedona'},
+   {lab:'Brown — Clinch County', a:'jamesbrown', b:'sarahhughes'}]},
  {no:'VII', t:'Fourth great-grandparents', era:'1798 – 1896', rows:[
    {lab:'Luke — Berrien County, by way of a Laurens County wedding', a:'johnluke', b:'telitha'},
    {lab:'Harper — Irwinville, Irwin County', a:'hscharper', b:'nancymerritt'},
