@@ -30,6 +30,26 @@ const S = {
 /* ============================ CENSUS HOUSEHOLDS ============================ */
 const CEN = {
 
+c1860hughs: {y:'1860', t:'The Hughs household of the Southern District',
+  pl:'Southern District, Clinch County, Georgia · page 36, dwelling 253, family 217',
+  cite:'NARA M653 · the only Hughs family in the county',
+  url:'https://www.familysearch.org/ark:/61903/1:1:MZMJ-BX6',
+  cols:['Name','Age','Sex','Born'],
+  rows:[
+    ['Hughs, Wm.','<b>45</b>','M','<b>S. C.</b> · <b>Farmer</b> · real estate <b>$1,000</b>, personal <b>$355</b>'],
+    ['Nancy','<b>43</b>','F','<b>S. C.</b>'],
+    ['Isaac','18','M','Ga.'],
+    ['Jonas H.','15','M','Ga.'],
+    ['<b>Sarah M.</b>','<b>13</b>','F','Ga.','me'],
+    ['Thomas M.','12','M','Ga.'],
+    ['Rachel E.','12','F','Ga.'],
+    ['John J.','10','M','Ga.'],
+    ['Jeptha','8','M','Ga.'],
+    ['Mary A.','6','F','Ga.'],
+    ['Henry M.','5','M','Ga.'],
+    ['Frances','2','F','Ga.'],
+    ['Charles','1/12','M','Ga.']],
+  note:'<b>Thirteen people, and the fifth child is the one this tree needs.</b> <i>Sarah M. Hughs, aged 13</i> — born about 1847, in Clinch County, with the middle initial <b>M</b> that her headstone also carries. She is the woman who married James Brown about five years after this page was written.<br><br><b>Her parents were not Georgians.</b> William Hughs, 45, and Nancy, 43, are both entered as born in <b>South Carolina</b>; every one of their children is <b>Ga.</b> The family crossed into Georgia between Nancy’s birth about 1817 and Isaac’s about 1842.<br><br>William farmed, and he was not poor by the standards of this file: <b>$1,000 in real estate and $355 in personal property</b> in 1860, when most of the men in your tree held a few hundred dollars of stock and no land at all.<br><br><b>This is also the only Hughs household in Clinch County in 1860</b>, which is why the identification holds up: there was no other family of that surname in the county for a Sarah M. to belong to.'},
 c1870brown: {y:'1870', t:'James Brown in District 1224',
   pl:'District 1224, Clinch County, Georgia · page 7, dwelling and family 53',
   cite:'NARA M593 · the earliest record of this household',
@@ -444,6 +464,18 @@ sarahhughes:{n:'Sallie Hughes', g:'c', b:'Jan 1847', bp:'Clinch County, Georgia'
        S.ga('https://www.familysearch.org/ark:/61903/1:1:QJXM-K6TN')],
   cen:['c1870brown','c1900brown']},
 
+williamhughs:{n:'William Hughs', g:'pr', b:'abt 1815', bp:'South Carolina',
+  occ:['Farmer, Clinch County','pr',
+    'The 1860 census enters him as <b>Farmer</b>, holding <b>$1,000</b> in real estate and <b>$355</b> in personal property — a landowner, and by some distance the richest man on this side of your tree at that date. For comparison, James Brown, who married his daughter, held two hundred dollars of personal property and no land at all when he was counted ten years later.'],
+  ev:'<b>He is the reason there is a Carolina in your mother’s ancestry after all.</b> In the 1860 census of the <b>Southern District of Clinch County</b> — dwelling 253 — William Hughs, 45, and his wife Nancy, 43, are both entered as born in <b>South Carolina</b>, with eleven children under the same roof and every one of them born in <b>Georgia</b>. The family crossed the state line somewhere between about 1817 and about 1842.<br><br>That matters because this site spent a day believing the Carolina connection ran through the <i>Browns</i>, on the strength of a 1935 death certificate, and had to withdraw it when two censuses showed James Brown born in Georgia. The Carolina origin was real; it was simply on the other side of that marriage.<br><br><b>His fifth child is Sarah M. Hughs, aged 13</b> — born about 1847, the middle initial matching the <i>Sarah M.</i> on her own headstone, in the only household of that surname in the county. She married James Brown about 1865.<br><br><b>He is drawn as probable rather than proved.</b> The census shows a Sarah M. Hughs of the right name, age and county in his house; it does not say she is the Sallie Hughes who married James Brown. That link is an identification, not a statement in a record — a good one, because there was no second Hughs family in Clinch County for her to belong to, but an identification all the same.',
+  src:[S.fs('https://www.familysearch.org/ark:/61903/1:1:MZMJ-BX6')],
+  cen:['c1860hughs']},
+
+nancyhughs:{n:'Nancy Hughs', g:'pr', b:'abt 1817', bp:'South Carolina',
+  ev:'<b>Born in South Carolina about 1817</b>, and in June 1860 she was forty-three years old with <b>eleven children living in the house</b>, the eldest eighteen and the youngest one month. A twelfth, John, appears on the line above the household head.<br><br>Everything else about her is her husband’s record: the census gives her name, her age and her birthplace and nothing more — no maiden name, which is the usual wall for women of her generation. It would come from a Clinch or a South Carolina marriage record, or from a death certificate she was fifty years too early to have.<br><br>Her daughter <b>Sarah M.</b> was thirteen that summer and would marry James Brown about five years later, and bear eight children of her own.',
+  src:[S.fs('https://www.familysearch.org/ark:/61903/1:1:MZMJ-BX6')],
+  cen:['c1860hughs']},
+
 lucius:{n:'Lucius L. Luke', g:'c', b:'9 Oct 1872', d:'21 Jun 1920', dp:'Ocilla, Irwin County',
   bur:'Brushy Creek Primitive Baptist Church Cemetery, Ocilla',
   occ:['Farmer','c',
@@ -796,7 +828,8 @@ const GENS = [
    {lab:'Luke — Berrien County, by way of a Laurens County wedding', a:'johnluke', b:'telitha'},
    {lab:'Harper — Irwinville, Irwin County', a:'hscharper', b:'nancymerritt'},
    {lab:'McKinnon — born in North Carolina about 1804', a:'jamesmalcolm'},
-   {lab:'Yawn — Coffee County; she died in childbirth, February 1860', a:'antneyyawn', b:'yawnmother'}]},
+   {lab:'Yawn — Coffee County; she died in childbirth, February 1860', a:'antneyyawn', b:'yawnmother'},
+   {lab:'Hughs — Clinch County, out of South Carolina', a:'williamhughs', b:'nancyhughs'}]},
  {no:'VIII', t:'Fifth great-grandparents', era:'1783 – 1850', rows:[
    {lab:'Luke — the Irwin County pioneer, from South Carolina', a:'danielluke'},
    {lab:'Harper — the first Harper in Irwin County', a:'leonardharper'},
