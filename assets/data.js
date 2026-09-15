@@ -528,8 +528,8 @@ const KIDS = {
 
 jaxon:{ g:'u', lg:'c', of:'Richard Luke & Andrea Denise McKinnon', src:'Family knowledge \u2014 both are living, so no record is cited or needed',
  list:[
-  ['Jaxon Brady Luke','b. 2000','the subject of this tree','me'],
-  ['Jordan Parker Luke','living','brother \u2014 shares the Parker of his grandfather Elmer Parker Luke']]},
+  ['Jordan Parker Luke','living','elder brother \u2014 shares the Parker of his grandfather Elmer Parker Luke'],
+  ['Jaxon Brady Luke','b. 2000','the subject of this tree','me']]},
 
 elmer:{ g:'c', of:'Jack Luke & Nealie Hinton', src:'Obituaries of Inez, Brenda, Versa Mae and Lucious; 1930 and 1950 censuses',
  list:[
