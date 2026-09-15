@@ -9,7 +9,8 @@
     ['origins.html', 'Origins'],
     ['stories.html', 'Lives'],
     ['kin.html',     'Kin'],
-    ['records.html', 'Documents']
+    ['records.html', 'Documents'],
+    ['next.html',    'What to ask for']
   ];
   const bar = document.createElement('div');
   bar.className = 'topbar';
