@@ -516,6 +516,105 @@ leonardharper:{n:'Leonard Harper', g:'pr', b:'before 1800', d:'before 1845',
 };
 
 /* ============================ GENERATIONS ============================ */
+
+/* ---------------------------------------------------------------- children
+   Whole sibships, keyed by the one child this family descends from.
+   `list` runs in birth order; `me` marks the direct line; `g` is the grade of
+   the sibship as a whole, so an unproven one draws in rust and dashes.
+   Entries are [name, dates, note, kind] — kind 'half' or 'twin' where it
+   matters. These people are not in PEOPLE: they have no ancestry drawn, only
+   a place beside the sibling this line runs through. */
+const KIDS = {
+
+jaxon:{ g:'u', lg:'c', of:'Richard Luke & Andrea Denise McKinnon', src:'Family knowledge \u2014 both are living, so no record is cited or needed',
+ list:[
+  ['Jaxon Brady Luke','b. 2000','the subject of this tree','me'],
+  ['Jordan Parker Luke','living','brother \u2014 shares the Parker of his grandfather Elmer Parker Luke']]},
+
+elmer:{ g:'c', of:'Jack Luke & Nealie Hinton', src:'Obituaries of Inez, Brenda, Versa Mae and Lucious; 1930 and 1950 censuses',
+ list:[
+  ['Richard Cleo Luke Sr.','1920 – 2005','half-brother, son of Jack’s first wife Clyde McMillan; d. Palm Bay, Florida','half'],
+  ['Dorothy Lee "Dot" Luke Callaway','b. abt 1927','born Florida; in the 1930 household; died before about 1962'],
+  ['Versa Mae Luke Law','1928 – 2020','Martha Berry scholarship; Savannah shipyards in the war; 35 years a seamstress'],
+  ['Inez Luke Crosby','1930 – 2016','m. Johnny E. Crosby; machine operator; Willacoochee City Cemetery'],
+  ['Doris Kathleen Luke Merritt','1931 – 2002','d. Center Hill, Florida; her Social Security application named the parents'],
+  ['Lucious Luke','1933 – 2018','Sears, Elixir Industries, and the City of Willacoochee'],
+  ['James E. Luke','d. 2018 × 2023','m. Lenora'],
+  ['Curtis Luke','b. 1936','living 2026'],
+  ['John Wesley Luke Jr.','1938 – 1982','buried with his parents at Brushy Creek'],
+  ['Jewel Faye Luke Moore','living 2023',''],
+  ['Voncile "Bonnie" Luke Cavender','living 2023','m. Jim Cavender'],
+  ['Ottis Luke','living 2023','m. Barbara'],
+  ['Elmer Parker Luke','living','m. Sally Rudine Hall — your grandfather','me'],
+  ['Butler Luke','living 2023','m. Linda'],
+  ['Brenda Carol Luke Jewell','1949 – 2023','her 2023 obituary is what fixed the size of this family']]},
+
+andrew:{ g:'c', of:'Monroe McKinnon Sr. & Mary Jane Carver', src:'1950 census at Mora, plus five separate funeral notices',
+ list:[
+  ['Edward McKinnon','1924 – 2002','already grown and gone by the 1950 count'],
+  ['Harvey McKinnon','1926 – 2018','U.S. Army, WWII; farmer; deacon, St. Illa Baptist'],
+  ['Willie Mae McKinnon','1928 – 2020','never married; seamstress, thirty years at Spectrum'],
+  ['Louise McKinnon Maulden','1930 – 2024','m. Beach E. Maulden, 48 years'],
+  ['Arlen McKinnon Sr.','1932 – 2015','PFC, U.S. Army, Korea — on his VA marker, and in no obituary'],
+  ['Randall McKinnon','1935 – 1999',''],
+  ['Andrew McKinnon','1937 – 2009','m. Lucille Giddens — your grandfather','me'],
+  ['Betty Jean McKinnon Soles','b. 1939',''],
+  ['Florene McKinnon Phillips','b. 1940',''],
+  ['Monroe McKinnon Jr.','1941 – 2023','Production Manager, Fleetwood Homes; deacon, Mora Baptist'],
+  ['Bobby McKinnon','b. abt 1943','in the 1950 census — and missing from the family group posted online'],
+  ['Martha McKinnon Denton','b. abt 1945','m. Billy Denton, Broxton — also missing from that group']]},
+
+sally:{ g:'c', of:'Jesse Lee Hall & Mattie Cribb', src:'1950 census at Ambrose, plus three brothers’ obituaries',
+ list:[
+  ['Myrtle Hall Shook','age 20 in 1950','"Farm Helper, no pay" — a 48-hour week on her father’s place'],
+  ['Henry Hall','age 19 in 1950','"Farm Helper, no pay" — the same 48-hour week'],
+  ['Mitchell Hall','1934 – 2012',''],
+  ['"Pete" Hall','age 14 in 1950','entered as "Frank" by the enumerator'],
+  ['Jesse James "Buck" Hall','1939 – 2022','b. Atkinson County'],
+  ['Lorraine Hall','age 9 in 1950',''],
+  ['Chester Hall','age 6 in 1950','m. Verneil, of Willacoochee'],
+  ['Joe "Bud" Ronald Hall','1947 – 2020','b. Ocilla'],
+  ['Sally Rudine Hall','b. Aug 1949','the census infant "Rudine"; m. Elmer Parker Luke — your grandmother','me'],
+  ['Judy Hall Luke','deceased','a second Hall sister who married a Luke'],
+  ['Shirley "Monk" Hall Griner','—','m. James Griner'],
+  ['Myrtice "Possum" Hall Brown','—','']]},
+
+lucille:{ g:'c', of:'Joe Edd Giddens & Sallie Mae Mercer', src:'Ernest Giddens’s 2011 obituary, which named the parents and every sibling',
+ list:[
+  ['Louell Giddens Bowen','1923 – 2008',''],
+  ['Ernest Giddens','1929 – 2011','his obituary is the document that proved this entire family'],
+  ['Luther Robert Giddens','1931 – 1996',''],
+  ['Mary R. Giddens Rau','1934 – 2009',''],
+  ['Fred Giddens','living 2011','of Uvalda, Georgia'],
+  ['Jo Ann Giddens Snipes','living 2011','of Albany, Georgia'],
+  ['Lucille Giddens','b. 1945','m. Andrew McKinnon — your grandmother','me'],
+  ['Jerry & Larry Giddens','both 1947','twins, died in infancy','twin']]},
+
+jack:{ g:'c', of:'Lucius L. Luke & Narcisus Harper', src:'1900 and 1910 censuses, and two Georgia death certificates',
+ list:[
+  ['Willie L. Luke','1895 – 1925','"a well known young farmer of Irwin County"; died of pneumonia after influenza'],
+  ['John Wesley "Jack" Luke','1896 – 1964','your great-grandfather','me'],
+  ['Lessie May Luke','1918 – 1919','died at one year, nine months and five days']]},
+
+janeyawn:{ g:'pr', of:'Antney Yawn & Elizabeth Yawn', src:'1860 Coffee County census, where all three were boarded with the Elias Johns family',
+ list:[
+  ['Elizabeth Yawn','1855 – 1924','later Elizabeth Luke of Clinch County — her death certificate named the parents'],
+  ['Jane (Janie Ruth) Yawn','abt 1855 – 1943','m. R. B. Luke — your third-great-grandmother','me'],
+  ['Polly Ann Yawn','b. abt 1859','aged one in June 1860 — almost certainly the child her mother died having']]},
+
+johnluke:{ g:'l', of:'Daniel Luke', src:'J. B. Clements, History of Irwin County (1932) — an unsourced family sketch',
+ list:[
+  ['Joshua A. Luke','b. abt 1803','Senior Warden of Irwin Lodge No. 212; the 1850 census marks him unable to read or write'],
+  ['Mack Luke','b. South Carolina',''],
+  ['Jasper M. Luke','','Coroner of Irwin County in 1840'],
+  ['James C. Luke','',''],
+  ['John Luke','abt 1798 – 1875','your fifth-great-grandfather — but no document links him to Daniel','me'],
+  ['Jesse J. Luke','','Tax Collector of Irwin County, 1854; Irwin Lodge No. 212 from 1858'],
+  ['David Perry Luke','1825 – 1920','Co. G, 50th Georgia. His death certificate names Daniel as his father — the one hard link in this row'],
+  ['Betsey Luke','',''],
+  ['Mary Luke','','']]}
+};
+
 const GENS = [
  {no:'I', t:'Jaxon', era:'2000 –', rows:[{lab:'', a:'jaxon'}]},
  {no:'II', t:'Parents', era:'living', rows:[{lab:'Father and mother', a:'richard', b:'andrea'}]},

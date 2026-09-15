@@ -71,6 +71,24 @@ body{display:flex;flex-direction:column}
 .nm .tr.pr{color:var(--ochre)}
 .nm .tr.l{color:var(--rust)}
 
+/* --- sibling card: smaller, quieter, no photo slot --- */
+.kid{position:absolute;width:168px;padding:6px 9px;border-radius:3px;cursor:pointer;
+  background:var(--panel);border:1px solid var(--rule-soft);border-left-width:3px;
+  font:inherit;text-align:left;color:inherit;overflow:hidden;
+  transition:box-shadow .14s ease,border-color .14s ease,background .14s ease}
+.kid:hover{background:var(--raised);box-shadow:0 2px 4px rgba(22,25,26,.08);
+  border-color:var(--ink-3);z-index:5}
+.kid:focus-visible{outline:2px solid var(--verdigris);outline-offset:2px}
+.kid.c{border-left-color:color-mix(in srgb,var(--verdigris) 55%,transparent)}
+.kid.pr{border-left-color:color-mix(in srgb,var(--ochre) 55%,transparent)}
+.kid.l{border-left-color:color-mix(in srgb,var(--rust) 55%,transparent)}
+.kid.half{border-left-style:dashed}
+.kid b{display:block;font-family:Spectral,serif;font-size:12px;font-weight:600;
+  line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kid .ky{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+  color:var(--ink-3);margin-top:2px;font-variant-numeric:tabular-nums;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
 /* --- controls --- */
 #hud{position:absolute;left:14px;bottom:14px;display:flex;gap:6px;align-items:center;z-index:12}
 .btn{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
@@ -79,6 +97,8 @@ body{display:flex;flex-direction:column}
 .btn:hover{background:var(--raised);color:var(--ink);border-color:var(--ink-3)}
 .btn:focus-visible{outline:2px solid var(--verdigris);outline-offset:2px}
 .btn.sq{width:30px;padding:6px 0;text-align:center;font-size:14px}
+.btn.tog[aria-pressed="true"]{background:var(--verdigris-wash);color:var(--verdigris);
+  border-color:var(--verdigris);font-weight:600}
 
 #key{position:absolute;right:14px;bottom:14px;z-index:12;display:flex;flex-direction:column;
   gap:5px;align-items:flex-end;background:color-mix(in srgb,var(--ground) 86%,transparent);
@@ -110,6 +130,7 @@ body{display:flex;flex-direction:column}
     <button class="btn sq" id="bIn" aria-label="Zoom in">+</button>
     <button class="btn sq" id="bOut" aria-label="Zoom out">−</button>
     <button class="btn" id="bMe">Find me</button>
+    <button class="btn tog" id="bKids" aria-pressed="false">Show children</button>
   </div>
 
   <div id="key">
@@ -119,6 +140,7 @@ body{display:flex;flex-direction:column}
     <div class="kr"><span class="sw" style="background:var(--ink-3)"></span>Living — records withheld</div>
     <div class="hint">Dashed line = the relationship itself is unproven</div>
     <div class="hint">Italic line = trade, where a record states one</div>
+    <div class="hint">Small cards = siblings, when children are shown</div>
   </div>
 </div>
 
@@ -160,46 +182,90 @@ const LINK = {
 };
 
 /* ---------- tidy layout ----------
-   Leaves are placed in unit slots and parents sit at the mean of their
-   children, so no vertical space is wasted between branches. The pixel
-   height of a slot is worked out afterwards, from the window's own shape,
-   so that the finished bowtie fills the screen instead of sitting in a
-   band across the middle of it. */
-const COL = 214, CARD_W = 184, CARD_H = 62, ME_W = 206;
-const pos = {};
-let slots = 0;
+   Leaves take unit slots and parents sit at the mean of their children, so no
+   vertical space is wasted between branches. When whole sibships are shown a
+   row must reserve slots for every child, not just the one this line runs
+   through, so the band widens and the direct child keeps its birth-order
+   place inside it. Slot height in pixels is worked out afterwards, from the
+   window's own shape, so the finished bowtie fills the screen. */
+const COL = 214, CARD_W = 184, CARD_H = 62, ME_W = 206, KID_W = 168, KID_H = 46;
+const KIDSET = (typeof KIDS !== 'undefined') ? KIDS : {};
 
-function buildSide(rootId, dir){
-  let cursor = 0;
-  (function place(id, depth){
-    const kin = (PARENTS[id] || []).filter(Boolean).filter(k => PEOPLE[k]);
-    let u;
-    if(!kin.length){ u = cursor; cursor += 1; }
-    else {
-      const us = kin.map(k => place(k, depth + 1));
-      u = us.reduce((a,b) => a + b, 0) / us.length;
-    }
-    pos[id] = { x: dir * (depth + 1) * COL, u, dir };
-    return u;
-  })(rootId, 0);
-  const off = pos[rootId].u;
-  Object.values(pos).forEach(p => { if(p.dir === dir && p.adj !== 1){ p.u -= off; p.adj = 1; } });
-  slots = Math.max(slots, cursor);
+let pos = {}, kidNodes = [], bounds = null, ROW = 90;
+let minX = 0, maxX = 0, minY = 0, maxY = 0;
+
+function layout(withKids){
+  pos = {}; kidNodes = [];
+  const base = {};
+
+  function buildSide(rootId, dir){
+    let cursor = 0;
+    (function place(id, depth){
+      const kin = (PARENTS[id] || []).filter(Boolean).filter(k => PEOPLE[k]);
+      const grp = withKids ? KIDSET[id] : null;
+      const n   = grp ? grp.list.length : 1;
+      const k   = grp ? grp.list.findIndex(r => r[3] === 'me') : 0;
+      let u, top;
+
+      if(!kin.length){
+        top = cursor; cursor += n; u = top + k;
+      } else {
+        const lo = cursor;
+        const us = kin.map(x => place(x, depth + 1));
+        u = us.reduce((a,b) => a + b, 0) / us.length;
+        if(cursor - lo < n) cursor += n - (cursor - lo);   /* widen the band */
+        top = Math.max(lo, Math.min(u - k, cursor - n));   /* keep the row inside it */
+        u = top + k;
+      }
+      pos[id] = { x: dir * (depth + 1) * COL, u, dir };
+      if(grp) base[id] = { top: top, dir: dir, depth: depth, grp: grp };
+      return u;
+    })(rootId, 0);
+    const off = pos[rootId].u;
+    Object.keys(pos).forEach(i => { const p = pos[i];
+      if(p.dir === dir && !p.adj){ p.u -= off; p.adj = 1; } });
+    Object.keys(base).forEach(i => { const bAtI = base[i];
+      if(bAtI.dir === dir && !bAtI.adj){ bAtI.top -= off; bAtI.adj = 1; } });
+  }
+  buildSide('richard', -1);
+  buildSide('andrea',  +1);
+  pos.jaxon = { x: 0, u: 0, dir: 0 };
+
+  /* the subject's own brothers and sisters sit in the centre column and are
+     always drawn — hiding your own siblings behind a toggle makes no sense */
+  const jg = KIDSET.jaxon;
+  if(jg){
+    const k = jg.list.findIndex(r => r[3] === 'me');
+    jg.list.forEach((row, i) => {
+      if(row[3] === 'me') return;
+      kidNodes.push({ row: row, via: 'jaxon', grade: jg.g, lgrade: jg.lg || jg.g,
+                      x: 0, u: i - k, dir: -1 });
+    });
+  }
+
+  /* the siblings themselves: same column, birth order, around the direct child */
+  Object.keys(base).forEach(id => {
+    if(id === 'jaxon') return;
+    const b = base[id];
+    b.grp.list.forEach((row, i) => {
+      if(row[3] === 'me') return;
+      kidNodes.push({ row: row, via: id, grade: b.grp.g, lgrade: b.grp.lg || b.grp.g,
+                      x: pos[id].x, u: b.top + i, dir: b.dir });
+    });
+  });
+
+  /* width is fixed by the generations; pick a slot height that gives the
+     drawing roughly the window's aspect ratio */
+  const allU = Object.keys(pos).map(i => pos[i].u).concat(kidNodes.map(k => k.u));
+  const treeW = (Math.max.apply(null, Object.keys(pos).map(i => Math.abs(pos[i].x))) * 2)
+                + CARD_W + 120;
+  const uSpan = Math.max(1, Math.max.apply(null, allU) - Math.min.apply(null, allU));
+  const vp = document.getElementById('stage').getBoundingClientRect();
+  ROW = Math.max(withKids ? KID_H + 10 : CARD_H + 14,
+        Math.min(190, (treeW * (vp.height / Math.max(vp.width, 1))) / uSpan));
+  Object.keys(pos).forEach(i => { pos[i].y = pos[i].u * ROW; });
+  kidNodes.forEach(k => { k.y = k.u * ROW; });
 }
-buildSide('richard', -1);
-buildSide('andrea',  +1);
-pos.jaxon = { x: 0, u: 0, dir: 0 };
-
-/* width is fixed by the number of generations; choose the slot height so the
-   drawing has roughly the window's aspect ratio, then clamp it to something
-   that always leaves the cards room to breathe. */
-const treeW = (Math.max(...Object.values(pos).map(p => Math.abs(p.x))) * 2) + CARD_W + 120;
-const uSpan = Math.max(1,
-  Math.max(...Object.values(pos).map(p => p.u)) - Math.min(...Object.values(pos).map(p => p.u)));
-const vp = document.getElementById('stage').getBoundingClientRect();
-const ROW = Math.max(CARD_H + 14,
-            Math.min(190, (treeW * (vp.height / Math.max(vp.width, 1))) / uSpan));
-Object.values(pos).forEach(p => { p.y = p.u * ROW; });
 
 /* ---------- render ---------- */
 const canvas = document.getElementById('canvas');
@@ -207,98 +273,128 @@ const wires  = document.getElementById('wires');
 const initials = n => n.replace(/["“”]/g,'').split(/\s+/)
   .filter(w => /^[A-Z]/.test(w) && !/^(Sr\.|Jr\.|de|van)$/i.test(w))
   .slice(0,2).map(w => w[0]).join('');
-
-let minX=0, maxX=0, minY=0, maxY=0;
-const frag = document.createDocumentFragment();
-
-Object.keys(pos).forEach(id => {
-  const p = PEOPLE[id]; if(!p) return;
-  const { x, y } = pos[id];
-  const me = id === 'jaxon';
-  const w = me ? ME_W : CARD_W;
-
-  const el = document.createElement('button');
-  el.className = 'node ' + p.g + (me ? ' me' : '');
-  el.dataset.id = id;
-  el.style.left = (x - w/2) + 'px';
-  el.style.top  = (y - CARD_H/2) + 'px';
-
-  const dates = p.liv ? 'living'
-    : (p.b || p.d) ? `${(p.b||'?').replace(/^about /,'c.')} – ${(p.d||'?').replace(/^about /,'c.')}`
-    : '';
-  const place = p.bur ? p.bur.split(',')[0]
-    : (p.bp ? p.bp.replace(/<[^>]+>/g,'') : '');
-  const trade = p.occ ? p.occ[0] : '';
-
-  el.innerHTML =
-    `<span class="av" data-mono="${initials(p.n)}"><span class="mono">${initials(p.n)}</span></span>` +
-    `<span class="nm"><b>${p.n.replace(/<[^>]+>/g,'')}</b>` +
-    (dates ? `<span class="yr">${dates}</span>` : '') +
-    (trade ? `<span class="tr ${p.occ[1]}">${trade}</span>`
-           : (place ? `<span class="pl">${place}</span>` : '')) + `</span>`;
-
-  /* photo slot: drop docs/people/<id>.jpg and it appears, no code change */
-  const av = el.querySelector('.av');
-  const img = new Image();
-  img.onload = () => { av.innerHTML = ''; av.appendChild(img); av.classList.add('has'); };
-  img.onerror = () => {};
-  img.alt = p.n.replace(/<[^>]+>/g,'');
-  img.src = 'docs/people/' + id + '.jpg';
-
-  frag.appendChild(el);
-  minX = Math.min(minX, x - w/2); maxX = Math.max(maxX, x + w/2);
-  minY = Math.min(minY, y - CARD_H/2); maxY = Math.max(maxY, y + CARD_H/2);
-});
-canvas.appendChild(frag);
-
-/* connector lines */
 const NS = 'http://www.w3.org/2000/svg';
 const GC = { c:'var(--verdigris)', pr:'var(--ochre)', l:'var(--rust)', u:'var(--ink-3)' };
-Object.keys(pos).forEach(id => {
-  const kin = (PARENTS[id] || []).filter(Boolean).filter(k => pos[k]);
-  if(!kin.length) return;
-  const a = pos[id], grade = LINK[id] || 'u';
-  const dir = a.dir || (pos[kin[0]].x < 0 ? -1 : 1);
-  const edge = a.x + dir * ((id === 'jaxon' ? ME_W : CARD_W)/2);
-  const mid  = a.x + dir * (COL * 0.52);
-  kin.forEach(k => {
-    const b = pos[k];
-    const path = document.createElementNS(NS, 'path');
-    path.setAttribute('d',
-      `M ${edge} ${a.y} H ${mid} V ${b.y} H ${b.x - dir * (CARD_W/2)}`);
-    path.setAttribute('fill','none');
-    path.setAttribute('stroke', GC[grade]);
-    path.setAttribute('stroke-width', grade === 'c' ? 1.4 : 1.2);
-    path.setAttribute('stroke-linecap','round');
-    path.setAttribute('opacity', grade === 'c' ? .75 : .85);
-    if(grade !== 'c') path.setAttribute('stroke-dasharray','4 3');
-    wires.appendChild(path);
+
+function render(withKids){
+  canvas.querySelectorAll('.node,.kid,.sideLabel').forEach(n => n.remove());
+  while(wires.firstChild) wires.removeChild(wires.firstChild);
+  minX = maxX = minY = maxY = 0;
+  const frag = document.createDocumentFragment();
+
+  Object.keys(pos).forEach(id => {
+    const p = PEOPLE[id]; if(!p) return;
+    const x = pos[id].x, y = pos[id].y;
+    const me = id === 'jaxon';
+    const w = me ? ME_W : CARD_W;
+
+    const el = document.createElement('button');
+    el.className = 'node ' + p.g + (me ? ' me' : '');
+    el.dataset.id = id;
+    el.style.left = (x - w/2) + 'px';
+    el.style.top  = (y - CARD_H/2) + 'px';
+
+    const dates = p.liv ? 'living'
+      : (p.b || p.d) ? (p.b||'?').replace(/^about /,'c.') + ' – ' + (p.d||'?').replace(/^about /,'c.')
+      : '';
+    const place = p.bur ? p.bur.split(',')[0] : (p.bp ? p.bp.replace(/<[^>]+>/g,'') : '');
+    const trade = p.occ ? p.occ[0] : '';
+
+    el.innerHTML =
+      '<span class="av"><span class="mono">' + initials(p.n) + '</span></span>' +
+      '<span class="nm"><b>' + p.n.replace(/<[^>]+>/g,'') + '</b>' +
+      (dates ? '<span class="yr">' + dates + '</span>' : '') +
+      (trade ? '<span class="tr ' + p.occ[1] + '">' + trade + '</span>'
+             : (place ? '<span class="pl">' + place + '</span>' : '')) + '</span>';
+
+    /* photo slot: drop docs/people/<id>.jpg in and it appears, no code change */
+    const av = el.querySelector('.av');
+    const img = new Image();
+    img.onload = () => { av.innerHTML = ''; av.appendChild(img); av.classList.add('has'); };
+    img.onerror = () => {};
+    img.alt = p.n.replace(/<[^>]+>/g,'');
+    img.src = 'docs/people/' + id + '.jpg';
+
+    frag.appendChild(el);
+    minX = Math.min(minX, x - w/2); maxX = Math.max(maxX, x + w/2);
+    minY = Math.min(minY, y - CARD_H/2); maxY = Math.max(maxY, y + CARD_H/2);
   });
-});
 
-/* side banners */
-[['Father’s side — the Lukes of Irwin and Coffee', -1],
- ['Mother’s side — the McKinnons of Pearson and Mora', +1]].forEach(([txt, d]) => {
-  const el = document.createElement('div');
-  el.className = 'sideLabel';
-  el.textContent = txt;
-  /* centre each banner over its own wing */
-  const lo = d < 0 ? minX : COL * 0.55;
-  const hi = d < 0 ? -COL * 0.55 : maxX;
-  el.style.top  = (minY - 46) + 'px';
-  el.style.left = lo + 'px';
-  el.style.width = Math.max(200, hi - lo) + 'px';
-  canvas.appendChild(el);
-});
+  /* the siblings — smaller cards, no ancestry of their own */
+  kidNodes.forEach((k, i) => {
+    const el = document.createElement('button');
+    el.className = 'kid ' + k.grade + (k.row[3] === 'half' ? ' half' : '');
+    el.dataset.kid = i;
+    el.style.left = (k.x - KID_W/2) + 'px';
+    el.style.top  = (k.y - KID_H/2) + 'px';
+    el.innerHTML = '<b>' + k.row[0] + '</b>' +
+                   (k.row[1] ? '<span class="ky">' + k.row[1] + '</span>' : '');
+    el.title = k.row[2] || k.row[0];
+    frag.appendChild(el);
+    minX = Math.min(minX, k.x - KID_W/2); maxX = Math.max(maxX, k.x + KID_W/2);
+    minY = Math.min(minY, k.y - KID_H/2); maxY = Math.max(maxY, k.y + KID_H/2);
+  });
+  canvas.appendChild(frag);
 
-const PAD = 70;
-const bounds = { x: minX - PAD, y: minY - PAD - 20,
-                 w: (maxX - minX) + PAD*2, h: (maxY - minY) + PAD*2 + 20 };
-wires.setAttribute('width',  bounds.w);
-wires.setAttribute('height', bounds.h);
-wires.style.left = bounds.x + 'px';
-wires.style.top  = bounds.y + 'px';
-wires.setAttribute('viewBox', `${bounds.x} ${bounds.y} ${bounds.w} ${bounds.h}`);
+  /* connectors up to the parents */
+  Object.keys(pos).forEach(id => {
+    const kin = (PARENTS[id] || []).filter(Boolean).filter(k => pos[k]);
+    if(!kin.length) return;
+    const a = pos[id], grade = LINK[id] || 'u';
+    const dir = a.dir || (pos[kin[0]].x < 0 ? -1 : 1);
+    const edge = a.x + dir * ((id === 'jaxon' ? ME_W : CARD_W)/2);
+    const mid  = a.x + dir * (COL * 0.52);
+    kin.forEach(k => {
+      const b = pos[k];
+      wire('M ' + edge + ' ' + a.y + ' H ' + mid + ' V ' + b.y +
+           ' H ' + (b.x - dir * (CARD_W/2)), grade);
+    });
+  });
+
+  /* sibling brackets — each child joins the spine its parents already hang off */
+  kidNodes.forEach(k => {
+    const a = pos[k.via];
+    const mid = a.x + k.dir * (COL * 0.52);
+    wire('M ' + (k.x + k.dir * (KID_W/2)) + ' ' + k.y + ' H ' + mid + ' V ' + a.y,
+         k.lgrade || k.grade, true);
+  });
+
+  /* side banners */
+  [['Father’s side — the Lukes of Irwin and Coffee', -1],
+   ['Mother’s side — the McKinnons of Pearson and Mora', +1]].forEach(pair => {
+    const el = document.createElement('div');
+    el.className = 'sideLabel';
+    el.textContent = pair[0];
+    const d = pair[1];
+    const lo = d < 0 ? minX : COL * 0.55;
+    const hi = d < 0 ? -COL * 0.55 : maxX;
+    el.style.top   = (minY - 46) + 'px';
+    el.style.left  = lo + 'px';
+    el.style.width = Math.max(200, hi - lo) + 'px';
+    canvas.appendChild(el);
+  });
+
+  const PAD = 70;
+  bounds = { x: minX - PAD, y: minY - PAD - 20,
+             w: (maxX - minX) + PAD*2, h: (maxY - minY) + PAD*2 + 20 };
+  wires.setAttribute('width',  bounds.w);
+  wires.setAttribute('height', bounds.h);
+  wires.style.left = bounds.x + 'px';
+  wires.style.top  = bounds.y + 'px';
+  wires.setAttribute('viewBox', bounds.x + ' ' + bounds.y + ' ' + bounds.w + ' ' + bounds.h);
+}
+
+function wire(d, grade, faint){
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('d', d);
+  path.setAttribute('fill','none');
+  path.setAttribute('stroke', GC[grade] || GC.u);
+  path.setAttribute('stroke-width', faint ? 1 : (grade === 'c' ? 1.4 : 1.2));
+  path.setAttribute('stroke-linecap','round');
+  path.setAttribute('opacity', faint ? .42 : (grade === 'c' ? .75 : .85));
+  if(grade !== 'c') path.setAttribute('stroke-dasharray','4 3');
+  wires.appendChild(path);
+}
 
 /* ---------- pan + zoom ----------
    One transform write per animation frame, never per input event. Dragging
@@ -395,7 +491,7 @@ let dragging = false, sx = 0, sy = 0, travelled = 0, swallowClick = false;
 
 stage.addEventListener('pointerdown', e => {
   if(e.pointerType === 'mouse' && e.button !== 0) return;
-  if(e.target.closest('.node') || e.target.closest('.btn')) return;
+  if(e.target.closest('.node') || e.target.closest('.kid') || e.target.closest('.btn')) return;
   dragging = true; travelled = 0; swallowClick = false;
   gScale = scale; gTx = tx; gTy = ty; gliding = false;   /* adopt what is on screen */
   sx = e.clientX - tx; sy = e.clientY - ty;
@@ -443,8 +539,56 @@ addEventListener('keydown', e => {
   e.preventDefault();
 });
 
+/* ---------- the children toggle ---------- */
+let kidsOn = false;
+try { kidsOn = localStorage.getItem('lm-kids') === '1'; } catch(_){}
+
+const bKids = document.getElementById('bKids');
+function build(on, keepView){
+  kidsOn = on;
+  layout(on);
+  render(on);
+  bKids.textContent = on ? 'Hide children' : 'Show children';
+  bKids.setAttribute('aria-pressed', on ? 'true' : 'false');
+  try { localStorage.setItem('lm-kids', on ? '1' : '0'); } catch(_){}
+  if(!keepView) fit(true);
+}
+bKids.addEventListener('click', () => build(!kidsOn));
+
 let resizeT = 0;
-addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(() => fit(true), 120); });
+addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(() => {
+  layout(kidsOn); render(kidsOn); fit(true);
+}, 160); });
+
+/* a sibling has no record of its own, so it opens a short card rather than the drawer */
+canvas.addEventListener('click', e => {
+  const el = e.target.closest('.kid[data-kid]');
+  if(!el) return;
+  const k = kidNodes[+el.dataset.kid]; if(!k) return;
+  const g = KIDSET[k.via];
+  buildDrawer();
+  document.getElementById('drIn').innerHTML =
+    '<button class="dr-close" id="drClose" aria-label="Close">&times;</button>' +
+    '<h3>' + k.row[0] + '</h3>' +
+    '<div class="dr-sub">' + (k.row[1] || '') + '</div>' +
+    '<span class="p-badge ' + (GRADE[k.grade] ? GRADE[k.grade][0] : 'b-u') + '">' +
+      (GRADE[k.grade] ? GRADE[k.grade][1] : '') + '</span>' +
+    (k.row[2] ? '<p class="ev" style="margin-top:14px">' + k.row[2] + '</p>' : '') +
+    '<div class="dr-sec">Family</div>' +
+    '<p class="ev">One of the ' + g.list.length + ' children of <b>' + g.of + '</b>. ' +
+      'This line descends through <b>' +
+      (PEOPLE[k.via] ? PEOPLE[k.via].n.replace(/<[^>]+>/g,'') : k.via) + '</b>.</p>' +
+    '<div class="dr-sec">How the sibship is known</div>' +
+    '<p class="ev">' + g.src + '.</p>' +
+    '<p class="ev quiet">No separate record has been gathered for this person — ' +
+      'they are here to show the size and shape of the family, not as a researched line.</p>';
+  const dr = document.getElementById('drawer'), scrim = document.getElementById('scrim');
+  dr.classList.add('on'); scrim.classList.add('on'); dr.setAttribute('aria-hidden','false');
+  dr.scrollTop = 0;
+  document.getElementById('drClose').addEventListener('click', closePerson);
+});
+
+build(kidsOn, true);
 fit(false);
 setTimeout(() => { const h = document.getElementById('hint'); if(h) h.style.opacity = 0; }, 6500);
 </script>
