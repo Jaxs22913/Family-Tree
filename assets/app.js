@@ -8,6 +8,7 @@
     ['index.html',   'The tree'],
     ['origins.html', 'Origins'],
     ['stories.html', 'Lives'],
+    ['kin.html',     'Kin'],
     ['records.html', 'Documents']
   ];
   const bar = document.createElement('div');
@@ -34,6 +35,32 @@ function censusHTML(key){
   </div>`;
 }
 
+/* ---------------- source links ---------------- */
+function srcHTML(list){
+  return (list || []).map(function(s){
+    var shown = s.u.replace(/^https?:\/\//, '');
+    if(shown.length > 58) shown = shown.slice(0, 58) + '\u2026';
+    return '<a class="src-link" href="' + s.u + '" target="_blank" rel="noopener">' +
+           '<span class="k">' + s.k + '</span>' + shown + '</a>';
+  }).join('');
+}
+
+/* ---------------- trade / occupation ---------------- */
+function tradeHTML(p){
+  if(p.occ){
+    var g = (typeof GRADE !== 'undefined' && GRADE[p.occ[1]]) ? GRADE[p.occ[1]][1] : '';
+    return '<div class="trade-box ' + p.occ[1] + '">' +
+           '<div class="trade-label">' + p.occ[0] +
+           (g ? '<span class="trade-g">' + g + '</span>' : '') + '</div>' +
+           '<p>' + p.occ[2] + '</p></div>';
+  }
+  var first = p.n.replace(/<[^>]+>/g, '').replace(/[\u201c\u201d"]/g, '').split(' ')[0];
+  var msg = p.liv
+    ? 'Living \u2014 occupation withheld along with the rest of the record.'
+    : 'No record has turned up yet that states an occupation for ' + first + '.';
+  return '<p class="ev quiet">' + msg + '</p>';
+}
+
 /* ---------------- person cards + drawer ---------------- */
 function personCard(id){
   const p = PEOPLE[id]; if(!p) return '';
@@ -43,8 +70,9 @@ function personCard(id){
   const place = p.bur ? `<div class="p-place">${p.bur}</div>`
               : (p.bp ? `<div class="p-place">b. ${p.bp}</div>` : '');
   const nc = (p.cen||[]).length, ns = (p.src||[]).length;
+  const trade = p.occ ? `<div class="p-trade ${p.occ[1]}">${p.occ[0]}</div>` : '';
   return `<button class="p ${p.g}" data-id="${id}">
-    <div class="p-name">${p.n}</div>${dates}${place}
+    <div class="p-name">${p.n}</div>${dates}${place}${trade}
     <div class="p-foot"><span class="p-badge ${bc}">${bt}</span>
       ${nc?`<span class="docpill">${nc} census${nc>1?'es':''}</span>`:''}
       ${ns?`<span class="docpill">${ns} source${ns>1?'s':''}</span>`:''}
@@ -90,12 +118,11 @@ function openPerson(id){
      <div class="dr-sub">${p.liv ? 'living' : `${p.b||'?'} — ${p.d||'?'}`}</div>
      <span class="p-badge ${bc}">${bt}</span>
      ${rows ? `<dl class="dl">${rows}</dl>` : ''}
+     <div class="dr-sec">Trade</div>${tradeHTML(p)}
      <div class="dr-sec">What the evidence says</div>
      <p class="ev">${p.ev}</p>
      ${(p.cen||[]).length ? `<div class="dr-sec">In the census</div>${p.cen.map(censusHTML).join('')}` : ''}
-     ${(p.src||[]).length ? `<div class="dr-sec">Sources</div>${p.src.map(s =>
-        `<a class="src-link" href="${s.u}" target="_blank" rel="noopener">
-          <span class="k">${s.k}</span>${s.u.replace(/^https?:\/\//,'').slice(0,56)}&hellip;</a>`).join('') : ''}`;
+     ${(p.src||[]).length ? '<div class="dr-sec">Sources</div>' + srcHTML(p.src) : ''}`;
   const dr = document.getElementById('drawer'), scrim = document.getElementById('scrim');
   dr.classList.add('on'); scrim.classList.add('on'); dr.setAttribute('aria-hidden','false');
   dr.scrollTop = 0;
@@ -152,7 +179,7 @@ function closeLb(){
 
 /* ---------------- global wiring ---------------- */
 document.addEventListener('click', e => {
-  const person = e.target.closest('.p[data-id]');
+  const person = e.target.closest('.p[data-id], .node[data-id]');
   if(person){ lastFocus = person; openPerson(person.dataset.id); return; }
   const shot = e.target.closest('[data-doc]');
   if(shot){ openLb(shot.dataset.doc, shot.dataset.caption || ''); }

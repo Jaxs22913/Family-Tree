@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kin — The Luke–McKinnon Line</title>
+<meta name="description" content="The big sibling groups — fifteen Lukes, twelve McKinnons, the Halls and the Giddenses — and what is still unproven.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">The wider family</div>
+  <h1>Kin
+    <span class="sub">Four large sibling groups, and the questions still open. The direct
+    ancestors are marked — everyone else is a great-aunt, a great-uncle, or a name that helped
+    prove the generation above.</span>
+  </h1>
+  <div class="mast-meta">
+    <span><b>15</b> Luke children</span><span><b>12</b> McKinnons</span>
+    <span><b>12</b> Halls</span><span><b>9</b> Giddenses</span>
+  </div>
+</header>
+
+<section id="luke-sibs" style="margin-top:8px">
+  <div class="band-head"><span class="gen-no">KIN</span>
+    <h2>The fifteen children of Jack &amp; Nealie Luke</h2><span class="era">1920 – 1949</span></div>
+  <div class="note">Brenda's 2023 obituary lists six surviving siblings and says she was preceded
+  by eight — six plus eight plus Brenda is <b>fifteen</b>. But the fifteenth isn't Nealie's:
+  <b>Cleo was a half-brother</b>, son of Jack's first wife Clyde Elizabeth McMillan, whom he
+  married in 1918. The true count is <b>fourteen by Nealie, plus Cleo</b>.</div>
+  <div class="sibs" id="lukeSibs"></div>
+</section>
+
+<section id="mck-sibs">
+  <div class="band-head"><span class="gen-no">KIN</span>
+    <h2>The twelve children of Monroe &amp; Mary Jane McKinnon</h2><span class="era">1924 – 1945</span></div>
+  <div class="note">All twelve appear together in the 1950 census at Mora, or are named in their
+  siblings' obituaries. Five separate funeral notices name <b>Monroe McKinnon Sr. and Mary Jane
+  Carver McKinnon</b> as the parents — the best-documented couple in the whole tree.</div>
+  <div class="sibs" id="mckSibs"></div>
+</section>
+
+<section id="yawn-sibs">
+  <div class="band-head"><span class="gen-no">KIN</span>
+    <h2>Three sisters, boarded out in 1860</h2><span class="era">February – June 1860</span></div>
+  <div class="note warn">Their mother <b>Elizabeth Yawn died in childbirth in February 1860</b>,
+  aged 29. Four months later the census enumerator found all three girls living in a neighbour's
+  house in Coffee County with no parent present. <b>Polly Ann, aged one, was almost certainly the
+  child she died having.</b> By 1870 there was no Yawn of any spelling left in the county.</div>
+  <div class="sibs" id="yawnSibs"></div>
+</section>
+
+<section id="other-sibs">
+  <div class="band-head"><span class="gen-no">KIN</span>
+    <h2>The Hall and Giddens households</h2><span class="era">1923 – 1949</span></div>
+  <div class="note">Both were blanks before this research. Each was cracked the same way — by a
+  <b>sibling's obituary naming the parents and listing the sister who married into your line</b>.</div>
+  <h4 style="font-size:15px;margin:18px 0 9px;font-weight:600">Children of Jesse Lee Hall &amp; Mattie Cribb Hall</h4>
+  <div class="sibs" id="hallSibs"></div>
+  <h4 style="font-size:15px;margin:24px 0 9px;font-weight:600">Children of Joe Edd Giddens &amp; Sallie Mae Mercer Giddens</h4>
+  <div class="sibs" id="gidSibs"></div>
+</section>
+
+<section id="open">
+  <div class="band-head"><span class="gen-no">OPEN</span>
+    <h2>Answered, and still open</h2><span class="era">ranked by value</span></div>
+  <div id="qList"></div>
+</section>
+
+<footer>
+  Living persons are shown by name and relationship only. Nothing here should be promoted from
+  <em>probable</em> to <em>confirmed</em> without a primary document — online family trees are not
+  primary documents.
+</footer>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const sib = a => a.map(([n,d,note,cls]) =>
+  `<div class="sib ${cls||''}"><b>${n}</b>${d?`<div class="d">${d}</div>`:''}${note?`<div class="n">${note}</div>`:''}</div>`).join('');
+
+document.getElementById('lukeSibs').innerHTML = sib([
+ ['Dorothy Lee "Dot" Luke Callaway','b. abt 1927, Florida','FOUND — in the 1930 household; died before about 1962'],
+ ['Richard Cleo Luke Sr.','19 Jan 1920 – 18 Jun 2005','half-brother, son of Clyde McMillan; d. Palm Bay, Florida','half'],
+ ['Versa Mae Luke Law','18 Jul 1928 – 21 Mar 2020','b. Levy County, Florida; Martha Berry scholarship; Savannah shipyards'],
+ ['Inez Luke Crosby','23 Jul 1930 – 4 Nov 2016','m. Johnny E. Crosby; machine operator; Willacoochee City Cemetery'],
+ ['Doris Kathleen Luke Merritt','17 Nov 1931 – 15 Apr 2002','FOUND — d. Center Hill, Sumter County, Florida'],
+ ['Lucious Luke','29 Mar 1933 – 27 Sep 2018','Sears, Elixir Industries, City of Willacoochee; Lax Cemetery'],
+ ['James E. Luke','d. between 2018 and 2023','m. Lenora'],
+ ['Curtis Luke','b. 12 Apr 1936','living 2026; m. Christine "Dean" Horton (d. 2026)'],
+ ['John Wesley Luke Jr.','1 Aug 1938 – 16 Feb 1982','buried with his parents at Brushy Creek'],
+ ['Jewel Faye Luke Moore','living 2023',''],
+ ['Voncile "Bonnie" Luke Cavender','living 2023','m. Jim Cavender'],
+ ['Ottis Luke','living 2023','m. Barbara'],
+ ['Elmer Parker Luke','living 2023','m. Sally Rudine Hall — your grandfather','direct'],
+ ['Butler Luke','living 2023','m. Linda'],
+ ['Brenda Carol Luke Jewell','1 Feb 1949 – 19 Jul 2023','m. Clarence "Sonny" Jewell Jr.; Lax Cemetery']]);
+
+document.getElementById('mckSibs').innerHTML = sib([
+ ['Edward McKinnon','1924 – 2002',''],
+ ['Harvey McKinnon','16 Jan 1926 – 1 Oct 2018','U.S. Army, WWII; farmer; deacon, St. Illa Baptist'],
+ ['Willie Mae McKinnon','12 Mar 1928 – 10 May 2020','never married; seamstress, 30 years at Spectrum'],
+ ['Louise McKinnon Maulden','11 Jun 1930 – 20 May 2024','m. Beach E. Maulden, 48 years'],
+ ['Arlen McKinnon Sr.','1 Oct 1932 – 28 Aug 2015','PFC, U.S. Army, Korea — VA confirmed; "a prominent farmer of the Mora community"'],
+ ['Randall McKinnon','1935 – 1999',''],
+ ['Andrew McKinnon','12 Jan 1937 – 19 Sep 2009','m. Lucille Giddens — your grandfather','direct'],
+ ['Betty Jean McKinnon Soles','b. 1939',''],
+ ['Florene McKinnon Phillips','b. 1940',''],
+ ['Monroe McKinnon Jr.','11 Sep 1941 – 24 Jul 2023','Production Manager, Fleetwood Homes; deacon, Mora Baptist'],
+ ['Bobby McKinnon','b. abt 1943','in the 1950 census; missing from the online family group'],
+ ['Martha McKinnon Denton','b. abt 1945','m. Billy Denton, Broxton']]);
+
+document.getElementById('yawnSibs').innerHTML = sib([
+ ['Elizabeth Yawn','b. Dec 1855 – d. 21 Dec 1924','later Elizabeth Luke, of Clinch County — her death certificate named the parents'],
+ ['Jane (Janie Ruth) Yawn','b. abt 1855 – d. 1943','m. R. B. Luke — your third-great-grandmother','direct'],
+ ['Polly Ann Yawn','b. abt 1859','aged one in June 1860 — almost certainly the child her mother died having']]);
+
+document.getElementById('hallSibs').innerHTML = sib([
+ ['Myrtle Hall Shook','age 20 in 1950','"Farm Helper, no pay" — a 48-hour week'],
+ ['Henry Hall','age 17 in 1950','"Farm Helper, no pay" — a 48-hour week'],
+ ['Mitchell Hall','20 Sep 1934 – 14 Dec 2012',''],
+ ['"Pete" Hall (census "Frank")','age 14 in 1950',''],
+ ['Jesse James "Buck" Hall','29 Dec 1939 – 17 Jan 2022','b. Atkinson County'],
+ ['Lorraine Hall','age 9 in 1950',''],
+ ['Chester Hall','age 6 in 1950','m. Verneil, Willacoochee'],
+ ['Joe "Bud" Ronald Hall','23 May 1947 – 21 Apr 2020','b. Ocilla'],
+ ['Sally Rudine Hall','census "Rudine," b. Aug 1949','m. Elmer Parker Luke — your grandmother','direct'],
+ ['Judy Hall Luke','deceased','a second Hall sister who married a Luke'],
+ ['Shirley "Monk" Hall Griner','—','m. James Griner'],
+ ['Myrtice "Possum" Hall Brown','—','']]);
+
+document.getElementById('gidSibs').innerHTML = sib([
+ ['Louell Giddens Bowen','1923 – 2008',''],
+ ['Ernest Giddens','16 Sep 1929 – 25 Oct 2011','his obituary proved this whole family'],
+ ['Luther Robert Giddens','1931 – 1996',''],
+ ['Mary R. Giddens Rau','1934 – 2009',''],
+ ['Fred Giddens','living 2011','of Uvalda, Georgia'],
+ ['Jo Ann Giddens Snipes','living 2011','of Albany, Georgia'],
+ ['Lucille Giddens','b. 23 Apr 1945','m. Andrew McKinnon — your grandmother','direct'],
+ ['Jerry &amp; Larry Giddens','both 1947','twins, died in infancy']]);
+
+const QS = [
+ [1,'Does Jack Luke belong to Lucius and Narcisus?',
+  'Answered. He is in their household twice — "John," age 3, in the 1900 Irwin County census, and "John C W Luke," age 12, in 1910.',''],
+ [1,'Were George Albert and Martha really Monroe’s parents?',
+  'Answered. The 1910 census at Pearson lists Monroe, age 9, as a son of "Art" McKinnon — and the enumerator wrote "maternal grandfather" beside John Rickerson, settling Martha’s maiden name from the record itself.',''],
+ [1,'Who were R. B. Luke’s parents?',
+  'Answered, and the "implausible age gap" dissolved. He is aged 6 in the 1860 Berrien County household of John Luke and Telitha Jane Graves, and 17 in the same household in 1870. The gap was 22 years, not 32 — and it was a second marriage.',''],
+ [1,'Where was Jane Yawn from?',
+  'Answered, and it opened everything. Lucius Luke’s death certificate, read from the original image, gives his mother’s birthplace as <b>Coffee County, Georgia</b> — a fact no index carried. She was then found in the 1860 census, aged 4, boarded with neighbours alongside her sisters, four months after their mother died in childbirth.',''],
+ [1,'Who were Nealie Hinton’s parents?',
+  'Her mother is confirmed: Abigail "Abby" Johns, a 26-year-old widow heading a Levy County, Florida household in 1910. And her father now has a record — the Levy County marriage licences read "Hinton, M. N. — Abby Johns — 5 December 1901."',''],
+ [1,'Where are Dorothy and Doris?',
+  'Both found. Dorothy in the 1930 household as "Dorthy Luke, daughter, age 2, born Florida." Doris Kathleen Luke Merritt, b. 17 Nov 1931 at Lax, d. 15 Apr 2002 at Center Hill, Florida; her own Social Security application names her parents.',''],
+ [0,'Who was Jane Yawn’s father?',
+  'Her sister Elizabeth’s 1924 death certificate names their father as <b>"Antney Yawn"</b> and their mother as <b>"Smith"</b> — and the 1860 census puts the two girls in the same household. That is a strong chain, but no record names Jane’s father directly, and <b>there was no Antney Yawn in Coffee County in 1860.</b>',
+  'The Coffee County marriage return for R. B. Luke and Jane Yawn, about 1871–72 — she was roughly 16, so a parent’s written consent would likely be filed with it. Or her own 1943 Georgia death certificate.'],
+ [0,'Where and when did Jack and Nealie marry?',
+  'Not found — and now we know why no amount of searching would have worked. Every published transcription of Levy County, Florida marriages stops at 1906 or has a hole from 1909 to 1936, and <b>the marriage sits precisely in that hole.</b> It survives only in the original county books.',
+  'Levy County Clerk of the Circuit Court, Bronson, Florida — marriage books for 1923–1930. Or FamilySearch microfilm 956604.'],
+ [0,'Is "James Malcolm McKinnon" one man or two?',
+  'Huxford’s index carries <b>two</b> McKinnons with identical 1804–1880 dates — "James, Atkinson" and "Malcolm, Echols" — and the second is demonstrably a different man. The composite name may be a conflation.',
+  '<i>Pioneers of Wiregrass Georgia</i>, Volume VI, which has never been digitised. Huxford-Spear Genealogical Library, Homerville, Georgia.'],
+ [0,'How does John P. Ricketson connect to Joseph Ricketson’s family?',
+  'He cannot be Joseph’s son — Joseph died in 1820 and John P. was born in 1828 — so he is most likely a grandson through one of Joseph’s adult sons. <b>Everything above him in the Ricketson line, including the Revolutionary soldier, hangs on this unproven link.</b>',
+  'Montgomery and Ware County records, 1828–1850, and the estate of Joseph Ricketson.'],
+ [0,'Did Clyde McMillan marry Jack — or his brother William?',
+  'The 1918 Irwin index reads "LUKE, JOHNNIE," but a 1920 census entry pairs a Clyde Luke, 18, with a <b>Wm L Luke</b>. If it was William, then Cleo is Jack’s nephew rather than his half-brother, and the count of fifteen children changes.',
+  'The 1920 census page read in full, and Richard Cleo Luke Sr.’s Irwin County birth record.'],
+ [0,'Did Andrew McKinnon serve in the Army?',
+  'This family’s obituaries omit military service — his brother Arlen’s does, despite a VA marker reading "PFC US ARMY | KOREA." So finding Andrew’s obituary probably will not settle it.',
+  'Free first: Coffee County Clerk of Superior Court, which records discharges at no charge. Then form SF-180 to the National Personnel Records Center, $70.']];
+
+document.getElementById('qList').innerHTML = QS.map(([solved,t,b,f]) => `
+ <div class="q ${solved?'solved':'open'}"><div class="q-rank">${solved?'✓':'—'}</div>
+  <div class="q-b"><b>${t}</b><p>${b}</p>
+  ${f?`<div class="fix"><span>Answered by:</span> ${f}</div>`:''}</div></div>`).join('');
+</script>
+</body>
+</html>

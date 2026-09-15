@@ -4,200 +4,356 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Luke–McKinnon Line</title>
-<meta name="description" content="Nine generations of the Luke and McKinnon families of south Georgia, with every claim graded by the record behind it.">
+<meta name="description" content="Ten generations of the Luke and McKinnon families of south Georgia — father's side to the left, mother's to the right.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+html,body{height:100%;overflow:hidden}
+body{display:flex;flex-direction:column}
+
+/* --- stage --- */
+#stage{flex:1;position:relative;overflow:hidden;cursor:grab;
+  background:
+    radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--verdigris) 7%, transparent), transparent 62%),
+    var(--ground)}
+#stage.drag{cursor:grabbing}
+#canvas{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
+#wires{position:absolute;top:0;left:0;overflow:visible;pointer-events:none}
+
+/* --- side banners --- */
+.sideLabel{position:absolute;font-family:Spectral,serif;font-style:italic;
+  font-size:19px;letter-spacing:.01em;color:var(--ink-3);opacity:.8;
+  text-align:center;white-space:nowrap;pointer-events:none}
+
+/* --- person node --- */
+.node{position:absolute;display:flex;gap:9px;align-items:center;
+  width:184px;padding:8px 10px;border-radius:3px;cursor:pointer;
+  background:var(--raised);border:1px solid var(--rule);border-left-width:3px;
+  box-shadow:0 1px 2px rgba(22,25,26,.05);font:inherit;text-align:left;color:inherit;
+  transition:box-shadow .14s ease,border-color .14s ease}
+.node:hover{box-shadow:0 2px 4px rgba(22,25,26,.09),0 10px 22px -14px rgba(22,25,26,.35);
+  border-color:var(--ink-3);z-index:5}
+.node:focus-visible{outline:2px solid var(--verdigris);outline-offset:2px}
+.node.c{border-left-color:var(--verdigris)}
+.node.pr{border-left-color:var(--ochre)}
+.node.l{border-left-color:var(--rust)}
+.node.u{border-left-color:var(--ink-3)}
+.node.me{width:206px;padding:11px 12px;border-width:1.5px;border-left-width:4px;
+  background:var(--verdigris-wash);border-color:var(--verdigris)}
+
+.av{width:36px;height:36px;border-radius:50%;flex:none;overflow:hidden;position:relative;
+  background:var(--panel);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center}
+.node.me .av{width:42px;height:42px}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
+.av .mono{font-family:Spectral,serif;font-size:13px;font-weight:600;color:var(--ink-3);
+  letter-spacing:.01em;user-select:none}
+.node.me .av .mono{font-size:15px}
+.av.has{border-color:var(--verdigris)}
+
+.nm{min-width:0;flex:1;overflow:hidden}
+.nm b{display:block;font-family:Spectral,serif;font-size:13.5px;font-weight:600;
+  line-height:1.2;letter-spacing:-.005em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.node.me .nm b{font-size:15px}
+.nm .yr{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-2);
+  margin-top:2px;font-variant-numeric:tabular-nums;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm .pl{display:block;font-size:10px;color:var(--ink-3);margin-top:1px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm .tr{display:block;font-family:Spectral,serif;font-style:italic;font-size:11px;
+  margin-top:2px;line-height:1.25;color:var(--verdigris);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm .tr.pr{color:var(--ochre)}
+.nm .tr.l{color:var(--rust)}
+
+/* --- controls --- */
+#hud{position:absolute;left:14px;bottom:14px;display:flex;gap:6px;align-items:center;z-index:12}
+.btn{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  color:var(--ink-2);font:inherit;font-size:12px;font-weight:500;
+  padding:6px 11px;cursor:pointer;line-height:1.2;white-space:nowrap}
+.btn:hover{background:var(--raised);color:var(--ink);border-color:var(--ink-3)}
+.btn:focus-visible{outline:2px solid var(--verdigris);outline-offset:2px}
+.btn.sq{width:30px;padding:6px 0;text-align:center;font-size:14px}
+
+#key{position:absolute;right:14px;bottom:14px;z-index:12;display:flex;flex-direction:column;
+  gap:5px;align-items:flex-end;background:color-mix(in srgb,var(--ground) 86%,transparent);
+  padding:9px 11px;border:1px solid var(--rule-soft);border-radius:3px;backdrop-filter:blur(4px)}
+#key .kr{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--ink-2)}
+#key .sw{width:14px;height:3px;border-radius:2px;flex:none}
+#key .hint{font-size:10px;color:var(--ink-3);font-style:italic;margin-top:2px}
+
+#hint{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:12;
+  font-size:11.5px;color:var(--ink-3);background:color-mix(in srgb,var(--ground) 86%,transparent);
+  padding:5px 12px;border-radius:99px;border:1px solid var(--rule-soft);
+  backdrop-filter:blur(4px);pointer-events:none;transition:opacity .5s ease}
+
+@media(max-width:700px){
+  #key{display:none}
+  #hint{font-size:10.5px}
+}
+</style>
 </head>
 <body>
 
-<div class="wrap">
-<header class="mast">
-  <div class="eyebrow">Coffee · Irwin · Atkinson Counties, Georgia · Levy County, Florida</div>
-  <h1>The Luke–McKinnon Line
-    <span class="sub">Nine generations traced from Jaxon Brady Luke back to the wiregrass
-    country of south Georgia and the Carolinas beyond it — every claim graded by the record
-    that supports it, and every record here to read.</span>
-  </h1>
-  <div class="mast-meta">
-    <span><b>9</b> generations</span>
-    <span><b>12</b> census households</span>
-    <span><b>8</b> document sheets hosted</span>
-    <span>Earliest ancestor <b>before 1774</b></span>
+<div id="stage">
+  <div id="canvas"><svg id="wires"></svg></div>
+
+  <div id="hint">Drag to move · scroll to zoom · click anyone to open their records</div>
+
+  <div id="hud">
+    <button class="btn" id="bFit">Fit</button>
+    <button class="btn sq" id="bIn" aria-label="Zoom in">+</button>
+    <button class="btn sq" id="bOut" aria-label="Zoom out">−</button>
+    <button class="btn" id="bMe">Find me</button>
   </div>
-  <div class="legend">
-    <span class="key"><span class="dot d-c"></span>Confirmed — primary record</span>
-    <span class="key"><span class="dot d-p"></span>Probable — strong but no clincher</span>
-    <span class="key"><span class="dot d-l"></span>Lead only — unproven</span>
-    <span class="key"><span class="dot d-u"></span>Living — records withheld</span>
+
+  <div id="key">
+    <div class="kr"><span class="sw" style="background:var(--verdigris)"></span>Confirmed by a document</div>
+    <div class="kr"><span class="sw" style="background:var(--ochre)"></span>Probable</div>
+    <div class="kr"><span class="sw" style="background:var(--rust)"></span>Lead only — unproven</div>
+    <div class="kr"><span class="sw" style="background:var(--ink-3)"></span>Living — records withheld</div>
+    <div class="hint">Dashed line = the relationship itself is unproven</div>
+    <div class="hint">Italic line = trade, where a record states one</div>
   </div>
-</header>
-
-<div class="note">
-  <p><b>How to read this.</b> The colour on the left edge of every card is the evidence
-  grade, not decoration. Green means a document says so. Amber means the case is strong but
-  circumstantial. Rust means somebody's online tree says so and nothing else does — those are
-  research targets, not facts.</p>
-  <p><b>Click any name</b> for their dates, the census households they appear in, and the exact
-  records behind every claim.</p>
-</div>
-
-<div class="note win">
-  <p><b>What the federal censuses settled.</b> Jack Luke's parentage is proven twice over
-  (1900 and 1910). Monroe McKinnon's is proven by a 1910 page on which the enumerator wrote
-  <i>maternal grandfather</i> beside John Rickerson — which is what turns the Ricketson name
-  from a tree claim into a fact. Nealie Hinton's mother is confirmed in Levy County, Florida.
-  R. B. Luke's parents are confirmed in Berrien County. <b>And both missing sisters were
-  found</b> — Dorothy in the 1930 household, born in Florida about 1927.</p>
-</div>
-
-<div id="tree"></div>
-
-<section id="luke-sibs">
-  <div class="band-head"><span class="gen-no">KIN</span>
-    <h2>The fifteen children of Jack &amp; Nealie Luke</h2><span class="era">1920 – 1949</span></div>
-  <div class="note">Brenda's 2023 obituary lists six surviving siblings and says she was preceded
-  by eight — six plus eight plus Brenda is <b>fifteen</b>. But the fifteenth isn't Nealie's:
-  <b>Cleo was a half-brother</b>, son of Jack's first wife Clyde Elizabeth McMillan, whom he
-  married in 1918. The true count is <b>fourteen by Nealie, plus Cleo</b>.</div>
-  <div class="sibs" id="lukeSibs"></div>
-</section>
-
-<section id="mck-sibs">
-  <div class="band-head"><span class="gen-no">KIN</span>
-    <h2>The twelve children of Monroe &amp; Mary Jane McKinnon</h2><span class="era">1924 – 1945</span></div>
-  <div class="note">All twelve appear together in the 1950 census at Mora, or are named in their
-  siblings' obituaries. Five separate funeral notices name <b>Monroe McKinnon Sr. and Mary Jane
-  Carver McKinnon</b> as the parents — the best-documented couple in the whole tree.</div>
-  <div class="sibs" id="mckSibs"></div>
-</section>
-
-<section id="other-sibs">
-  <div class="band-head"><span class="gen-no">KIN</span>
-    <h2>The Hall and Giddens households</h2><span class="era">1923 – 1949</span></div>
-  <div class="note">Both were blanks before this research. Each was cracked the same way — by a
-  <b>sibling's obituary naming the parents and listing the sister who married into your line</b>.</div>
-  <h4 style="font-size:15px;margin:18px 0 9px;font-weight:600">Children of Jesse Lee Hall &amp; Mattie Cribb Hall</h4>
-  <div class="sibs" id="hallSibs"></div>
-  <h4 style="font-size:15px;margin:24px 0 9px;font-weight:600">Children of Joe Edd Giddens &amp; Sallie Mae Mercer Giddens</h4>
-  <div class="sibs" id="gidSibs"></div>
-</section>
-
-<section id="open">
-  <div class="band-head"><span class="gen-no">OPEN</span>
-    <h2>Answered, and still open</h2><span class="era">ranked by value</span></div>
-  <div id="qList"></div>
-</section>
-
-<footer>
-  Compiled from the United States Federal Census (1850, 1860, 1870, 1880, 1900, 1910, 1930, 1950),
-  Georgia Archives death certificates (RG 26-5-95) and Confederate pension files, Social Security
-  applications, published county histories, Georgia Historic Newspapers, south Georgia funeral
-  home records, county marriage indexes and cemetery documentation.<br>
-  Living persons are shown by name and relationship only. Nothing here should be promoted from
-  <em>probable</em> to <em>confirmed</em> without a primary document — online family trees are not
-  primary documents.
-</footer>
 </div>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
 <script>
-renderTree(document.getElementById('tree'));
+/* ---------- who descends from whom ---------- */
+const PARENTS = {
+  jaxon:['richard','andrea'],
+  richard:['elmer','sally'],            andrea:['andrew','lucille'],
+  elmer:['jack','nealie'],              sally:['jessehall','mattiecribb'],
+  andrew:['monroe','maryjane'],         lucille:['joegiddens','sallymercer'],
+  jack:['lucius','narcisus'],           nealie:['mackie','abby'],
+  monroe:['george','martha'],           maryjane:['elias','laura'],
+  lucius:['rb','janeyawn'],             narcisus:['henrysharper','pollyvickers'],
+  george:['jimmckinnon','marydurham'],  martha:['rickerson','marthaoverstreet'],
+  rb:['johnluke','telitha'],            janeyawn:['antneyyawn','yawnmother'],
+  henrysharper:['hscharper','nancymerritt'],
+  jimmckinnon:['jamesmalcolm',null],    rickerson:['josephricketson','serenafoy'],
+  johnluke:['danielluke',null],         telitha:['josephgraves',null],
+  hscharper:['leonardharper',null],     josephgraves:['benjamingraves',null],
+  josephricketson:['timothysr',null]
+};
 
-const sib = a => a.map(([n,d,note,cls]) =>
-  `<div class="sib ${cls||''}"><b>${n}</b>${d?`<div class="d">${d}</div>`:''}${note?`<div class="n">${note}</div>`:''}</div>`).join('');
+/* grade of the LINK from a person up to their parents — separate from the person's own grade */
+const LINK = {
+  jaxon:'c', richard:'c', andrea:'c', elmer:'c', sally:'c', andrew:'c', lucille:'c',
+  jack:'c',            // 1900 + 1910 census
+  nealie:'c',          // 1910 Levy County FL
+  monroe:'c', maryjane:'pr',
+  lucius:'c',          // 1920 death certificate
+  narcisus:'c',        // 1932 county history + 1870 census
+  george:'pr', martha:'c',
+  rb:'c',              // 1860 + 1870 census
+  janeyawn:'pr',       // household co-residence, 1860
+  henrysharper:'c',
+  jimmckinnon:'pr', rickerson:'l',
+  johnluke:'l', telitha:'l', hscharper:'pr', josephgraves:'l', josephricketson:'l'
+};
 
-document.getElementById('lukeSibs').innerHTML = sib([
- ['Dorothy Lee "Dot" Luke Callaway','b. abt 1927, Florida','FOUND — in the 1930 household; died before about 1962'],
- ['Richard Cleo Luke Sr.','19 Jan 1920 – 18 Jun 2005','half-brother, son of Clyde McMillan; d. Palm Bay, Florida','half'],
- ['Versa Mae Luke Law','18 Jul 1928 – 21 Mar 2020','b. Levy County, Florida; Martha Berry scholarship; Savannah shipyards'],
- ['Inez Luke Crosby','23 Jul 1930 – 4 Nov 2016','m. Johnny E. Crosby; machine operator; Willacoochee City Cemetery'],
- ['Doris Kathleen Luke Merritt','17 Nov 1931 – 15 Apr 2002','FOUND — d. Center Hill, Sumter County, Florida'],
- ['Lucious Luke','29 Mar 1933 – 27 Sep 2018','Sears, Elixir Industries, City of Willacoochee; Lax Cemetery'],
- ['James E. Luke','d. between 2018 and 2023','m. Lenora'],
- ['Curtis Luke','b. 12 Apr 1936','living 2026; m. Christine "Dean" Horton (d. 2026)'],
- ['John Wesley Luke Jr.','1 Aug 1938 – 16 Feb 1982','buried with his parents at Brushy Creek'],
- ['Jewel Faye Luke Moore','living 2023',''],
- ['Voncile "Bonnie" Luke Cavender','living 2023','m. Jim Cavender'],
- ['Ottis Luke','living 2023','m. Barbara'],
- ['Elmer Parker Luke','living 2023','m. Sally Rudine Hall — your grandfather','direct'],
- ['Butler Luke','living 2023','m. Linda'],
- ['Brenda Carol Luke Jewell','1 Feb 1949 – 19 Jul 2023','m. Clarence "Sonny" Jewell Jr.; Lax Cemetery']]);
+/* ---------- tidy layout ----------
+   Leaves are placed in unit slots and parents sit at the mean of their
+   children, so no vertical space is wasted between branches. The pixel
+   height of a slot is worked out afterwards, from the window's own shape,
+   so that the finished bowtie fills the screen instead of sitting in a
+   band across the middle of it. */
+const COL = 214, CARD_W = 184, CARD_H = 62, ME_W = 206;
+const pos = {};
+let slots = 0;
 
-document.getElementById('mckSibs').innerHTML = sib([
- ['Edward McKinnon','1924 – 2002',''],
- ['Harvey McKinnon','16 Jan 1926 – 1 Oct 2018','U.S. Army, WWII; farmer; deacon, St. Illa Baptist'],
- ['Willie Mae McKinnon','12 Mar 1928 – 10 May 2020','never married; seamstress, 30 years at Spectrum'],
- ['Louise McKinnon Maulden','11 Jun 1930 – 20 May 2024','m. Beach E. Maulden, 48 years'],
- ['Arlen McKinnon Sr.','1 Oct 1932 – 28 Aug 2015','PFC, U.S. Army, Korea — VA confirmed; "a prominent farmer of the Mora community"'],
- ['Randall McKinnon','1935 – 1999',''],
- ['Andrew McKinnon','12 Jan 1937 – 19 Sep 2009','m. Lucille Giddens — your grandfather','direct'],
- ['Betty Jean McKinnon Soles','b. 1939',''],
- ['Florene McKinnon Phillips','b. 1940',''],
- ['Monroe McKinnon Jr.','11 Sep 1941 – 24 Jul 2023','Production Manager, Fleetwood Homes; deacon, Mora Baptist'],
- ['Bobby McKinnon','b. abt 1943','in the 1950 census; missing from the online family group'],
- ['Martha McKinnon Denton','b. abt 1945','m. Billy Denton, Broxton']]);
+function buildSide(rootId, dir){
+  let cursor = 0;
+  (function place(id, depth){
+    const kin = (PARENTS[id] || []).filter(Boolean).filter(k => PEOPLE[k]);
+    let u;
+    if(!kin.length){ u = cursor; cursor += 1; }
+    else {
+      const us = kin.map(k => place(k, depth + 1));
+      u = us.reduce((a,b) => a + b, 0) / us.length;
+    }
+    pos[id] = { x: dir * (depth + 1) * COL, u, dir };
+    return u;
+  })(rootId, 0);
+  const off = pos[rootId].u;
+  Object.values(pos).forEach(p => { if(p.dir === dir && p.adj !== 1){ p.u -= off; p.adj = 1; } });
+  slots = Math.max(slots, cursor);
+}
+buildSide('richard', -1);
+buildSide('andrea',  +1);
+pos.jaxon = { x: 0, u: 0, dir: 0 };
 
-document.getElementById('hallSibs').innerHTML = sib([
- ['Myrtle Hall Shook','age 20 in 1950','"Farm Helper, no pay" — a 48-hour week'],
- ['Henry Hall','age 17 in 1950','"Farm Helper, no pay" — a 48-hour week'],
- ['Mitchell Hall','20 Sep 1934 – 14 Dec 2012',''],
- ['"Pete" Hall (census "Frank")','age 14 in 1950',''],
- ['Jesse James "Buck" Hall','29 Dec 1939 – 17 Jan 2022','b. Atkinson County'],
- ['Lorraine Hall','age 9 in 1950',''],
- ['Chester Hall','age 6 in 1950','m. Verneil, Willacoochee'],
- ['Joe "Bud" Ronald Hall','23 May 1947 – 21 Apr 2020','b. Ocilla'],
- ['Sally Rudine Hall','census "Rudine," b. Aug 1949','m. Elmer Parker Luke — your grandmother','direct'],
- ['Judy Hall Luke','deceased','a second Hall sister who married a Luke'],
- ['Shirley "Monk" Hall Griner','—','m. James Griner'],
- ['Myrtice "Possum" Hall Brown','—','']]);
+/* width is fixed by the number of generations; choose the slot height so the
+   drawing has roughly the window's aspect ratio, then clamp it to something
+   that always leaves the cards room to breathe. */
+const treeW = (Math.max(...Object.values(pos).map(p => Math.abs(p.x))) * 2) + CARD_W + 120;
+const uSpan = Math.max(1,
+  Math.max(...Object.values(pos).map(p => p.u)) - Math.min(...Object.values(pos).map(p => p.u)));
+const vp = document.getElementById('stage').getBoundingClientRect();
+const ROW = Math.max(CARD_H + 14,
+            Math.min(190, (treeW * (vp.height / Math.max(vp.width, 1))) / uSpan));
+Object.values(pos).forEach(p => { p.y = p.u * ROW; });
 
-document.getElementById('gidSibs').innerHTML = sib([
- ['Louell Giddens Bowen','1923 – 2008',''],
- ['Ernest Giddens','16 Sep 1929 – 25 Oct 2011','his obituary proved this whole family'],
- ['Luther Robert Giddens','1931 – 1996',''],
- ['Mary R. Giddens Rau','1934 – 2009',''],
- ['Fred Giddens','living 2011','of Uvalda, Georgia'],
- ['Jo Ann Giddens Snipes','living 2011','of Albany, Georgia'],
- ['Lucille Giddens','b. 23 Apr 1945','m. Andrew McKinnon — your grandmother','direct'],
- ['Jerry &amp; Larry Giddens','both 1947','twins, died in infancy']]);
+/* ---------- render ---------- */
+const canvas = document.getElementById('canvas');
+const wires  = document.getElementById('wires');
+const initials = n => n.replace(/["“”]/g,'').split(/\s+/)
+  .filter(w => /^[A-Z]/.test(w) && !/^(Sr\.|Jr\.|de|van)$/i.test(w))
+  .slice(0,2).map(w => w[0]).join('');
 
-const QS = [
- [1,'Does Jack Luke belong to Lucius and Narcisus?',
-  'Answered. He is in their household twice — "John," age 3, in the 1900 Irwin County census, and "John C W Luke," age 12, in 1910. Everything above generation V was hanging on this link.',''],
- [1,'Were George Albert and Martha really Monroe’s parents?',
-  'Answered. The 1910 census at Pearson lists Monroe, age 9, as a son of "Art" McKinnon — and the enumerator wrote "maternal grandfather" beside John Rickerson, settling Martha’s maiden name from the record itself.',''],
- [1,'Who were R. B. Luke’s parents?',
-  'Answered, and the "implausible age gap" dissolved. He is aged 6 in the 1860 Berrien County household of John Luke and Telitha Jane Graves, and 17 in the same household in 1870. The gap was 22 years, not 32 — and it was a second marriage.',''],
- [1,'Who were Nealie Hinton’s parents?',
-  'Half answered. Her mother is confirmed: Abigail "Abby" Johns, a 26-year-old widow heading a Levy County, Florida household in 1910 with "Neal," age 2. Her father stays probable — the widowhood and an infant named Mack point at him, but no record names him.',''],
- [1,'Where are Dorothy and Doris?',
-  'Both found. Dorothy in the 1930 household as "Dorthy Luke, daughter, age 2, born Florida" — Nealie’s, not Clyde McMillan’s. Doris Kathleen Luke Merritt, b. 17 Nov 1931 at Lax, d. 15 Apr 2002 at Center Hill, Florida; her own Social Security application names her parents.',''],
- [0,'Who were Jane Yawn’s parents?',
-  'Now the best open question in the tree — and a brand-new clue just surfaced. Lucius Luke’s death certificate, read directly, gives his mother’s birthplace as <b>Coffee County, Georgia</b>. That was not in any index. A promising thread: an Elizabeth Luke née Yawn, born December 1855, died Clinch County 1924, daughter of an Antney (Anthony) Yawn. Two Yawn women of the same age marrying two Luke men suggests sisters — but they have not been merged.',
-  'The Coffee or Berrien County marriage return for R. B. Luke and Jane Yawn, about 1871–72.'],
- [0,'Did Clyde McMillan marry Jack — or his brother William?',
-  'The 1918 Irwin index reads "LUKE, JOHNNIE," but a 1920 census entry pairs a Clyde Luke, 18, with a <b>Wm L Luke</b>. If it was William, then Cleo is Jack’s nephew rather than his half-brother, and the count of fifteen children changes.',
-  'The 1920 census page read in full, and Richard Cleo Luke Sr.’s Irwin County birth record.'],
- [0,'Where and when did Jack and Nealie marry?',
-  'The window has tightened sharply. Dorothy and Versa Mae were both born in Florida (1927, 1928) and Inez in Irwin County in July 1930 — so the family crossed from Florida into Georgia between 1929 and mid-1930, and the marriage is almost certainly <b>Florida, before 1927</b>, not Georgia at all.',
-  'Levy County, Florida marriage records, roughly 1924–1927.'],
- [0,'Is John Luke (b. abt 1798) a son of Daniel Luke?',
-  'Not established, and it may never be. No document links them. The Irwin County marriage register for 1820–1835 and the tax digests for 1820–1830 were both lost, and the 1830 census shows <i>two</i> Daniel Lukes in the county.',
-  'Irwin County deed and estate books, or the 1820 Georgia land lottery records.'],
- [0,'Did Andrew McKinnon serve in the Army?',
-  'This family’s obituaries omit military service — his brother Arlen’s does, despite a VA marker reading "PFC US ARMY | KOREA." So finding Andrew’s obituary probably will not settle it.',
-  'Free first: Coffee County Clerk of Superior Court, which records discharges at no charge. Then form SF-180 to the National Personnel Records Center, $70.'],
- [0,'Who were James Malcolm McKinnon Sr.’s parents?',
-  'Unknown, and the McKinnon line stops dead at a man born in North Carolina about 1804. The Cape Fear Highland Scots settlement is the natural fit, but not one record connects him to it.',
-  'Folks Huxford, <i>Pioneers of Wiregrass Georgia</i> — the source everything else quotes. Failing that, Y-DNA.']];
+let minX=0, maxX=0, minY=0, maxY=0;
+const frag = document.createDocumentFragment();
 
-document.getElementById('qList').innerHTML = QS.map(([solved,t,b,f]) => `
- <div class="q ${solved?'solved':'open'}"><div class="q-rank">${solved?'✓':'—'}</div>
-  <div class="q-b"><b>${t}</b><p>${b}</p>
-  ${f?`<div class="fix"><span>Answered by:</span> ${f}</div>`:''}</div></div>`).join('');
+Object.keys(pos).forEach(id => {
+  const p = PEOPLE[id]; if(!p) return;
+  const { x, y } = pos[id];
+  const me = id === 'jaxon';
+  const w = me ? ME_W : CARD_W;
+
+  const el = document.createElement('button');
+  el.className = 'node ' + p.g + (me ? ' me' : '');
+  el.dataset.id = id;
+  el.style.left = (x - w/2) + 'px';
+  el.style.top  = (y - CARD_H/2) + 'px';
+
+  const dates = p.liv ? 'living'
+    : (p.b || p.d) ? `${(p.b||'?').replace(/^about /,'c.')} – ${(p.d||'?').replace(/^about /,'c.')}`
+    : '';
+  const place = p.bur ? p.bur.split(',')[0]
+    : (p.bp ? p.bp.replace(/<[^>]+>/g,'') : '');
+  const trade = p.occ ? p.occ[0] : '';
+
+  el.innerHTML =
+    `<span class="av" data-mono="${initials(p.n)}"><span class="mono">${initials(p.n)}</span></span>` +
+    `<span class="nm"><b>${p.n.replace(/<[^>]+>/g,'')}</b>` +
+    (dates ? `<span class="yr">${dates}</span>` : '') +
+    (trade ? `<span class="tr ${p.occ[1]}">${trade}</span>`
+           : (place ? `<span class="pl">${place}</span>` : '')) + `</span>`;
+
+  /* photo slot: drop docs/people/<id>.jpg and it appears, no code change */
+  const av = el.querySelector('.av');
+  const img = new Image();
+  img.onload = () => { av.innerHTML = ''; av.appendChild(img); av.classList.add('has'); };
+  img.onerror = () => {};
+  img.alt = p.n.replace(/<[^>]+>/g,'');
+  img.src = 'docs/people/' + id + '.jpg';
+
+  frag.appendChild(el);
+  minX = Math.min(minX, x - w/2); maxX = Math.max(maxX, x + w/2);
+  minY = Math.min(minY, y - CARD_H/2); maxY = Math.max(maxY, y + CARD_H/2);
+});
+canvas.appendChild(frag);
+
+/* connector lines */
+const NS = 'http://www.w3.org/2000/svg';
+const GC = { c:'var(--verdigris)', pr:'var(--ochre)', l:'var(--rust)', u:'var(--ink-3)' };
+Object.keys(pos).forEach(id => {
+  const kin = (PARENTS[id] || []).filter(Boolean).filter(k => pos[k]);
+  if(!kin.length) return;
+  const a = pos[id], grade = LINK[id] || 'u';
+  const dir = a.dir || (pos[kin[0]].x < 0 ? -1 : 1);
+  const edge = a.x + dir * ((id === 'jaxon' ? ME_W : CARD_W)/2);
+  const mid  = a.x + dir * (COL * 0.52);
+  kin.forEach(k => {
+    const b = pos[k];
+    const path = document.createElementNS(NS, 'path');
+    path.setAttribute('d',
+      `M ${edge} ${a.y} H ${mid} V ${b.y} H ${b.x - dir * (CARD_W/2)}`);
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke', GC[grade]);
+    path.setAttribute('stroke-width', grade === 'c' ? 1.4 : 1.2);
+    path.setAttribute('stroke-linecap','round');
+    path.setAttribute('opacity', grade === 'c' ? .75 : .85);
+    if(grade !== 'c') path.setAttribute('stroke-dasharray','4 3');
+    wires.appendChild(path);
+  });
+});
+
+/* side banners */
+[['Father’s side — the Lukes of Irwin and Coffee', -1],
+ ['Mother’s side — the McKinnons of Pearson and Mora', +1]].forEach(([txt, d]) => {
+  const el = document.createElement('div');
+  el.className = 'sideLabel';
+  el.textContent = txt;
+  /* centre each banner over its own wing */
+  const lo = d < 0 ? minX : COL * 0.55;
+  const hi = d < 0 ? -COL * 0.55 : maxX;
+  el.style.top  = (minY - 46) + 'px';
+  el.style.left = lo + 'px';
+  el.style.width = Math.max(200, hi - lo) + 'px';
+  canvas.appendChild(el);
+});
+
+const PAD = 70;
+const bounds = { x: minX - PAD, y: minY - PAD - 20,
+                 w: (maxX - minX) + PAD*2, h: (maxY - minY) + PAD*2 + 20 };
+wires.setAttribute('width',  bounds.w);
+wires.setAttribute('height', bounds.h);
+wires.style.left = bounds.x + 'px';
+wires.style.top  = bounds.y + 'px';
+wires.setAttribute('viewBox', `${bounds.x} ${bounds.y} ${bounds.w} ${bounds.h}`);
+
+/* ---------- pan + zoom ---------- */
+const stage = document.getElementById('stage');
+let scale = 1, tx = 0, ty = 0;
+const apply = () => canvas.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+
+function fit(){
+  const r = stage.getBoundingClientRect();
+  scale = Math.min(r.width / bounds.w, r.height / bounds.h, 1.1);
+  tx = r.width/2  - (bounds.x + bounds.w/2) * scale;
+  ty = r.height/2 - (bounds.y + bounds.h/2) * scale;
+  apply();
+}
+function centreOn(id, z){
+  const r = stage.getBoundingClientRect(), p = pos[id];
+  scale = z || Math.max(scale, .85);
+  tx = r.width/2  - p.x * scale;
+  ty = r.height/2 - p.y * scale;
+  apply();
+}
+function zoomAt(f, cx, cy){
+  const next = Math.min(2.2, Math.max(.16, scale * f));
+  tx = cx - (cx - tx) * (next / scale);
+  ty = cy - (cy - ty) * (next / scale);
+  scale = next; apply();
+}
+
+stage.addEventListener('wheel', e => {
+  e.preventDefault();
+  const r = stage.getBoundingClientRect();
+  zoomAt(e.deltaY < 0 ? 1.12 : 1/1.12, e.clientX - r.left, e.clientY - r.top);
+}, { passive:false });
+
+let dragging = false, moved = 0, sx = 0, sy = 0;
+stage.addEventListener('pointerdown', e => {
+  if(e.target.closest('.node') || e.target.closest('.btn')) return;
+  dragging = true; moved = 0; sx = e.clientX - tx; sy = e.clientY - ty;
+  stage.classList.add('drag'); stage.setPointerCapture(e.pointerId);
+});
+stage.addEventListener('pointermove', e => {
+  if(!dragging) return;
+  const nx = e.clientX - sx, ny = e.clientY - sy;
+  moved += Math.abs(nx - tx) + Math.abs(ny - ty);
+  tx = nx; ty = ny; apply();
+});
+['pointerup','pointercancel'].forEach(t => stage.addEventListener(t, () => {
+  dragging = false; stage.classList.remove('drag');
+}));
+
+document.getElementById('bFit').onclick = fit;
+document.getElementById('bIn').onclick  = () => { const r = stage.getBoundingClientRect(); zoomAt(1.22, r.width/2, r.height/2); };
+document.getElementById('bOut').onclick = () => { const r = stage.getBoundingClientRect(); zoomAt(1/1.22, r.width/2, r.height/2); };
+document.getElementById('bMe').onclick  = () => centreOn('jaxon', 1);
+
+addEventListener('resize', fit);
+fit();
+setTimeout(() => { const h = document.getElementById('hint'); if(h) h.style.opacity = 0; }, 6500);
 </script>
 </body>
 </html>
