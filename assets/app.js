@@ -9,7 +9,7 @@
     ['origins.html', 'Origins'],
     ['stories.html', 'Lives'],
     ['kin.html',     'Kin'],
-    ['war.html',     'The War'],
+    ['war.html',     'Civil War'],
     ['records.html', 'Documents'],
     ['next.html',    'What to ask for']
   ];
