@@ -7,6 +7,30 @@
 
 const DOCS = [
 
+{id:'d-helen-wilson-widow', kind:'Confederate pension file', cls:'cert',
+ title:'Helen Wilson — widow’s application, Clinch County, 4 October 1913',
+ sub:'Confederate Pension Applications · Georgia Confederate Pension Office · RG 58-1-1 · USAMILCONFEDGA_178215-00994',
+ img:'docs/pension-helen-wilson.jpg',
+ url:'https://vault.georgiaarchives.org/digital/collection/TestApps/id/439300',
+ lead:'The document that gives Sally’s great-great-grandmother a marriage date, a widowhood, and a reason this whole county goes dark before 1868.',
+ reads:[
+   ['Applicant','<b>Hellen Wilson</b>, of Clinch County'],
+   ['Sworn statement','that she is the <b>widow of John M. Wilson</b>'],
+   ['Married','in Clinch County, Ga., on the <b>8th day of August 1867</b>'],
+   ['Date of his death','<b>13 September 1912</b>'],
+   ['Remarried since','no'],
+   ['Pension roll','the <b>indigent</b> roll of the State'],
+   ['Paid for 1912','<b>$60.00</b> per annum'],
+   ['Service','Company <b>H</b>, Regiment <b>29</b> Ga.'],
+   ['Property he held at death','<b>none</b>, of the cash value of <b>none</b>'],
+   ['Her own property','<b>15 head of cattle · $150.00</b>, and nothing on any other line'],
+   ['Resident of the county since','<b>all her life</b>'],
+   ['Signature','<b>Hellen &times; Wilson</b> — her mark'],
+   ['Witness to the marriage','<b>Harris Sirmans</b>, sworn the same day'],
+   ['Sworn before','J. T. Dame, Ordinary of Clinch County'],
+   ['Clerk’s note at the foot','<b>“No record of Marriage. Records all destroyed by fire in 1868.”</b>']],
+ why:'<b>The last line is the one that matters beyond this family.</b> Clinch County’s records burned in <b>1868</b>. That is why a marriage of August 1867 had to be proved by a neighbour swearing from memory, and it is why every search on this branch thins out the moment it crosses back before 1870. It is a fact about the county, not about the people.<br><br><b>The statute is the reason the date was fought over.</b> Georgia pensioned only widows married <i>before 1 January 1870</i>. Hellen’s claim turned entirely on proving a wedding two and a half years inside that line, with no paper left to prove it.<br><br><b>And it is a hard document, like the Ricketson one.</b> He died on the indigent roll at sixty dollars a year holding no property. She went down the schedule of her own holdings and entered fifteen cows, worth a hundred and fifty dollars, against every other line blank. She signed it with a mark.'},
+
 {id:'d-ricketson-widow', kind:'Confederate pension file', cls:'cert',
  title:'Amanda Ricketson — widow’s affidavit, Coffee County, 5 August 1912',
  sub:'Confederate Pension Applications · Georgia Confederate Pension Office · RG 58-1-1',
