@@ -214,5 +214,40 @@ literal `—` escape sequences; `docs.js` stores literal backslash-u escapes.
 Always `print(repr(...))` around the target before writing a replacement, or splice
 by index between two stable markers. Assert match counts in the patch script.
 
-**Current scale:** 53 people · 20 census households · 21 embedded documents ·
-29 parent links · 10 generations.
+**Current scale:** 58 people · 20 census households · 21 embedded documents ·
+32 parent links · 10 generations.
+
+---
+
+## Since this handoff was written (17 September)
+
+Eight further passes are recorded in full in `CRITIQUE-2026-09-17.md`. The short version:
+
+**Settled or corrected**
+- **Mary Jane Carver's parents** — Elias Carver + Laura. Confirmed by Matilda Carver McKinnon's 1942
+  death certificate. Link upgraded probable → confirmed.
+- **Elias Carver's parents** — Joshua Carver + Amanda, from the 1880 relationship column. An earlier
+  guess hanging Elias on James Carver was wrong and the correction is left visible on the page.
+- **Mattie Cribb's parents** — David Benjamin Cribbs + Martha, from 1910 Suwannee County FL and 1920 Pearson.
+- **The 1891/1892 marriage conflict** — settled at 1891 on three records to one.
+- **Pheby Spivey added** as Joshua Carver's mother (generation VII), drawn *probable*. The site had her
+  surname as "Sping"; the 1860 census fixes it to **Spivey**.
+- **Laura's maiden name** — the 1899 Coffee County marriage return says **Story**, which outranks the
+  death-index "Newbern". Story is now preferred.
+- **Amanda Carver's birth year** corrected to about 1859 (she is 21 on the 1880 sheet).
+- **Elias Carver's death** fixed at 13 August 1954 — outside both free certificate windows.
+
+**The two live leads, neither drawn**
+1. **Joshua Carver's parents.** He is in **John and Martha Carver's** household in both 1860 and 1870,
+   slotted into their birth order where a son belongs — but the 1880 sheet calls **Pheby** his *Mother*.
+   Both cannot be true. One page settles it: the 1880 original for District 1026, **sheet 238D**, says
+   either *Mother* or *Mother in law*. Reading that one column is the highest-value next step.
+2. **Laura's family.** The only Story household in Coffee County in 1880 sits in District 1026 — Elias's
+   own district — and holds **Marcenia Story, born 1877**. Laura was born 5 September 1877. Her name is
+   *Larceny* in 1920, *Lucine* in 1930 and *Lareen* in the cemetery abstracts, which all point at
+   **Larcenia** rather than Laura. Her **1958 death certificate** names both parents and would settle it.
+
+**Method note worth keeping:** FamilySearch groups 1850/1860/1870 households by dwelling number even
+though those censuses recorded no relationships. Open the **record detail page**, not the search-results
+row: "Other People on This Record" gives the whole household free, and for 1880+ the relationship column
+comes with it. This is how the John Carver household was read without opening a single image.
