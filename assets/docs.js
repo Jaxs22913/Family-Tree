@@ -441,7 +441,25 @@ const DOCS = [
         ['Daughter','Myrtle — 20 — <b>"Farm Helper / Farm / NP"</b>'],
         ['Son','Henry — 17 — <b>"Farm Helper / Farm / NP"</b>'],
         ['Children','Mitchel 16 · Frank 14 · Jessie J. 12 · Lorraine 9 · Chester 6 · Joe R. 4 · <b>Rudine</b> b. Aug 1949']],
- why:'Two letters carry the whole social meaning of this page. <b>"O" means own business</b> — Jesse Hall worked his own farm, not a tenancy, which in 1950 Coffee County was not the majority position. <b>"NP" means no pay</b> — his two eldest children each put in a full forty-eight-hour week on the family place for nothing.<br><br>Six of these given names — Myrtle, Henry, Mitchel, Chester, Joe R. and Jessie J. — match six Hall siblings confirmed independently from obituaries, so this is beyond doubt the right family. The infant <b>Rudine</b> is almost certainly Sally Rudine Hall; that identification rests on the name alone, which is why it stays graded probable rather than confirmed.'}
+ why:'Two letters carry the whole social meaning of this page. <b>"O" means own business</b> — Jesse Hall worked his own farm, not a tenancy, which in 1950 Coffee County was not the majority position. <b>"NP" means no pay</b> — his two eldest children each put in a full forty-eight-hour week on the family place for nothing.<br><br>Six of these given names — Myrtle, Henry, Mitchel, Chester, Joe R. and Jessie J. — match six Hall siblings confirmed independently from obituaries, so this is beyond doubt the right family. The infant <b>Rudine</b> is almost certainly Sally Rudine Hall; that identification rests on the name alone, which is why it stays graded probable rather than confirmed.'},
+
+{id:'d-leonard-harper-will', kind:'Will', cls:'cert',
+ title:'Leonard Harper — last will and testament, Irwin County, 29 June 1842',
+ sub:'Irwin County, Georgia · Deed Book 1821–1858, image 311 of 648 · proven January term 1843, recorded 26 January 1843',
+ url:'https://www.familysearch.org/search/full-text/results?q.text=%22Leonard%20Harper%22&q.recordPlace=Irwin%2C%20Georgia%2C%20United%20States',
+ lead:'The oldest document on this site that names a person this family owned. Three of them, divided among the children like the notes and the cattle.',
+ reads:[
+   ['Testator','<b>Leonard Harper</b> of Irwin County — the first Harper in the county'],
+   ['Dictated','<b>29 June 1842</b>, “being weak in body but of sound mind and memory”'],
+   ['To his wife','<b>Susannah Harper</b> — “all my real and personal estate together with all my notes debts dues and credits <b>during her natural life</b>”'],
+   ['First bequest','to sons <b>John L. B. Harper</b> and <b>Lewis L. C. Harper</b> — “a negro woman named <b>Rose</b>”'],
+   ['Second bequest','to sons <b>Henry S. C. Harper</b> and <b>Fleming B. Harper</b> — “a negro boy named <b>Tom</b>”'],
+   ['Third bequest','to <b>George J. M. Harper</b> and <b>Hester E. M. Fulton</b> — “a negro boy named ——” <i>(name not legible with confidence; most likely Joe)</i>'],
+   ['Residue','“all the residue and remainder of my estate whatever”'],
+   ['Proven on the oath of','<b>Andrew McClelland</b> and <b>Fleming B. Harper</b>'],
+   ['Court','Court of Ordinary, <b>January term 1843</b>, Irwin County'],
+   ['Recorded','<b>26 January 1843</b>, John McDearmid, Clerk']],
+ why:'<b>Slave schedules count people. They never name them.</b> One line each — age, sex, colour — and that is the entire federal record of a human being in 1850 and 1860. Names survive where someone was being <i>given</i> the person, which means wills, estate inventories and bills of sale. This is that document for this family.<br><br><b>Henry S. C. Harper is a direct ancestor of this tree</b> — Narcisus Harper’s grandfather, born in Irwin County about 1817. In 1842, aged about twenty-five, he was left a boy named <b>Tom</b>.<br><br><b>It also corrects two things here.</b> Susannah Harper was carried on this site as <i>probably</i> Leonard’s widow; he names her as his wife, and the life estate explains why she was still holding two men, aged 33 and 30, on the 1860 slave schedule eighteen years later. And the date of probate was recorded here as January 1845 from a county history; the book says the January term of <b>1843</b>.<br><br><b>Rose and Tom are read off the manuscript and are not in doubt.</b> The third name is three or four letters in a hurried hand and is left blank rather than guessed — a guessed name for a person who was never allowed a surname would be the worst kind of tidying-up.<br><br><b>Where they went is not known.</b> There is no Black Rose and no Black Tom or Thomas Harper in Irwin County in the 1870 census, the first that named formerly enslaved people at all. There is one Black Harper household: <b>Joseph Harper, 40</b>, his wife <b>Margaret, 31</b>, and five children. Joseph at forty in 1870 was thirty in 1860 — the age of the younger man Susannah held. That is a match of name, county and age, and it is not offered as more than that.'}
 ];
 
 /* Records that exist but are linked rather than hosted —
