@@ -327,6 +327,19 @@ c1950m: {y:'1950', t:'Monroe McKinnon household',
     ['Martha J.','Daughter','5','Georgia']],
   note:'The household straddles two sheets — sheet 17 is stamped "household continued on next sheet." Mary J. at 49 matches a 24 November 1900 birth exactly. The two eldest sons, Edward (1924) and Harvey (1926), are correctly absent. <b>Bobby and Martha appear here but are missing from the online family group</b>, which lists only 10 of the 12 children.'},
 
+c1850mck: {y:'1850', t:'James McKinnon household, Ware County',
+  pl:'Ware county, Ware, Georgia',
+  cite:'Dwelling 278 \u00b7 line 18 \u00b7 NARA M432, microfilm 442895',
+  url:'https://www.familysearch.org/ark:/61903/1:1:MZYD-DKX',
+  cols:['Name','Age','Born'],
+  rows:[
+    ['<b>McKinnon, James</b>','<b>46</b>','<b>North Carolina</b>','me'],
+    ['Emily','48','Georgia'],
+    ['Hiram','13','Georgia'],
+    ['Mark','11','Georgia'],
+    ['<b>James</b>','<b>3</b>','Georgia']],
+  note:'<b>The first census ever attached to this man, and it settles two things his page had been carrying on inference.</b> His birth year and his <b>North Carolina</b> birth are now answered by his own household rather than deduced from a militia roll and a county history. 1850 is the first federal census to name every person in a house, so this is also the first time his family can be read rather than counted.<br><br><b>Emily, 48, is his second wife</b> \u2014 Emily \u201cMillie\u201d Rodgers of Tattnall County, whom this page names. She was born in Georgia; he was not, and the gap between those two answers is the migration this whole line turns on.<br><br><b>And the three-year-old is your line.</b> <b>James</b>, born about 1847, is <b>James \u201cJim\u201d McKinnon</b>, whose headstone gives 9 December 1846 \u2014 close enough for a census taken in the autumn against a birthday in December. <b>Hiram, 13, and Mark, 11</b> are his elder brothers, and neither had been recorded on this tree before.<br><br><b>The spelling is its own small lesson.</b> FamilySearch titles this page <i>James McKennan</i>; the 1840 Ware County sheet reads <i>KINON, James M.</i>; the Telfair sheets read <i>Kinnon</i>. One family, four spellings, because the name was being written down by whoever was holding the pen.'},
+
 c1940h: {y:'1940', t:'Jesse Hall household at Lax',
   pl:'Militia District 1804, Bridgetown and Lax, ED 34-18, Coffee County, Georgia',
   cite:'Sheet 8B · line 77 · residence in 1935 entered simply as “Rural”',
@@ -715,7 +728,7 @@ jamesmalcolm:{n:'James Malcolm McKinnon Sr.', g:'pr', b:'about 1804', bp:'<b>Nor
        S.ct('https://www.familysearch.org/search/full-text/results?q.text=%22orphan%20of%20Charles%20McKinnon%22&q.recordPlace=Telfair%2C%20Georgia%2C%20United%20States'),
        S.bk('https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/telfair-county/'),
        S.fs('https://www.familysearch.org/ark:/61903/1:1:MZYX-9V4'),
-       S.fg('https://www.findagrave.com/memorial/167868173/james-malcolm-mckinnon')], cen:[]},
+       S.fg('https://www.findagrave.com/memorial/167868173/james-malcolm-mckinnon')], cen:['c1850mck']},
 
 danielluke:{n:'Daniel Luke', g:'pr', b:'about 1783', d:'after 1850',
   occ:['Road commissioner; tax collector','c',
